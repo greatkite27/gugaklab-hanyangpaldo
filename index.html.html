@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #000;
+    color: #fff;
+  }
+
+  header {
+    background: url('진도씻김굿0.jpg') no-repeat center center/cover;
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+  }
+
+  header h1 { font-size: 3rem; }
+  header h2 { font-size: 1.4rem; opacity: 0.9; }
+
+  /* --- 헤더 이미지 위치 조정 슬라이더 UI --- */
+  .position-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.55);
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+  }
+
+  .position-controls label {
+    font-size: 0.8rem;
+    display: block;
+    margin: 5px 0 2px;
+  }
+
+  .position-controls input[type=range] {
+    width: 200px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background: #111;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+
+  /* 연주자 카드 */
+  .artists {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: #111;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* 슬라이더 전체 */
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.7s ease;
+  }
+  .slides img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  /* 슬라이더 버튼 */
+  .slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .prev { left: 20px; }
+  .next { right: 20px; }
+
+  /* 슬라이더 dot */
+  .dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: #777;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .dot.active { background: #fff; }
+
+  /* 영상 섹션 */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.8rem;
+  }
+
+  .video-card {
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background-size: cover;
+    background-position: center;
+  }
+  .video-play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+  }
+  .video-body {
+    padding: 1rem;
+  }
+  .video-body a {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+</style>
+</head>
+
+<body>
+
+<header id="headerArea">
+  <h1>국악LAB 한양팔도</h1>
+  <h2>GUGAKLAB HANYANGPALDO</h2>
+
+  <!-- 이미지 위치 조정 패널 -->
+  <div class="position-controls">
+    <label>가로 위치 (X%)</label>
+    <input type="range" id="bgX" min="0" max="100" value="50">
+
+    <label>세로 위치 (Y%)</label>
+    <input type="range" id="bgY" min="0" max="100" value="50">
+  </div>
+</header>
+
+<nav>
+  <a href="#about">소 개</a>
+  <a href="#program">프로그램</a>
+  <a href="#artists">연주자</a>
+  <a href="#gallery">갤러리</a>
+  <a href="#videos">영상</a>
+  <a href="#notice">공지사항</a>
+  <a href="#map">오시는 길</a>
+  <a href="#contact">문 의</a>
+</nav>
+
+<section id="about" class="section">
+  <h2>소 개</h2>
+  <p>국악LAB 한양팔도는 전통 국악의 깊이와 현대적 무대 감각을 결합하여 새로운 미학을 선물합니다.</p>
+</section>
+
+<section id="program" class="section">
+  <h2>프로그램</h2>
+  <ul>
+    <li>평조회상 중 중령산</li>
+    <li>아쟁 독주 — 박종선류 아쟁산조</li>
+    <li>시나위</li>
+  </ul>
+</section>
+
+<section id="artists" class="section">
+  <h2>연주자 소개</h2>
+
+  <div class="artists">
+    <div class="card">
+      <img src="진도씻김굿0.jpg">
+      <h3>김광윤 — 타악</h3>
+      <p>화려하면서도 절제된 연주로 주목받는 연주자입니다.</p>
+    </div>
+
+    <div class="card">
+      <img src="한윤경 흥보가 완창 포스터.png">
+      <h3>한윤경 — 판소리</h3>
+      <p>섬세한 발성과 깊은 표현력으로 인정받는 소리꾼입니다.</p>
+    </div>
+
+    <div class="card">
+      <img src="진도씻김굿1.jpg">
+      <h3>문상준 — 피리</h3>
+      <p>정중동의 미학을 현대적으로 재해석합니다.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <h2>갤러리</h2>
+
+  <div class="slider">
+    <div class="slides">
+      <img src="한윤경 흥보가 완창 포스터.png">
+      <img src="진도씻김굿1.jpg">
+      <img src="진도씻김굿2.jpg">
+    </div>
+
+    <button class="slide-btn prev">&#10094;</button>
+    <button class="slide-btn next">&#10095;</button>
+
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<section id="videos" class="section">
+  <h2>영상</h2>
+
+  <div class="video-grid">
+
+    <div class="video-card">
+      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/tpxx2E2R5tA/hqdefault.jpg');">
+        <div class="video-play-icon">▶</div>
+      </div>
+      <div class="video-body">
+        <h3>시나위</h3>
+        <a href="https://www.youtube.com/watch?v=tpxx2E2R5tA" target="_blank">YouTube에서 보기</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/jSN5xV2isjE/hqdefault.jpg');">
+        <div class="video-play-icon">▶</div>
+      </div>
+      <div class="video-body">
+        <h3>진도북춤</h3>
+        <a href="https://www.youtube.com/watch?v=jSN5xV2isjE&t=175s" target="_blank">YouTube에서 보기</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/9gmQNSYlXIM/hqdefault.jpg');">
+        <div class="video-play-icon">▶</div>
+      </div>
+      <div class="video-body">
+        <h3>연희한마당</h3>
+        <a href="https://www.youtube.com/watch?v=9gmQNSYlXIM&t=1s" target="_blank">YouTube에서 보기</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="notice" class="section">
+  <h2>공지사항</h2>
+  <ul>
+    <li>2025 공연 안내 예정</li>
+    <li>2026 공연 준비 중</li>
+  </ul>
+</section>
+
+<section id="map" class="section">
+  <h2>오시는 길</h2>
+  <iframe src="https://map.naver.com/p/search/국악LAB한양팔도" width="100%" height="300"></iframe>
+</section>
+
+<section id="contact" class="section">
+  <h2>문 의</h2>
+  <p>이메일: gugaklab@naver.com</p>
+</section>
+
+<script>
+/* 슬라이더 */
+let idx = 0;
+const slides = document.querySelector(".slides");
+const dots = document.querySelectorAll(".dot");
+const slideCount = slides.children.length;
+
+function goToSlide(n) {
+  idx = n;
+  slides.style.transform = `translateX(${n * -100}%)`;
+  dots.forEach(d => d.classList.remove("active"));
+  dots[n].classList.add("active");
+}
+
+document.querySelector(".next").onclick = () => {
+  idx = (idx + 1) % slideCount;
+  goToSlide(idx);
+};
+
+document.querySelector(".prev").onclick = () => {
+  idx = (idx - 1 + slideCount) % slideCount;
+  goToSlide(idx);
+};
+
+dots.forEach((d, i) => {
+  d.onclick = () => goToSlide(i);
+});
+
+setInterval(() => {
+  idx = (idx + 1) % slideCount;
+  goToSlide(idx);
+}, 3000);
+
+/* --- Header 배경 이미지 위치 조절 --- */
+const headerArea = document.getElementById("headerArea");
+const bgX = document.getElementById("bgX");
+const bgY = document.getElementById("bgY");
+
+function updateHeaderPosition() {
+  const x = bgX.value;
+  const y = bgY.value;
+  headerArea.style.backgroundPosition = `${x}% ${y}%`;
+}
+
+bgX.addEventListener("input", updateHeaderPosition);
+bgY.addEventListener("input", updateHeaderPosition);
+
+</script>
+
+</body>
+</html>

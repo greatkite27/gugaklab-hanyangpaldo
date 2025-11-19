@@ -13,37 +13,16 @@
   }
 
   header {
-    background: url('진도씻김굿0.jpg') no-repeat center center/cover;
+    /* 배경 사진 파일과 위치를 여기서 조정하면 됩니다 */
+    background: url('진도씻김굿0.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50% 50%; /* ← 가로(X)% 세로(Y)% 값으로 위치 조정 */
     padding: 4rem 3rem;
     text-align: center;
-    position: relative;
   }
 
   header h1 { font-size: 3rem; }
   header h2 { font-size: 1.4rem; opacity: 0.9; }
-
-  /* --- 헤더 이미지 위치 조정 슬라이더 UI --- */
-  .position-controls {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.55);
-    padding: 12px 18px;
-    border-radius: 10px;
-    text-align: center;
-    backdrop-filter: blur(6px);
-  }
-
-  .position-controls label {
-    font-size: 0.8rem;
-    display: block;
-    margin: 5px 0 2px;
-  }
-
-  .position-controls input[type=range] {
-    width: 200px;
-  }
 
   nav {
     display: flex;
@@ -185,18 +164,9 @@
 
 <body>
 
-<header id="headerArea">
+<header>
   <h1>국악LAB 한양팔도</h1>
   <h2>GUGAKLAB HANYANGPALDO</h2>
-
-  <!-- 이미지 위치 조정 패널 -->
-  <div class="position-controls">
-    <label>가로 위치 (X%)</label>
-    <input type="range" id="bgX" min="0" max="100" value="50">
-
-    <label>세로 위치 (Y%)</label>
-    <input type="range" id="bgY" min="0" max="100" value="50">
-  </div>
 </header>
 
 <nav>
@@ -357,21 +327,6 @@ setInterval(() => {
   idx = (idx + 1) % slideCount;
   goToSlide(idx);
 }, 3000);
-
-/* --- Header 배경 이미지 위치 조절 --- */
-const headerArea = document.getElementById("headerArea");
-const bgX = document.getElementById("bgX");
-const bgY = document.getElementById("bgY");
-
-function updateHeaderPosition() {
-  const x = bgX.value;
-  const y = bgY.value;
-  headerArea.style.backgroundPosition = `${x}% ${y}%`;
-}
-
-bgX.addEventListener("input", updateHeaderPosition);
-bgY.addEventListener("input", updateHeaderPosition);
-
 </script>
 
 </body>

@@ -88,13 +88,14 @@
   .site-footer .footer-inner{
     max-width:1100px;
     margin:0 auto;
-    display:flex;
-    flex-wrap:wrap;
-    gap:0.75rem;
-    justify-content:flex-start;
-  }
-  .site-footer span{
-    white-space:nowrap;
+    flex-direction: column;  /* 줄을 세로로 */
+    align-items: center;      /* 가운데 정렬 */
+    text-align: center;       /* 텍스트 가운데 */
+    gap: 0.5rem;              /* 줄 간격 */
+}
+
+.site-footer span {
+  line-height: 1.4;
   }
   /* 👉 추가: 줄을 세로로 정렬하고 문단 간격 주기 */
   .footer-column {

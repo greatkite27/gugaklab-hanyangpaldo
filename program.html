@@ -76,15 +76,18 @@
       text-decoration: none;
       color: #ddd;
       font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.3rem 0.8rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 999px;
       transition: background 0.2s, color 0.2s;
     }
+    
     nav a:hover {
       background: #fff;
       color: #000;
+      transform: scale(1.05);  /* hover 시 살짝 확대되는 효과 */
     }
+    
     @media (max-width: 600px) {
       nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
       nav a { font-size: 0.8rem; }

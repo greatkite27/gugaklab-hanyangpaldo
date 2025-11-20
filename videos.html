@@ -41,7 +41,8 @@
       header h1 { font-size: 2.1rem; }
       header h2 { font-size: 1rem; }
     }
-    
+
+    /* ===== NAV ===== */
     nav {
       position: sticky;
       top: 0;
@@ -134,15 +135,16 @@
       color: #000;
     }
 
-    /* FOOTER */
+    /* ====== FOOTER ====== */
     .site-footer {
-      margin-top: 3rem;
-      padding: 1rem 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 4rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.18);
       background: #050505;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: #aaa;
     }
+    
     .site-footer .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -187,10 +189,9 @@
       transform: translateY(-1px);
     }
 
-    @media(max-width:768px){
-      .site-footer .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 768px) {
+      .site-footer {
+        padding: 2rem 1.2rem 1.7rem;
       }
     }
   </style>
@@ -199,8 +200,10 @@
 
   <!-- HEADER -->
   <header>
-    <h1>국악LAB 한양팔도</h1>
-    <h2>GUGAKLAB HANYANGPALDO</h2>
+    <a href="index.html" style="text-decoration:none; color:inherit;">
+      <h1>국악LAB 한양팔도</h1>
+      <h2>GUGAKLAB HANYANGPALDO</h2>
+    </a>
   </header>
 
   <!-- NAV -->
@@ -266,24 +269,16 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">국악LAB 한양팔도</div>
-
       <span class="footer-item">
         주소: 서울특별시 서초구 효령로 229 B1층 B07호 &nbsp;&nbsp;
         <a href="https://map.naver.com/p/search/국악LAB한양팔도" 
            class="footer-link" 
            target="_blank" 
-           rel="noopener">
-          map
-        </a>
+           rel="noopener">map</a>
       </span>
-
       <span class="footer-item">
-        이메일: 
-        <a href="mailto:gugaklab@naver.com" class="footer-link">
-          gugaklab@naver.com
-        </a>
+        이메일: <a href="mailto:gugaklab@naver.com" class="footer-link">gugaklab@naver.com</a>
       </span>
-
       <div class="footer-sns">
         <a href="#" class="footer-link" aria-label="국악LAB 한양팔도 인스타그램" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true">

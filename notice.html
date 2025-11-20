@@ -48,6 +48,12 @@
 .site-footer span{
   white-space:nowrap;
 }
+   .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; /* 줄 간 간격 */
+  }
+ 
 @media(max-width:768px){
   .site-footer .footer-inner{
     flex-direction:column;
@@ -85,7 +91,7 @@
   </ul>
 </section>
 <footer class="site-footer">
-  <div class="footer-inner">
+  <div class="footer-inner footer-cloumn">
     <span>대표자: 김광윤, 한윤경</span>
     <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
     <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>

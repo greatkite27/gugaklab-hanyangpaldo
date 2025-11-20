@@ -34,6 +34,35 @@
     border-radius:999px;border:1px solid #fff;color:#fff;text-decoration:none;font-size:.9rem;
   }
   .map-link:hover{background:#fff;color:#000;}
+/* 공통 푸터 */
+.site-footer{
+  margin-top:3rem;
+  padding:1rem 1.5rem;
+  border-top:1px solid rgba(255,255,255,0.1);
+  background:#050505;
+  font-size:0.75rem;
+  color:#aaa;
+}
+.site-footer .footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.75rem;
+  justify-content:flex-start;
+}
+.site-footer span{
+  white-space:nowrap;
+}
+@media(max-width:768px){
+  .site-footer .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .site-footer span{
+    white-space:normal;
+  }
+}
 </style>
 </head>
 <body>

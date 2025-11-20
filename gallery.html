@@ -1,157 +1,346 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>국악LAB 한양팔도 - 갤러리</title>
-<style>
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Noto Sans KR',sans-serif;background:#000;color:#fff;}
-  header{
-    background:url('진도씻김굿0.jpg') no-repeat center 75%/cover;
-    padding:3rem 2rem;text-align:center;position:relative;
-  }
-  header::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));z-index:0;}
-  header *{position:relative;z-index:1;}
-  header h1{margin:0 0 .4rem;font-size:2.4rem;}
-  header h2{margin:0;font-size:1.1rem;opacity:.9;}
-  nav{
-    position:sticky;top:0;z-index:10;display:flex;justify-content:center;gap:1.2rem;
-    padding:.7rem 1rem;background:rgba(10,10,10,.95);backdrop-filter:blur(8px);overflow-x:auto;
-  }
-  nav a{
-    white-space:nowrap;text-decoration:none;color:#ddd;font-weight:600;font-size:.9rem;
-    padding:.3rem .6rem;border-radius:999px;transition:background .2s,color .2s;
-  }
-  nav a:hover{background:#fff;color:#000;}
-  .section{max-width:1100px;margin:3rem auto;padding:0 1.5rem;}
-  .section h2{font-size:1.5rem;margin-bottom:1.2rem;border-left:4px solid #f4c842;padding-left:.7rem;}
-  .slider{
-    position:relative;width:100%;height:450px;margin:0 auto;overflow:hidden;
-    border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.9);background:#111;
-  }
-  @media(max-width:768px){.slider{height:260px;}}
-  .slides{display:flex;height:100%;transition:transform .7s ease;}
-  .slides img{width:100%;height:100%;object-fit:cover;}
-  .slide-btn{
-    position:absolute;top:50%;transform:translateY(-50%);
-    background:rgba(0,0,0,.6);border:none;color:#fff;font-size:2rem;
-    padding:.35rem .75rem;border-radius:50%;cursor:pointer;z-index:5;
-  }
-  .prev{left:16px;} .next{right:16px;}
-  .dots{position:absolute;bottom:14px;width:100%;text-align:center;z-index:5;}
-  .dot{
-    display:inline-block;width:11px;height:11px;margin:0 4px;
-    background:#777;border-radius:50%;cursor:pointer;
-  }
-  .dot.active{background:#f4c842;}
-/* 공통 푸터 */
-.site-footer{
-  margin-top:3rem;
-  padding:1rem 1.5rem;
-  border-top:1px solid rgba(255,255,255,0.1);
-  background:#050505;
-  font-size:0.75rem;
-  color:#aaa;
-}
-.site-footer .footer-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  flex-direction: column;  /* 줄을 세로로 */
-  align-items: center;      /* 가운데 정렬 */
-  text-align: center;       /* 텍스트 가운데 */
-  gap: 0.5rem;              /* 줄 간격 */
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국악LAB 한양팔도 - 갤러리</title>
 
-.site-footer span {
-  line-height: 1.4;
-}
-   .footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem; /* 줄 간 간격 */
-  }
- 
-@media(max-width:768px){
-  .site-footer .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .site-footer span{
-    white-space:normal;
-  }
-}
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #000;
+      color: #fff;
+    }
 
-</style>
+    /* ====== HEADER (index.html과 동일) ====== */
+    header {
+      background: url('진도씻김굿0.jpg') no-repeat;
+      background-size: cover;
+      background-position: 50% 75%;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.9)
+      );
+      z-index: 0;
+    }
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1.5rem;
+        background-position: 50% 60%;
+      }
+      header h1 { font-size: 2.1rem; }
+      header h2 { font-size: 1rem; }
+    }
+
+    /* ====== NAV (index.html과 동일) ====== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0.7rem 1rem;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      overflow-x: auto;
+    }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #fff;
+      color: #000;
+    }
+    @media (max-width: 600px) {
+      nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
+      nav a { font-size: 0.8rem; }
+    }
+
+    /* ====== SECTION 공통 ====== */
+    .section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #f4c842;
+      padding-left: 0.7rem;
+    }
+
+    /* ====== GALLERY STYLE ====== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #222 0, #111 70%);
+      padding: 1rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.85);
+      border-color: rgba(244,200,66,0.6);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.05rem;
+    }
+    .card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+    .lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ====== FOOTER (index와 동일) ====== */
+    .site-footer{
+      margin-top: 4rem;
+      padding: 2.5rem 1.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.18); /* 본문과 구분선 */
+      background: #050505;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .site-footer .footer-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;  /* 본문과 좌우 여백 맞춤 */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      gap: 0.35rem;
+    }
+
+    .footer-brand{
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-item{
+      font-weight: 400;
+      color: #aaa;
+    }
+
+    .footer-link{
+      color: #f4c842;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-link:hover{
+      text-decoration: underline;
+    }
+
+    .footer-sns{
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .footer-sns a svg{
+      width: 18px;
+      height: 18px;
+      fill: #aaa;
+      transition: fill 0.2s, transform 0.2s;
+    }
+
+    .footer-sns a:hover svg{
+      fill: #f4c842;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px){
+      .site-footer{
+        padding: 2rem 0 1.7rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>국악LAB 한양팔도</h1>
-  <h2>GUGAKLAB HANYANGPALDO</h2>
-</header>
 
-<nav>
-  <a href="index.html">소 개</a>
-  <a href="program.html">프로그램</a>
-  <a href="artists.html">연주자</a>
-  <a href="gallery.html">갤러리</a>
-  <a href="videos.html">영 상</a>
-  <a href="notice.html">공지사항</a>
-  <a href="map.html">오시는 길</a>
-  <a href="contact.html">문 의</a>
-</nav>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" style="text-decoration:none; color:inherit;">
+      <h1>국악LAB 한양팔도</h1>
+      <h2>GUGAKLAB HANYANGPALDO</h2>
+    </a>
+  </header>
 
-<section class="section">
-  <h2>공연 사진</h2>
-  <div class="slider" id="gallery-slider">
-    <div class="slides">
-      <img src="한윤경 흥보가 완창 포스터.png" alt="">
-      <img src="진도씻김굿0.jpg" alt="">
-      <img src="진도씻김굿1.jpg" alt="">
-      <img src="진도씻김굿2.jpg" alt="">
+  <!-- NAV -->
+  <nav>
+    <a href="index.html">소 개</a>
+    <a href="program.html">프로그램</a>
+    <a href="artists.html">연주자</a>
+    <a href="gallery.html">갤러리</a>
+    <a href="videos.html">영 상</a>
+    <a href="notice.html">공지사항</a>
+    <a href="map.html">오시는 길</a>
+    <a href="contact.html">문 의</a>
+  </nav>
+
+  <!-- GALLERY SECTION -->
+  <section class="section">
+    <h2>갤러리</h2>
+    <div class="gallery">
+      <!-- 이미지 카드 1 -->
+      <div class="card" onclick="openLightbox('gallery-img1')">
+        <img src="한윤경 흥보가 완창 포스터.png" alt="흥보가 완창" id="gallery-img1">
+        <h3>흥보가 완창</h3>
+        <p>한윤경 명창의 완창 공연 포스터</p>
+      </div>
+
+      <!-- 이미지 카드 2 -->
+      <div class="card" onclick="openLightbox('gallery-img2')">
+        <img src="진도씻김굿0.jpg" alt="진도씻김굿" id="gallery-img2">
+        <h3>진도씻김굿</h3>
+        <p>전통적인 진도씻김굿 모습</p>
+      </div>
+
+      <!-- 이미지 카드 3 -->
+      <div class="card" onclick="openLightbox('gallery-img3')">
+        <img src="진도씻김굿1.jpg" alt="진도씻김굿" id="gallery-img3">
+        <h3>진도씻김굿</h3>
+        <p>전통적인 진도씻김굿 모습</p>
+      </div>
     </div>
-    <button class="slide-btn prev">&#10094;</button>
-    <button class="slide-btn next">&#10095;</button>
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<script>
-(function(){
-  const root = document.getElementById('gallery-slider');
-  const slides = root.querySelector('.slides');
-  const dots = root.querySelectorAll('.dot');
-  const prev = root.querySelector('.prev');
-  const next = root.querySelector('.next');
-  const count = slides.children.length;
-  let index = 0;
-  function goTo(n){
-    index = (n + count) % count;
-    slides.style.transform = `translateX(${index * -100}%)`;
-    dots.forEach((d,i)=>d.classList.toggle('active',i===index));
-  }
-  next.addEventListener('click',()=>goTo(index+1));
-  prev.addEventListener('click',()=>goTo(index-1));
-  dots.forEach((d,i)=>d.addEventListener('click',()=>goTo(i)));
-  setInterval(()=>goTo(index+1),3000);
-  goTo(0);
-})();
-</script>
- <footer class="site-footer">
-  <div class="footer-inner footer-column">
-    <span>공동대표: 김광윤, 한윤경</span>
-    <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
-    <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
-    <span>이메일: gugaklab@naver.com</span>
-    <span>Social Media: @국악Lab한양팔도</span>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img src="" id="lightbox-img">
   </div>
-</footer>
- 
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">국악LAB 한양팔도</div>
+
+      <span class="footer-item">
+        주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도&nbsp;&nbsp;
+        <a href="https://map.naver.com/p/search/국악LAB한양팔도" 
+           class="footer-link" 
+           target="_blank" 
+           rel="noopener">
+          map
+        </a>
+      </span>
+
+      <span class="footer-item">
+        이메일: 
+        <a href="mailto:gugaklab@naver.com" class="footer-link">
+          gugaklab@naver.com
+        </a>
+      </span>
+
+      <div class="footer-sns">
+        <a href="#" 
+           class="footer-link" 
+           aria-label="국악LAB 한양팔도 인스타그램" 
+           target="_blank" 
+           rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-7.9a1.1 1.1 0 1 1-1.1-1.1 1.09 1.09 0 0 1 1.1 1.1ZM21 7.1a6.32 6.32 0 0 0-.4-2.2 4.4 4.4 0 0 0-2.5-2.5A6.32 6.32 0 0 0 16 2H8a6.32 6.32 0 0 0-2.2.4 4.4 4.4 0 0 0-2.5 2.5A6.32 6.32 0 0 0 3 7.1V17a6.32 6.32 0 0 0 .4 2.2 4.4 4.4 0 0 0 2.5 2.5A6.32 6.32 0 0 0 8 22h8a6.32 6.32 0 0 0 2.2-.4 4.4 4.4 0 0 0 2.5-2.5A6.32 6.32 0 0 0 21 17V7.1Zm-1.8 9.9a4 4 0 0 1-.2 1.4 2.7 2.7 0 0 1-1.5 1.5 4 4 0 0 1-1.4.2H8a4 4 0 0 1-1.4-.2 2.7 2.7 0 0 1-1.5-1.5 4 4 0 0 1-.2-1.4V7.1a4 4 0 0 1 .2-1.4 2.7 2.7 0 0 1 1.5-1.5A4 4 0 0 1 8 4h8a4 4 0 0 1 1.4.2 2.7 2.7 0 0 1 1.5 1.5 4 4 0 0 1 .2 1.4Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Lightbox 열기
+    function openLightbox(id) {
+      const imgSrc = document.getElementById(id).src;
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imgSrc;
+      lightbox.style.display = 'flex';
+    }
+
+    // Lightbox 닫기
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

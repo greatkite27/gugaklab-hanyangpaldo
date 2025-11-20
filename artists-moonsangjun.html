@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>국악LAB 한양팔도 - 피리 문상준</title>
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Noto Sans KR',sans-serif;background:#000;color:#fff;}
+
+  header{
+    background:url('진도씻김굿1.jpg') no-repeat center 70%/cover;
+    padding:3rem 2rem;text-align:center;position:relative;
+  }
+  header::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));
+    z-index:0;
+  }
+  header *{position:relative;z-index:1;}
+  header h1{margin:0 0 .4rem;font-size:2.2rem;}
+  header h2{margin:0;font-size:1.1rem;opacity:.9;}
+
+  nav{
+    position:sticky;top:0;z-index:10;
+    display:flex;justify-content:center;gap:1.2rem;
+    padding:.7rem 1rem;
+    background:rgba(10,10,10,.95);
+    backdrop-filter:blur(8px);
+    overflow-x:auto;
+  }
+  nav a{
+    white-space:nowrap;
+    text-decoration:none;
+    color:#ddd;
+    font-weight:600;
+    font-size:.9rem;
+    padding:.3rem .6rem;
+    border-radius:999px;
+    transition:background .2s,color .2s;
+  }
+  nav a:hover{background:#fff;color:#000;}
+
+  .section{
+    max-width:900px;
+    margin:3rem auto;
+    padding:0 1.5rem;
+  }
+  .section h2{
+    font-size:1.5rem;
+    margin-bottom:1.2rem;
+    border-left:4px solid #f4c842;
+    padding-left:.7rem;
+  }
+
+  .profile-top{
+    display:flex;
+    gap:1.5rem;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    margin-bottom:1.8rem;
+  }
+  .profile-top img{
+    width:260px;
+    max-width:100%;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.8);
+  }
+  .profile-meta h3{
+    margin:0 0 .6rem;
+    font-size:1.25rem;
+  }
+  .profile-meta p{
+    margin:.2rem 0;
+    color:#ccc;
+    font-size:.95rem;
+  }
+
+  .section h3{
+    margin-top:1.8rem;
+    margin-bottom:.5rem;
+    font-size:1.1rem;
+  }
+  .section ul{
+    padding-left:1.2rem;
+  }
+  .section li{
+    margin-bottom:.3rem;
+    color:#ddd;
+    font-size:.95rem;
+  }
+
+  .site-footer{
+    margin-top:3rem;
+    padding:1.5rem 1.5rem;
+    border-top:1px solid rgba(255,255,255,0.1);
+    background:#050505;
+    font-size:0.75rem;
+    color:#aaa;
+  }
+  .site-footer .footer-inner{
+    max-width:900px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:0.5rem;
+  }
+  .site-footer span{
+    line-height:1.4;
+  }
+
+  @media(max-width:768px){
+    .profile-top{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>국악LAB 한양팔도</h1>
+  <h2>피리 · 문상준</h2>
+</header>
+
+<nav>
+  <a href="index.html">소 개</a>
+  <a href="program.html">프로그램</a>
+  <a href="artists.html">연주자</a>
+  <a href="gallery.html">갤러리</a>
+  <a href="videos.html">영 상</a>
+  <a href="notice.html">공지사항</a>
+  <a href="map.html">오시는 길</a>
+  <a href="contact.html">문 의</a>
+</nav>
+
+<section class="section">
+  <h2>프로필</h2>
+  <div class="profile-top">
+    <img src="진도씻김굿1.jpg" alt="피리 문상준">
+    <div class="profile-meta">
+      <h3>피리 · 문상준</h3>
+      <p>피리 연주자</p>
+      <p>정악과 시나위를 넘나드는 연주 스타일로 활동 중</p>
+      <p>국악LAB 한양팔도 상임 단원</p>
+    </div>
+  </div>
+
+  <h3>학력 및 수련</h3>
+  <ul>
+    <li>○○대학교 국악과 피리 전공 졸업</li>
+    <li>○○명인에게 정악 및 시나위 수련</li>
+  </ul>
+
+  <h3>주요 경력</h3>
+  <ul>
+    <li>국악 관현악 및 시나위 앙상블 활동</li>
+    <li>다양한 장르 아티스트와의 협업(재즈, 컨템포러리 등)</li>
+    <li>실내악, 합주, 솔로 프로젝트 등 다수 참여</li>
+  </ul>
+
+  <h3>연주 스타일</h3>
+  <ul>
+    <li>정중동의 미학을 살린 긴 호흡의 선율</li>
+    <li>전통 장단 위에 현대적 해석을 더한 즉흥 연주</li>
+  </ul>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>대표자: 김광윤, 한윤경</span>
+    <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
+    <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
+    <span>이메일: gugaklab@naver.com</span>
+    <span>Social Media: @국악Lab한양팔도</span>
+  </div>
+</footer>
+
+</body>
+</html>

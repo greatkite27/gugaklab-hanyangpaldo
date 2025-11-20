@@ -75,35 +75,43 @@
     padding-left: 0.7rem;
   }
   .section p { line-height: 1.7; color: #ddd; }
-/* 공통 푸터 */
-.site-footer{
-  margin-top:3rem;
-  padding:1rem 1.5rem;
-  border-top:1px solid rgba(255,255,255,0.1);
-  background:#050505;
-  font-size:0.75rem;
-  color:#aaa;
-}
-.site-footer .footer-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.75rem;
-  justify-content:flex-start;
-}
-.site-footer span{
-  white-space:nowrap;
-}
-@media(max-width:768px){
+
+  /* 공통 푸터 */
+  .site-footer{
+    margin-top:3rem;
+    padding:1rem 1.5rem;
+    border-top:1px solid rgba(255,255,255,0.1);
+    background:#050505;
+    font-size:0.75rem;
+    color:#aaa;
+  }
   .site-footer .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.75rem;
+    justify-content:flex-start;
   }
   .site-footer span{
-    white-space:normal;
+    white-space:nowrap;
   }
-}
+  /* 👉 추가: 줄을 세로로 정렬하고 문단 간격 주기 */
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; /* 줄 간 간격 */
+  }
+
+  @media(max-width:768px){
+    .site-footer .footer-inner{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .site-footer span{
+      white-space:normal;
+    }
+  }
 </style>
 </head>
 <body>
@@ -136,8 +144,10 @@
     연주자에게는 서로의 호흡을 나누는 실험실과 같은 공간을 지향합니다.
   </p>
 </section>
+
 <footer class="site-footer">
-  <div class="footer-inner">
+  <!-- 🔽 여기 class에 footer-column 추가 -->
+  <div class="footer-inner footer-column">
     <span>대표자: 김광윤, 한윤경</span>
     <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
     <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
@@ -145,6 +155,6 @@
     <span>Social Media: @국악Lab한양팔도</span>
   </div>
 </footer>
- 
+
 </body>
 </html>

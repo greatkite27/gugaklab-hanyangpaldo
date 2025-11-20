@@ -59,32 +59,36 @@
     }
 
     /* ====== NAV (index.html과 동일) ====== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      padding: 0.7rem 1rem;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(8px);
-      overflow-x: auto;
-    }
-    nav a {
-      white-space: nowrap;
-      text-decoration: none;
-      color: #ddd;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav a:hover {
-      background: #fff;
-      color: #000;
-    }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 0.7rem 1rem;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(8px);
+  overflow-x: auto;
+}
+
+nav a {
+  white-space: nowrap;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);  /* hover 시 살짝 확대되는 효과 */
+}
+
     @media (max-width: 600px) {
       nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
       nav a { font-size: 0.8rem; }

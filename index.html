@@ -13,10 +13,9 @@
   }
 
   header {
-    /* 배경 사진 파일과 위치를 여기서 조정하면 됩니다 */
     background: url('진도씻김굿0.jpg') no-repeat;
     background-size: cover;
-    background-position: 50% 75%; /* ← 가로(X)% 세로(Y)% 값으로 위치 조정 */
+    background-position: 50% 75%;
     padding: 4rem 3rem;
     text-align: center;
   }
@@ -27,14 +26,25 @@
   nav {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding: 1rem 0.5rem;
     background: #111;
   }
   nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 600px) {
+    nav {
+      gap: 0.8rem;
+      padding: 0.6rem 0.3rem;
+    }
+    nav a {
+      font-size: 0.8rem;
+    }
   }
 
   .section {
@@ -59,7 +69,7 @@
     border-radius: 10px;
   }
 
-  /* 슬라이더 전체 */
+  /* 공통 슬라이더 */
   .slider {
     position: relative;
     width: 100%;
@@ -73,7 +83,12 @@
     height: 100%;
     transition: transform 0.7s ease;
   }
-  .slides img {
+  .slides > * {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  /* 갤러리 이미지 */
+  #gallery-slider .slides img {
     width: 100%;
     height: 450px;
     object-fit: cover;
@@ -113,49 +128,36 @@
   }
   .dot.active { background: #fff; }
 
-  /* 영상 섹션 */
-  .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.8rem;
+  /* 영상 슬라이더용 */
+  #video-slider {
+    height: 450px;
   }
-
-  .video-card {
-    background: #111;
-    border-radius: 12px;
-    overflow: hidden;
+  #video-slider .video-slide {
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.6);
-    transition: transform 0.2s ease;
+    gap: 0.6rem;
+    padding: 0.5rem 0.5rem 1rem;
+    box-sizing: border-box;
   }
-  .video-card:hover {
-    transform: translateY(-4px);
+  #video-slider h3 {
+    margin: 0;
+    font-size: 1.1rem;
   }
-
-  .video-thumb {
-    position: relative;
+  #video-slider iframe {
     width: 100%;
-    padding-top: 56.25%;
-    background-size: cover;
-    background-position: center;
+    height: 100%;
+    min-height: 320px;
+    border: none;
+    border-radius: 10px;
   }
-  .video-play-icon {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: #fff;
+  #video-slider .video-link {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
   }
-  .video-body {
-    padding: 1rem;
-  }
-  .video-body a {
+  #video-slider .video-link a {
     color: #fff;
     border: 1px solid #fff;
-    padding: 0.4rem 0.8rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 20px;
     text-decoration: none;
   }
@@ -170,14 +172,14 @@
 </header>
 
 <nav>
-  <a href="#about">소 개</a>
-  <a href="#program">프로그램</a>
-  <a href="#artists">연주자</a>
-  <a href="#gallery">갤러리</a>
-  <a href="#videos">영 상</a>
-  <a href="#notice">공지사항</a>
-  <a href="#map">오시는 길</a>
-  <a href="#contact">문 의</a>
+  <a href="index.html#about"   target="_blank">소 개</a>
+  <a href="index.html#program" target="_blank">프로그램</a>
+  <a href="index.html#artists" target="_blank">연주자</a>
+  <a href="index.html#gallery" target="_blank">갤러리</a>
+  <a href="index.html#videos"  target="_blank">영 상</a>
+  <a href="index.html#notice"  target="_blank">공지사항</a>
+  <a href="index.html#map"     target="_blank">오시는 길</a>
+  <a href="index.html#contact" target="_blank">문 의</a>
 </nav>
 
 <section id="about" class="section">
@@ -221,7 +223,7 @@
 <section id="gallery" class="section">
   <h2>갤러리</h2>
 
-  <div class="slider">
+  <div class="slider" id="gallery-slider">
     <div class="slides">
       <img src="한윤경 흥보가 완창 포스터.png">
       <img src="진도씻김굿0.jpg">
@@ -236,6 +238,7 @@
       <span class="dot active"></span>
       <span class="dot"></span>
       <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </div>
 </section>
@@ -243,48 +246,53 @@
 <section id="videos" class="section">
   <h2>영상</h2>
 
-  <div class="video-grid">
+  <div class="slider" id="video-slider">
+    <div class="slides">
 
-    <div class="video-card">
-      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/tpxx2E2R5tA/hqdefault.jpg');">
-        <div class="video-play-icon">▶</div>
-      </div>
-      <div class="video-body">
+      <div class="video-slide">
         <h3>시나위</h3>
-        <a href="https://www.youtube.com/watch?v=tpxx2E2R5tA" target="_blank">YouTube에서 보기</a>
+        <iframe src="https://www.youtube.com/embed/tpxx2E2R5tA" allowfullscreen></iframe>
+        <div class="video-link">
+          <a href="https://www.youtube.com/watch?v=tpxx2E2R5tA" target="_blank">YouTube에서 보기</a>
+        </div>
       </div>
-    </div>
 
-    <div class="video-card">
-      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/jSN5xV2isjE/hqdefault.jpg');">
-        <div class="video-play-icon">▶</div>
-      </div>
-      <div class="video-body">
+      <div class="video-slide">
         <h3>진도북춤</h3>
-        <a href="https://www.youtube.com/watch?v=jSN5xV2isjE&t=175s" target="_blank">YouTube에서 보기</a>
+        <iframe src="https://www.youtube.com/embed/jSN5xV2isjE?start=175" allowfullscreen></iframe>
+        <div class="video-link">
+          <a href="https://www.youtube.com/watch?v=jSN5xV2isjE&t=175s" target="_blank">YouTube에서 보기</a>
+        </div>
       </div>
-    </div>
 
-    <div class="video-card">
-      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/9gmQNSYlXIM/hqdefault.jpg');">
-        <div class="video-play-icon">▶</div>
-      </div>
-      <div class="video-body">
+      <div class="video-slide">
         <h3>연희한마당</h3>
-        <a href="https://www.youtube.com/watch?v=9gmQNSYlXIM&t=1s" target="_blank">YouTube에서 보기</a>
+        <iframe src="https://www.youtube.com/embed/9gmQNSYlXIM?start=1" allowfullscreen></iframe>
+        <div class="video-link">
+          <a href="https://www.youtube.com/watch?v=9gmQNSYlXIM&t=1s" target="_blank">YouTube에서 보기</a>
+        </div>
       </div>
+
+      <div class="video-slide">
+        <h3>추억, 흥타령</h3>
+        <iframe src="https://www.youtube.com/embed/5tWfkoToiUA" allowfullscreen></iframe>
+        <div class="video-link">
+          <a href="https://www.youtube.com/watch?v=5tWfkoToiUA" target="_blank">YouTube에서 보기</a>
+        </div>
+      </div>
+
     </div>
 
-    <div class="video-card">
-      <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/5tWfkoToiUA/hqdefault.jpg');">
-        <div class="video-play-icon">▶</div>
-      </div>
-      <div class="video-body">
-        <h3>추억, 흥타령</h3>
-        <a href="https://www.youtube.com/watch?v=5tWfkoToiUA" target="_blank">YouTube에서 보기</a>
-      </div>
+    <button class="slide-btn prev">&#10094;</button>
+    <button class="slide-btn next">&#10095;</button>
+
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
-    
+  </div>
 </section>
 
 <section id="notice" class="section">
@@ -306,37 +314,49 @@
 </section>
 
 <script>
-/* 슬라이더 */
-let idx = 0;
-const slides = document.querySelector(".slides");
-const dots = document.querySelectorAll(".dot");
-const slideCount = slides.children.length;
+function initSlider(rootSelector, intervalMs) {
+  const root = document.querySelector(rootSelector);
+  if (!root) return;
 
-function goToSlide(n) {
-  idx = n;
-  slides.style.transform = `translateX(${n * -100}%)`;
-  dots.forEach(d => d.classList.remove("active"));
-  dots[n].classList.add("active");
+  const slides = root.querySelector('.slides');
+  const dots = root.querySelectorAll('.dot');
+  const prev = root.querySelector('.prev');
+  const next = root.querySelector('.next');
+  const count = slides.children.length;
+
+  let index = 0;
+
+  function goTo(n) {
+    index = (n + count) % count;
+    slides.style.transform = `translateX(${index * -100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  if (next) {
+    next.addEventListener('click', () => {
+      goTo(index + 1);
+    });
+  }
+  if (prev) {
+    prev.addEventListener('click', () => {
+      goTo(index - 1);
+    });
+  }
+  dots.forEach((d, i) => {
+    d.addEventListener('click', () => goTo(i));
+  });
+
+  if (intervalMs) {
+    setInterval(() => {
+      goTo(index + 1);
+    }, intervalMs);
+  }
+
+  goTo(0);
 }
 
-document.querySelector(".next").onclick = () => {
-  idx = (idx + 1) % slideCount;
-  goToSlide(idx);
-};
-
-document.querySelector(".prev").onclick = () => {
-  idx = (idx - 1 + slideCount) % slideCount;
-  goToSlide(idx);
-};
-
-dots.forEach((d, i) => {
-  d.onclick = () => goToSlide(i);
-});
-
-setInterval(() => {
-  idx = (idx + 1) % slideCount;
-  goToSlide(idx);
-}, 3000);
+initSlider('#gallery-slider', 3000);
+initSlider('#video-slider', 4000);
 </script>
 
 </body>

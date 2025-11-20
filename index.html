@@ -1,161 +1,187 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>국악LAB 한양팔도 - 소개</title>
-<style>
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
-    background: #000;
-    color: #fff;
-  }
-  header {
-    background: url('진도씻김굿0.jpg') no-repeat;
-    background-size: cover;
-    background-position: 50% 75%;
-    padding: 4rem 3rem;
-    text-align: center;
-    position: relative;
-  }
-  header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
-    z-index: 0;
-  }
-  header * { position: relative; z-index: 1; }
-  header h1 { font-size: 3rem; margin: 0 0 0.5rem; letter-spacing: 0.08em; }
-  header h2 { font-size: 1.3rem; margin: 0; opacity: 0.9; }
-  @media (max-width: 768px) {
-    header { padding: 3rem 1.5rem; background-position: 50% 60%; }
-    header h1 { font-size: 2.1rem; }
-    header h2 { font-size: 1rem; }
-  }
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    padding: 0.7rem 1rem;
-    background: rgba(10,10,10,0.95);
-    backdrop-filter: blur(8px);
-    overflow-x: auto;
-  }
-  nav a {
-    white-space: nowrap;
-    text-decoration: none;
-    color: #ddd;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 999px;
-    transition: background 0.2s, color 0.2s;
-  }
-  nav a:hover { background: #fff; color: #000; }
-  @media (max-width: 600px) {
-    nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
-    nav a { font-size: 0.8rem; }
-  }
-  .section {
-    max-width: 1100px;
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-  }
-  .section h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
-    border-left: 4px solid #f4c842;
-    padding-left: 0.7rem;
-  }
-  .section p { line-height: 1.7; color: #ddd; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국악LAB 한양팔도 - 소개</title>
 
-  /* 공통 푸터 */
-  .site-footer{
-    margin-top:3rem;
-    padding:1rem 1.5rem;
-    border-top:1px solid rgba(255,255,255,0.1);
-    background:#050505;
-    font-size:0.75rem;
-    color:#aaa;
-  }
-  .site-footer .footer-inner{
-    max-width:1100px;
-    margin:0 auto;
-    flex-direction: column;  /* 줄을 세로로 */
-    align-items: center;      /* 가운데 정렬 */
-    text-align: center;       /* 텍스트 가운데 */
-    gap: 0.5rem;              /* 줄 간격 */
-}
-
-.site-footer span {
-  line-height: 1.4;
-  }
-  /* 👉 추가: 줄을 세로로 정렬하고 문단 간격 주기 */
-  .footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem; /* 줄 간 간격 */
-  }
-
-  @media(max-width:768px){
-    .site-footer .footer-inner{
-      flex-direction:column;
-      align-items:flex-start;
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #000;
+      color: #fff;
     }
-    .site-footer span{
-      white-space:normal;
+
+    /* ====== HEADER ====== */
+    header {
+      background: url('진도씻김굿0.jpg') no-repeat;
+      background-size: cover;
+      background-position: 50% 75%;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
     }
-  }
-</style>
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.9)
+      );
+      z-index: 0;
+    }
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1.5rem;
+        background-position: 50% 60%;
+      }
+      header h1 { font-size: 2.1rem; }
+      header h2 { font-size: 1rem; }
+    }
+
+    /* ====== NAV ====== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0.7rem 1rem;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      overflow-x: auto;
+    }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #fff;
+      color: #000;
+    }
+    @media (max-width: 600px) {
+      nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
+      nav a { font-size: 0.8rem; }
+    }
+
+    /* ====== SECTION ====== */
+    .section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #f4c842;
+      padding-left: 0.7rem;
+    }
+    .section p {
+      line-height: 1.7;
+      color: #ddd;
+    }
+
+    /* ====== FOOTER ====== */
+    .site-footer {
+      margin-top: 3rem;
+      padding: 1.5rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: #050505;
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+    .site-footer .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .site-footer span {
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .site-footer .footer-inner {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <h1>국악LAB 한양팔도</h1>
-  <h2>GUGAKLAB HANYANGPALDO</h2>
-</header>
+  <!-- 공통 HEADER -->
+  <header>
+    <h1>국악LAB 한양팔도</h1>
+    <h2>GUGAKLAB HANYANGPALDO</h2>
+  </header>
 
-<nav>
-  <a href="index.html">소 개</a>
-  <a href="program.html">프로그램</a>
-  <a href="artists.html">연주자</a>
-  <a href="gallery.html">갤러리</a>
-  <a href="videos.html">영 상</a>
-  <a href="notice.html">공지사항</a>
-  <a href="map.html">오시는 길</a>
-  <a href="contact.html">문 의</a>
-</nav>
+  <!-- 공통 NAV -->
+  <nav>
+    <a href="index.html">소 개</a>
+    <a href="program.html">프로그램</a>
+    <a href="artists.html">연주자</a>
+    <a href="gallery.html">갤러리</a>
+    <a href="videos.html">영 상</a>
+    <a href="notice.html">공지사항</a>
+    <a href="map.html">오시는 길</a>
+    <a href="contact.html">문 의</a>
+  </nav>
 
-<section class="section">
-  <h2>소 개</h2>
-  <p>
-    국악LAB 한양팔도는 전통 국악의 깊이와 현대적 무대 감각을 결합하여<br>
-    새로운 미학을 선보이는 국악 프로젝트 그룹입니다. 지역·장르·형식의 경계를 넘어<br>
-    다양한 예술가들과 협업하며, 국악의 현재와 미래를 탐구합니다.
-  </p>
-  <p>
-    정통성과 실험성을 동시에 담아낸 레퍼토리로, 관객에게는 친근하면서도 새로움이 있는 무대를,<br>
-    연주자에게는 서로의 호흡을 나누는 실험실과 같은 공간을 지향합니다.
-  </p>
-</section>
+  <!-- 이 페이지 전용 CONTENT -->
+  <section class="section">
+    <h2>소 개</h2>
+    <p>
+      국악LAB 한양팔도는 전통 국악의 깊이와 현대적 무대 감각을 결합하여<br>
+      새로운 미학을 선보이는 국악 프로젝트 그룹입니다. 지역·장르·형식의 경계를 넘어<br>
+      다양한 예술가들과 협업하며, 국악의 현재와 미래를 탐구합니다.
+    </p>
+    <p>
+      정통성과 실험성을 동시에 담아낸 레퍼토리로, 관객에게는 친근하면서도 새로움이 있는 무대를,<br>
+      연주자에게는 서로의 호흡을 나누는 실험실과 같은 공간을 지향합니다.
+    </p>
+  </section>
 
-<footer class="site-footer">
-  <!-- 🔽 여기 class에 footer-column 추가 -->
-  <div class="footer-inner footer-column">
-    <span>공동대표: 김광윤, 한윤경</span>
-    <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
-    <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
-    <span>이메일: gugaklab@naver.com</span>
-    <span>Social Media: @국악Lab한양팔도</span>
-  </div>
-</footer>
+  <!-- 공통 FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>공동대표: 김광윤, 한윤경</span>
+      <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
+      <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
+      <span>이메일: gugaklab@naver.com</span>
+      <span>Social Media: @국악Lab한양팔도</span>
+    </div>
+  </footer>
 
 </body>
 </html>

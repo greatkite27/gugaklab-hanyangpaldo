@@ -161,11 +161,17 @@
       max-width: 80%;
       max-height: 80%;
     }
+
+    /* 이름을 왼쪽 상단에 배치하고 볼드체로 변경 */
     .lightbox .caption {
+      position: absolute;
+      top: 10px;
+      left: 10px;
       color: #fff;
-      margin-top: 10px;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
+
     .lightbox .close {
       position: absolute;
       top: 10px;
@@ -255,6 +261,7 @@
         padding: 2rem 0 1.7rem;
       }
     }
+
   </style>
 </head>
 <body>

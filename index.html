@@ -105,8 +105,74 @@
     .section p {
       line-height: 1.7;
       color: #ddd;
-    }
+      /* 소개 페이지 전용 레이아웃 */
+.section--split {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 
+.section--split .col-main {
+  flex: 1.4;
+}
+
+.section--split .col-side {
+  flex: 1;
+  border-left: 1px solid rgba(255,255,255,0.12);
+  padding-left: 1.5rem;
+  margin-top: 0.3rem;
+}
+
+/* 작은 설명 텍스트, 키워드 스타일 */
+.kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f4c842;
+  margin-bottom: 0.6rem;
+}
+
+.section .lead {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #eee;
+  margin-bottom: 1.4rem;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.highlight-list li {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.4rem;
+}
+
+/* 작은 캡션 */
+.muted {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* 버튼 느낌 링크 */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #f4c842;
+}
+
+.btn-link span.arrow {
+  font-size: 1.1rem;
+  transform: translateY(1px);
+}
     /* ====== FOOTER ====== */
     .site-footer {
       margin-top: 3rem;

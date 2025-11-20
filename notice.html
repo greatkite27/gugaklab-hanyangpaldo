@@ -1,106 +1,263 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>국악LAB 한양팔도 - 공지사항</title>
-<style>
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Noto Sans KR',sans-serif;background:#000;color:#fff;}
-  header{
-    background:url('진도씻김굿0.jpg') no-repeat center 75%/cover;
-    padding:3rem 2rem;text-align:center;position:relative;
-  }
-  header::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));z-index:0;}
-  header *{position:relative;z-index:1;}
-  header h1{margin:0 0 .4rem;font-size:2.4rem;}
-  header h2{margin:0;font-size:1.1rem;opacity:.9;}
-  nav{
-    position:sticky;top:0;z-index:10;display:flex;justify-content:center;gap:1.2rem;
-    padding:.7rem 1rem;background:rgba(10,10,10,.95);backdrop-filter:blur(8px);overflow-x:auto;
-  }
-  nav a{
-    white-space:nowrap;text-decoration:none;color:#ddd;font-weight:600;font-size:.9rem;
-    padding:.3rem .6rem;border-radius:999px;transition:background .2s,color .2s;
-  }
-  nav a:hover{background:#fff;color:#000;}
-  .section{max-width:900px;margin:3rem auto;padding:0 1.5rem;}
-  .section h2{font-size:1.5rem;margin-bottom:1.2rem;border-left:4px solid #f4c842;padding-left:.7rem;}
-  ul{padding-left:1.2rem;}
-  li{margin-bottom:.6rem;}
-/* 공통 푸터 */
-.site-footer{
-  margin-top:3rem;
-  padding:1rem 1.5rem;
-  border-top:1px solid rgba(255,255,255,0.1);
-  background:#050505;
-  font-size:0.75rem;
-  color:#aaa;
-}
-.site-footer .footer-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  flex-direction: column;  /* 줄을 세로로 */
-  align-items: center;      /* 가운데 정렬 */
-  text-align: center;       /* 텍스트 가운데 */
-  gap: 0.5rem;              /* 줄 간격 */
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국악LAB 한양팔도 - 공지사항</title>
 
-.site-footer span {
-  line-height: 1.4;
-}
-   .footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem; /* 줄 간 간격 */
-  }
- 
-@media(max-width:768px){
-  .site-footer .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .site-footer span{
-    white-space:normal;
-  }
-}
-</style>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    /* ====== HEADER (index.html과 동일) ====== */
+    header {
+      background: url('진도씻김굿0.jpg') no-repeat;
+      background-size: cover;
+      background-position: 50% 75%;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.9)
+      );
+      z-index: 0;
+    }
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1.5rem;
+        background-position: 50% 60%;
+      }
+      header h1 { font-size: 2.1rem; }
+      header h2 { font-size: 1rem; }
+    }
+
+    /* ====== NAV (index.html과 동일) ====== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0.7rem 1rem;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      overflow-x: auto;
+    }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.05);  /* hover 시 살짝 확대되는 효과 */
+    }
+
+    /* ====== SECTION 공통 ====== */
+    .section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #f4c842;
+      padding-left: 0.7rem;
+    }
+
+    /* ====== 공지사항 STYLE ====== */
+    .notice-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .notice-list li {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: #ddd;
+    }
+
+    .notice-list li a {
+      color: #f4c842;
+      text-decoration: none;
+    }
+
+    .notice-list li a:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== FOOTER (gallery.html과 동일) ====== */
+    .site-footer {
+      margin-top: 4rem;
+      padding: 2.5rem 1.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.18); /* 본문과 구분선 */
+      background: #050505;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .site-footer .footer-inner {
+      max-width: 1100px;      /* 본문과 동일한 중앙 너비 */
+      margin: 0 auto;         /* 화면 가운데 정렬 */
+      padding: 0 1.5rem;      /* 본문 섹션과 동일한 좌우 여백 */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      gap: 0.35rem;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-item {
+      font-weight: 400;
+      color: #aaa;
+    }
+
+    .footer-link {
+      color: #f4c842;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer-sns {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .footer-sns a svg {
+      width: 18px;
+      height: 18px;
+      fill: #aaa;
+      transition: fill 0.2s, transform 0.2s;
+    }
+
+    .footer-sns a:hover svg {
+      fill: #f4c842;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .site-footer {
+        padding: 2rem 1.2rem 1.7rem;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
-<header>
-  <h1>국악LAB 한양팔도</h1>
-  <h2>GUGAKLAB HANYANGPALDO</h2>
-</header>
 
-<nav>
-  <a href="index.html">소 개</a>
-  <a href="program.html">프로그램</a>
-  <a href="artists.html">연주자</a>
-  <a href="gallery.html">갤러리</a>
-  <a href="videos.html">영 상</a>
-  <a href="notice.html">공지사항</a>
-  <a href="map.html">오시는 길</a>
-  <a href="contact.html">문 의</a>
-</nav>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" style="text-decoration:none; color:inherit;">
+      <h1>국악LAB 한양팔도</h1>
+      <h2>GUGAKLAB HANYANGPALDO</h2>
+    </a>
+  </header>
 
-<section class="section">
-  <h2>공연 · 안내</h2>
-  <ul>
-    <li>2025년 정기공연 일정은 추후 공지 예정입니다.</li>
-    <li>지역 초청 공연 및 교류 프로그램 문의는 이메일로 연락 주세요.</li>
-    <li>연주회 프로그램북(PDF)은 공연 당일 QR코드로 제공됩니다.</li>
-  </ul>
-</section>
-<footer class="site-footer">
-  <div class="footer-inner footer-cloumn">
-    <span>공동대표: 김광윤, 한윤경</span>
-    <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
-    <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
-    <span>이메일: gugaklab@naver.com</span>
-    <span>Social Media: @국악Lab한양팔도</span>
-  </div>
-</footer>
- 
+  <!-- NAV -->
+  <nav>
+    <a href="index.html">소 개</a>
+    <a href="program.html">프로그램</a>
+    <a href="artists.html">연주자</a>
+    <a href="gallery.html">갤러리</a>
+    <a href="videos.html">영 상</a>
+    <a href="notice.html">공지사항</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <!-- 공지사항 SECTION -->
+  <section class="section">
+    <h2>공지사항</h2>
+    <ul class="notice-list">
+      <li><a href="#">2025년 정기공연 일정은 추후 공지 예정입니다.</a></li>
+      <li><a href="#">지역 초청 공연 및 교류 프로그램 문의는 이메일로 연락 주세요.</a></li>
+      <li><a href="#">연주회 프로그램북(PDF)은 공연 당일 QR코드로 제공됩니다.</a></li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">국악LAB 한양팔도</div>
+
+      <span class="footer-item">
+        주소: 서울특별시 서초구 효령로 229 B1층 B07호 &nbsp;&nbsp;
+        <a href="https://map.naver.com/p/search/국악LAB한양팔도" 
+           class="footer-link" 
+           target="_blank" 
+           rel="noopener">
+          map
+        </a>
+      </span>
+
+      <span class="footer-item">
+        이메일: 
+        <a href="mailto:gugaklab@naver.com" class="footer-link">
+          gugaklab@naver.com
+        </a>
+      </span>
+
+      <div class="footer-sns">
+        <a href="#" 
+           class="footer-link" 
+           aria-label="국악LAB 한양팔도 인스타그램" 
+           target="_blank" 
+           rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-7.9a1.1 1.1 0 1 1-1.1-1.1 1.09 1.09 0 0 1 1.1 1.1ZM21 7.1a6.32 6.32 0 0 0-.4-2.2 4.4 4.4 0 0 0-2.5-2.5A6.32 6.32 0 0 0 16 2H8a6.32 6.32 0 0 0-2.2.4 4.4 4.4 0 0 0-2.5 2.5A6.32 6.32 0 0 0 3 7.1V17a6.32 6.32 0 0 0 .4 2.2 4.4 4.4 0 0 0 2.5 2.5A6.32 6.32 0 0 0 8 22h8a6.32 6.32 0 0 0 2.2-.4 4.4 4.4 0 0 0 2.5-2.5A6.32 6.32 0 0 0 21 17V7.1Zm-1.8 9.9a4 4 0 0 1-.2 1.4 2.7 2.7 0 0 1-1.5 1.5 4 4 0 0 1-1.4.2H8a4 4 0 0 1-1.4-.2 2.7 2.7 0 0 1-1.5-1.5 4 4 0 0 1-.2-1.4V7.1a4 4 0 0 1 .2-1.4 2.7 2.7 0 0 1 1.5-1.5A4 4 0 0 1 8 4h8a4 4 0 0 1 1.4.2 2.7 2.7 0 0 1 1.5 1.5 4 4 0 0 1 .2 1.4Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

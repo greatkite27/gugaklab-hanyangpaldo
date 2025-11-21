@@ -486,3 +486,10 @@ nav a.active {
     font-size: 1.6rem;
   }
 }
+.artists-category-title {
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+  color: #f4c842;
+  font-weight: 600;
+}

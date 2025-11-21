@@ -1,198 +1,197 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>국악LAB 한양팔도 - 판소리 한윤경</title>
-<style>
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Noto Sans KR',sans-serif;background:#000;color:#fff;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국악LAB 한양팔도 - 판소리 한윤경</title>
 
-  header{
-    background:url('한윤경 프로필 사진.png') no-repeat center 55%/cover;
-    padding:3rem 2rem;text-align:center;position:relative;
-  }
-  header::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));
-    z-index:0;
-  }
-  header *{position:relative;z-index:1;}
-  header h1{margin:0 0 .4rem;font-size:2.2rem;}
-  header h2{margin:0;font-size:1.1rem;opacity:.9;}
+  <link rel="stylesheet" href="common.css" />
+  <script src="layout.js" defer></script>
 
-  nav{
-    position:sticky;top:0;z-index:10;
-    display:flex;justify-content:center;gap:1.2rem;
-    padding:.7rem 1rem;
-    background:rgba(10,10,10,.95);
-    backdrop-filter:blur(8px);
-    overflow-x:auto;
-  }
-  nav a{
-    white-space:nowrap;
-    text-decoration:none;
-    color:#ddd;
-    font-weight:600;
-    font-size:.9rem;
-    padding:.3rem .6rem;
-    border-radius:999px;
-    transition:background .2s,color .2s;
-  }
-  nav a:hover{background:#fff;color:#000;}
+  <style>
+    .artist-detail {
+      max-width: 1100px;
+      margin: 3.5rem auto;
+      padding: 0 1.5rem 3rem;
+    }
 
-  .section{
-    max-width:900px;
-    margin:3rem auto;
-    padding:0 1.5rem;
-  }
-  .section h2{
-    font-size:1.5rem;
-    margin-bottom:1.2rem;
-    border-left:4px solid #f4c842;
-    padding-left:.7rem;
-  }
+    .artist-hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      padding-bottom: 2rem;
+    }
 
-  .profile-top{
-    display:flex;
-    gap:1.5rem;
-    flex-wrap:wrap;
-    align-items:flex-start;
-    margin-bottom:1.8rem;
-  }
-  .profile-top img{
-    width:260px;
-    max-width:100%;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,.8);
-  }
-  .profile-meta h3{
-    margin:0 0 .6rem;
-    font-size:1.25rem;
-  }
-  .profile-meta p{
-    margin:.2rem 0;
-    color:#ccc;
-    font-size:.95rem;
-  }
+    .artist-photo {
+      width: 320px;
+      max-width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
 
-  .section h3{
-    margin-top:1.8rem;
-    margin-bottom:.5rem;
-    font-size:1.1rem;
-  }
-  .section ul{
-    padding-left:1.2rem;
-  }
-  .section li{
-    margin-bottom:.3rem;
-    color:#ddd;
-    font-size:.95rem;
-  }
+    .artist-photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+    }
 
-  .site-footer{
-    margin-top:3rem;
-    padding:1.5rem 1.5rem;
-    border-top:1px solid rgba(255,255,255,0.1);
-    background:#050505;
-    font-size:0.75rem;
-    color:#aaa;
-  }
-  .site-footer .footer-inner{
-    max-width:900px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:0.5rem;
-  }
-  .site-footer span{
-    line-height:1.4;
-  }
+    .artist-text {
+      flex: 1;
+      min-width: 260px;
+    }
 
-  @media(max-width:768px){
-    .profile-top{flex-direction:column;}
-  }
-</style>
+    .artist-role {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8ba4ff;
+      margin-bottom: 0.4rem;
+    }
+
+    .artist-name {
+      font-size: 2rem;
+      margin: 0 0 0.7rem;
+      letter-spacing: 0.06em;
+    }
+
+    .artist-short {
+      font-size: 1.02rem;
+      color: #dddddd;
+      line-height: 1.9;
+      max-width: 40rem;
+    }
+
+    .artist-section {
+      margin-top: 2.8rem;
+    }
+
+    .artist-section-title {
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8ba4ff;
+      margin-bottom: 0.8rem;
+    }
+
+    .artist-section h3 {
+      font-size: 1.15rem;
+      margin: 0 0 0.6rem;
+    }
+
+    .artist-section p {
+      font-size: 0.95rem;
+      color: #dddddd;
+      line-height: 1.8;
+    }
+
+    .activity-list,
+    .sample-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+
+    .activity-list li,
+    .sample-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .sample-label {
+      font-weight: 600;
+      margin-right: 0.4rem;
+    }
+
+    .sample-link {
+      text-decoration: none;
+      color: #89a7ff;
+      font-size: 0.9rem;
+    }
+
+    .sample-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .artist-hero {
+        gap: 2rem;
+      }
+      .artist-name {
+        font-size: 1.8rem;
+      }
+      .artist-photo {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>국악LAB 한양팔도</h1>
-  <h2>판소리 · 한윤경</h2>
-</header>
 
-<nav>
-  <a href="index.html">소 개</a>
-  <a href="program.html">프로그램</a>
-  <a href="artists.html">연주자</a>
-  <a href="gallery.html">갤러리</a>
-  <a href="videos.html">영 상</a>
-  <a href="notice.html">공지사항</a>
-  <a href="map.html">오시는 길</a>
-  <a href="contact.html">문 의</a>
-</nav>
+  <header></header>
+  <nav></nav>
 
-<section class="section">
-  <h2>프로필</h2>
-  <div class="profile-top">
-    <img src="한윤경 프로필 사진.png" alt="판소리 한윤경">
-    <div class="profile-meta">
-      <h3>판소리 · 한윤경</h3>
-      <p>국악LAB 한양팔도 공동 대표</p>
-    </div>
-  </div>
+  <main>
+    <section class="artist-detail">
 
-  <h3>학 력</h3>
-  <ul>
-    <li>한양대학교 음악대학 대학원 국악과 석사 졸업</li>
-    <li>한양대학교 음악대학 국악과 학사 졸업</li>
-    <li>국립국악고등학교 졸업</li>
-  </ul>
+      <!-- 상단 프로필 -->
+      <div class="artist-hero">
+        <div class="artist-photo">
+          <img src="한윤경-세로.jpg" alt="판소리 연주자 한윤경">
+        </div>
+        <div class="artist-text">
+          <div class="artist-role">PANSORI · 판소리</div>
+          <h1 class="artist-name">한윤경</h1>
+          <p class="artist-short">
+            섬세한 발성과 깊은 감정선으로 이야기와 소리를 잇는 소리꾼입니다.
+            인물의 정서와 서사의 흐름을 섬세하게 그려내며,
+            전통 판소리의 미학을 오늘의 감각으로 풀어냅니다.
+          </p>
+        </div>
+      </div>
 
- <h3>사 사</h3>
-  <ul>
-    <li>허은선 명창 - 김세종제 춘향가, 김세종제 심청가 사사</li>
-    <li>조주선 명창 - 미산제 흥보가 </li>
-  </ul>
+      <!-- 주요 활동 / 참여 프로그램 -->
+      <section class="artist-section">
+        <div class="artist-section-title">MAIN ACTIVITIES</div>
+        <h3>주요 활동 · 참여 프로그램</h3>
+        <ul class="activity-list">
+          <li>· 국악LAB 한양팔도 판소리 소리꾼</li>
+          <li>· 김세종제 춘향가 완창 프로젝트 소리 출연</li>
+          <li>· 춘향가 완창: 꺾이지 않는 정절 메인 소리꾼</li>
+          <li>· 시나위 &amp; 레퍼토리 시리즈에서 보컬/판소리 파트 참여</li>
+        </ul>
+      </section>
 
-  <h3>수 상</h3>
-  <ul>
-    <li>2024 - 제44회 온나라국악경연대회에서 판소리 부문 금상(문화체육관광부 장관상)</li>
-    <li>2023 - 제23회 박동진판소리명창∙명고대회 판소리 부문 일반부 최우수상</li>
-    <li>2022 - 제42회 온나라국악경연대회 판소리 부문 은상</li>
-    <li>2021 - 제29회 임방울국악제 판소리 부문 일반부 차상</li>
-    <li>2020 - 제25회 전국판소리경연대회 일반부 대상</li>
-    <li>2019 - 제24회 전국판소리경연대회 고등부 대상</li>
-  </ul>
+      <!-- 음원 / 샘플 -->
+      <section class="artist-section">
+        <div class="artist-section-title">AUDIO &amp; SAMPLE</div>
+        <h3>음원 · 샘플</h3>
+        <ul class="sample-list">
+          <li>
+            <span class="sample-label">샘플 1.</span>
+            춘향가 중 일부 대목 라이브 &nbsp;
+            <a href="#" class="sample-link">듣기 준비 중</a>
+          </li>
+          <li>
+            <span class="sample-label">샘플 2.</span>
+            시나위 프로젝트와의 협연 중 주요 대목 &nbsp;
+            <a href="#" class="sample-link">듣기 준비 중</a>
+          </li>
+        </ul>
+        <p style="margin-top:0.8rem; font-size:0.85rem; color:#888;">
+          ※ 음원 및 영상 링크는 추후 업데이트될 예정입니다.
+        </p>
+      </section>
 
-  <h3>활 동</h3>
-  <ul>
-    <li>2025 - &lt;동락시리즈Ⅰ춘향가 완창 : 꺾이지 않는 정절&gt;_국립국악원 우면당</li>
-    <li>2024 - &lt;동락(同樂): 함께 즐기다&gt;_남도민요(육자배기, 흥타령) 앨범 발매</li>
-    <li>2024 - &lt;제87회 조선일보신인음악회 판소리 부문 선정 및 공연&gt;_세종문화회관</li>
-    <li>2023 - &lt;한윤경의 첫번째 완창발표회: 미산제 흥보가&gt;_국립국악원 풍류사랑방</li>
-    <li>2023 - &lt;전주세계소리축제 ‘청춘예찬 젊은판소리’ 3인 선정 및 공연&gt;</li>
-    <li>2022 - &lt;전통예술공연 ‘가객’ 판소리 부문 선정&gt;_KOUS</li>
-  </ul>
+    </section>
+  </main>
 
-  <h3>소 개</h3>
-  <ul>
-    <li>소리꾼 한윤경은 국립국악고등학교 졸업 후 한양대학교 음악대학 국악과 학사와 석사를 졸업했다. 성우향 명창 - 허은선 명창의 뒤를 이어 보성소리의 맥을 잇는 차세대 예인으로 주목받고 있다.
-</li>
-  </ul>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span>공동대표
-    : 김광윤, 한윤경</span>
-    <span>주소: 서울특별시 서초구 효령로 229 B1층 B07호, 국악LAB 한양팔도</span>
-    <span>오시는 길: 남부터미널역 6번 출구 도보 5분</span>
-    <span>이메일: gugaklab@naver.com</span>
-    <span>Social Media: @국악Lab한양팔도</span>
-  </div>
-</footer>
+  <footer class="site-footer"></footer>
 
 </body>
 </html>

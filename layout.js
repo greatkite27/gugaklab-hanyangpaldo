@@ -148,8 +148,8 @@
         </span>
         <span class="footer-item">
           ${t.footer.emailLabel}:
-          <a href="mailto:gugaklab@naver.com" class="footer-link">
-            gugaklab@naver.com
+          <a href="mailto:hanyangpaldo@gmail.com" class="footer-link">
+            hanyangpaldo@gmail.com
           </a>
         </span>
         <div class="footer-sns">

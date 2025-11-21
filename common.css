@@ -517,7 +517,7 @@ nav a.active {
 }
 
 .site-header-brand {
-  display: inline-block;
+  display: none !important;
 }
 
 .site-logo img {

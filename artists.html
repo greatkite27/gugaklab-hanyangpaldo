@@ -139,10 +139,18 @@
       color: #bbbbbb;
     }
    
-    /* ✅ 여기 추가! */
+    /* 카테고리 색상 */
     .artists-category-title {
       color: #ffffff;
   }
+
+    /* 상세 페이지 없는 카드 hover 제거 */
+.artist-card-link:not(a) .artist-card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(255,255,255,0.12);
+  cursor: default;
+}
   </style>
 </head>
 

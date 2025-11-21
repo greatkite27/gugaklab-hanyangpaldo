@@ -168,132 +168,14 @@
     }
 
     /* =========================
-       HOME: 핵심 섹션 카드
+       HOME: HISTORY
        ========================= */
-    .home-sections {
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-    }
 
-    .home-sections-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.7rem;
-    }
-
-    .home-card {
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 1.5rem 1.6rem 1.6rem;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .home-card-kicker {
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #7f95ff;
-    }
-
-    .home-card-title {
-      font-size: 1.1rem;
-      margin: 0.1rem 0 0.4rem;
-    }
-
-    .home-card-text {
-      font-size: 0.95rem;
-      color: #cccccc;
-      flex: 1;
-    }
-
-    .home-card-link {
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      text-decoration: none;
-      color: #89a7ff;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
+    /* HISTORY 제목만 HERO 타이틀 크기로 맞춤 */
+    .history-title {
+      font-size: 2.3rem;      /* home-hero-title과 동일 */
       letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .home-card-link span {
-      font-size: 1rem;
-      transform: translateY(1px);
-    }
-
-    @media (max-width: 900px) {
-      .home-sections-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .home-sections-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* =========================
-       HOME: HISTORY 요약
-       ========================= */
-    .home-history {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .home-history-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .home-history-title {
-      margin: 0;
-      font-size: 1.3rem;
-      letter-spacing: 0.08em;
-    }
-
-    .home-history-more {
-      font-size: 0.85rem;
-      text-decoration: none;
-      color: #89a7ff;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .home-history-years {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .home-history-tag {
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      display: inline-flex;
-      flex-direction: column;
-      gap: 0.05rem;
-    }
-
-    .home-history-year {
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      font-size: 0.85rem;
-    }
-
-    .home-history-label {
-      font-size: 0.8rem;
-      color: #bbbbbb;
+      margin: 0 0 2rem;
     }
   </style>
 </head>
@@ -311,7 +193,9 @@
     <section class="section home-hero">
       <div class="home-hero-main">
         <div class="home-hero-kicker">GUGAKLAB HANYANGPALDO</div>
-        <h2 class="home-hero-title">젊은 국악인들이 빚어내는<br />전통음악의 정수</h2>
+        <h2 class="home-hero-title">
+          젊은 국악인들이 빚어내는<br />전통음악의 정수
+        </h2>
         <p class="home-hero-sub">
           서울대학교, 한양대학교, 한국예술종합학교, 중앙대학교 등
           국내 최고 음악대학 출신의 청년 국악인들이 모여 결성한 연주단체.
@@ -336,103 +220,45 @@
       </div>
     </section>
 
-<!-- HISTORY (프레인 스타일 재디자인) -->
-<section class="section">
-  <div class="kicker">HISTORY</div>
-  <h2>HISTORY</h2>
+    <!-- HISTORY (프레인 스타일 요약형) -->
+    <section class="section">
+      <div class="kicker">HISTORY</div>
+      <h2 class="history-title">HISTORY</h2>
 
-  <div class="program-list">
+      <div class="program-list">
 
-    <article class="program-item">
-      <div class="program-meta">
-        <div class="year">2025</div>
+        <!-- 2025 -->
+        <article class="program-item">
+          <div class="program-meta">
+            <div class="year">2025</div>
+          </div>
+          <div class="program-body">
+            <h3>· 김세종제 춘향가 완창 프로젝트</h3>
+            <p class="meta-line">
+              김세종제 춘향가 완창 &middot; 시나위 기반 레퍼토리 시리즈 준비
+            </p>
+            <h3>· 제23회 대한민국서당문화한마당 축하공연</h3>
+            <p class="meta-line">
+              K-전통 교육문화 축제 무대 참여
+            </p>
+          </div>
+        </article>
+
+        <!-- 2024 -->
+        <article class="program-item">
+          <div class="program-meta">
+            <div class="year">2024</div>
+          </div>
+          <div class="program-body">
+            <h3>· 춘향가 완창: 꺾이지 않는 정절</h3>
+            <p class="meta-line">
+              미산제 춘향가 완창 공연
+            </p>
+          </div>
+        </article>
+
       </div>
-      <div class="program-body">
-        <h3>· 김세종제 춘향가 완창 프로젝트</h3>
-        <p class="meta-line">
-          김세종제 춘향가 완창 &middot; 시나위 기반 레퍼토리 시리즈 준비
-        </p>
-        <h3>· 제23회 대한민국서당문화한마당 축하공연</h3>
-        <p class="meta-line">
-          K-전통 교육문화 축제 무대 참여
-        </p>
-      </div>
-    </article>
-
-    <article class="program-item">
-      <div class="program-meta">
-        <div class="year">2024</div>
-      </div>
-      <div class="program-body">
-        <h3>· 춘향가 완창: 꺾이지 않는 정절</h3>
-        <p class="meta-line">
-          미산제 춘향가 완창 공연
-        </p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<style>
-  /* HISTORY 제목(= 프레인 스타일 HERO 제목 크기) */
-  .history-title {
-    font-size: 2.3rem;        /* home-hero-title과 동일 */
-    letter-spacing: 0.06em;
-    margin: 0 0 2rem;
-  }
-
-  /* HISTORY 전체 리스트 영역 */
-  .history-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-  }
-
-  /* 각 연도 row */
-  .history-row {
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    border-bottom: 1px solid rgba(255,255,255,0.14);
-    padding-bottom: 1.5rem;
-  }
-
-  /* 연도 크게 표시 */
-  .history-year {
-    font-size: 2.3rem;        /* home-hero-title 크기 */
-    font-weight: 700;
-    min-width: 110px;
-    letter-spacing: 0.05em;
-  }
-
-  /* 오른쪽 행사 리스트 */
-  .history-events {
-    list-style: none;
-    padding: 0;
-    margin: 0.35rem 0 0;
-    font-size: 1.02rem;        /* 현재 HISTORY 텍스트 수준 */
-    color: #cccccc;
-  }
-
-  .history-events li {
-    margin-bottom: 0.55rem;
-  }
-
-  @media (max-width: 768px) {
-    .history-row {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .history-year {
-      font-size: 2rem;
-    }
-  }
-</style>
-
-</section>
+    </section>
 
   </main>
 

@@ -33,8 +33,11 @@ body {
 header {
   background: url('배너.png') no-repeat;
   background-size: cover;
-  background-position: center center; /* 50% 75%; */
-  padding: 10rem 2rem;
+  background-position: center;
+  background-repeat: no-repeat;
+   
+   /* 기존 레이아웃 유지 */
+  padding: 4rem 3rem;
   text-align: center;
   position: relative;
 }

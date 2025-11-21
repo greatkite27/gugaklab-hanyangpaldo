@@ -1,0 +1,388 @@
+/* =========================
+   GLOBAL
+   ========================= */
+
+/* (선택) 구글 폰트 사용 시
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #000;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+  background: url('진도씻김굿0.jpg') no-repeat;
+  background-size: cover;
+  background-position: 50% 75%;
+  padding: 4rem 3rem;
+  text-align: center;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+  z-index: 0;
+}
+
+header * {
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 3rem 1.5rem;
+    background-position: 50% 60%;
+  }
+  header h1 {
+    font-size: 2.1rem;
+  }
+  header h2 {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 0.7rem 1.2rem;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(8px);
+  overflow-x: auto;
+}
+
+nav a {
+  white-space: nowrap;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+nav a:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* 현재 페이지 메뉴 강조용 */
+nav a.active {
+  background: #fff;
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 0.6rem;
+    padding: 0.5rem 0.6rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+/* =========================
+   SECTION 공통
+   ========================= */
+
+.section {
+  max-width: 1100px;
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  border-left: 4px solid #0737b4;
+  padding-left: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.section p {
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* =========================
+   SPLIT LAYOUT (좌/우 2단)
+   ========================= */
+
+.section--split {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.section--split .col-main {
+  flex: 1.4;
+}
+
+.section--split .col-side {
+  flex: 1;
+  border-left: 1px solid rgba(255,255,255,0.12);
+  padding-left: 1.5rem;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .section--split {
+    gap: 2rem;
+  }
+  .section--split .col-side {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 1.5rem;
+  }
+}
+
+/* =========================
+   TYPOGRAPHY COMPONENTS
+   ========================= */
+
+.kicker {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0737b4;
+  margin-bottom: 0.6rem;
+}
+
+.section .lead {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #eee;
+  margin-bottom: 1.4rem;
+  max-width: 40rem;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.highlight-list li {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 0.4rem;
+}
+
+.muted {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* 버튼 느낌 링크 */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #0737b4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.btn-link span.arrow {
+  font-size: 1.1rem;
+  transform: translateY(1px);
+}
+
+/* =========================
+   HISTORY / PROGRAM LIST
+   ========================= */
+
+.program-list {
+  margin-top: 1.8rem;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+
+.program-item {
+  display: flex;
+  gap: 2.5rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.program-meta {
+  min-width: 130px;
+}
+
+.program-meta .year {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.program-meta > div:not(.year) {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-top: 0.45rem;
+}
+
+.program-meta .tag {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.4);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ddd;
+}
+
+.program-body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.program-body .subtitle {
+  margin: 0.1rem 0 0.9rem;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.program-body p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.program-body .meta-line {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .program-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .program-meta .year {
+    font-size: 2.1rem;
+  }
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2.7rem 0;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  background: #050505;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.site-footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.45rem;
+}
+
+.footer-brand {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-item {
+  font-weight: 400;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.footer-link {
+  color: #89a7ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-sns {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.6rem;
+}
+
+.footer-sns a svg {
+  width: 20px;
+  height: 20px;
+  fill: #aaa;
+  transition: fill 0.2s, transform 0.2s;
+}
+
+.footer-sns a:hover svg {
+  fill: #89a7ff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 2.2rem 0 1.8rem;
+  }
+}

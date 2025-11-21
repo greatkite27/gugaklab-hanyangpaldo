@@ -521,9 +521,5 @@ nav a.active {
 }
 
 .site-logo img {
-  width: 30px;   /* 로고 크기 조절 */
-  height: auto;
-  margin-left: 0px;   /* 왼쪽으로 12px 이동 */
-  margin-top: -10px;    /* 위로 6px 올리기 */
   display: none !important;
 }

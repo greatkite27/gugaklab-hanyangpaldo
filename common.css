@@ -136,7 +136,7 @@ nav a {
 nav a:hover {
   background: #fff;
   color: #000;
-  transform: scale(1.03);
+  /* transform: scale(1.05); */  /* 삭제 */
 }
 
 /* 현재 페이지 메뉴 강조용 */

@@ -65,7 +65,7 @@
     if (!headerEl) return;
 
   // 단체 로고 경로 (원하는 파일명으로 교체)
-  const logoSrc = "images/logo.png";
+  const logoSrc = "favicon.png";
 
   headerEl.innerHTML = `
     <div class="site-header-inner">

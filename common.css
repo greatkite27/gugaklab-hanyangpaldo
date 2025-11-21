@@ -5,6 +5,9 @@
 /* (선택) 구글 폰트 사용 시
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 */
+html, body {
+  word-break: keep-all;
+}
 
 * {
   box-sizing: border-box;

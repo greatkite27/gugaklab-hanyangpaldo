@@ -498,3 +498,8 @@ nav a.active {
   color: #0737b4;   /* 파란색 */
   letter-spacing: 0.06em;
 }
+/* unify kicker color across all sections */
+.section .kicker {
+  color: #89a7ff !important;
+}
+

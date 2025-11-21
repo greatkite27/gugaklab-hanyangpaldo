@@ -525,5 +525,5 @@ nav a.active {
   height: auto;
   margin-left: 0px;   /* 왼쪽으로 12px 이동 */
   margin-top: -10px;    /* 위로 6px 올리기 */
-  display: block;
+  display: none !important;
 }

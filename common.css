@@ -516,9 +516,10 @@ nav a.active {
   display: inline-block;
 }
 
-.site-logo {
+.site-logo img {
   width: 140px;   /* 로고 크기 조절 */
-  height: auto;
+  height: 48px;
+  margin-left: 12px;   /* 왼쪽으로 12px 이동 */
+  margin-top: -6px;    /* 위로 6px 올리기 */
   display: block;
-  margin: 0 auto;
 }

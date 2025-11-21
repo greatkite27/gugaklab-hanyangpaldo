@@ -8,113 +8,283 @@
   <!-- 공통 스타일 & 레이아웃 -->
   <link rel="stylesheet" href="common.css" />
   <script src="layout.js" defer></script>
+
+  <!-- PROGRAM 전용 스타일 -->
+  <style>
+    /* =========================
+       PROGRAM: HERO
+       ========================= */
+    .program-hero {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .program-hero .kicker {
+      margin-bottom: 0.4rem;
+    }
+
+    .program-hero h2 {
+      border-left: none;
+      padding-left: 0;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+
+    .program-hero .lead {
+      max-width: 42rem;
+    }
+
+    /* =========================
+       PROGRAM: 카드 그리드
+       ========================= */
+    .program-grid-wrap {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .program-card {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.6rem 1.7rem 1.8rem;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-height: 230px;
+    }
+
+    .program-card-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8ba4ff;
+    }
+
+    .program-card-title {
+      font-size: 1.15rem;
+      margin: 0.1rem 0 0.4rem;
+    }
+
+    .program-card-text {
+      font-size: 0.95rem;
+      color: #cccccc;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .program-card-meta {
+      font-size: 0.8rem;
+      color: #999999;
+      margin-top: 0.4rem;
+    }
+
+    .program-card-meta span {
+      display: inline-block;
+      margin-right: 0.6rem;
+    }
+
+    .program-card-footnote {
+      font-size: 0.78rem;
+      color: #7f7f7f;
+      margin-top: 0.6rem;
+    }
+
+    /* 작은 링크 스타일 (선택) */
+    .program-card-link {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      text-decoration: none;
+      color: #89a7ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .program-card-link span {
+      font-size: 1rem;
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 1024px) {
+      .program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================
+       PROGRAM: 마무리 섹션
+       ========================= */
+    .program-note {
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.8rem;
+      font-size: 0.9rem;
+      color: #bbbbbb;
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- 공통 HEADER / NAV (layout.js가 채움) -->
+  <!-- 공통 HEADER / NAV -->
   <header></header>
   <nav></nav>
 
   <main>
 
-    <!-- PROGRAM 소개 -->
-    <section class="section">
+    <!-- HERO: PROGRAM 소개 -->
+    <section class="section program-hero">
       <div class="kicker">PROGRAM</div>
       <h2>PROGRAM</h2>
       <p class="lead">
-        국악LAB 한양팔도는 완창, 시나위, 레퍼토리 시리즈 등
-        전통과 창작을 아우르는 다양한 국악 공연 프로그램을 선보입니다.
-        각 공연은 팔도 전통음악의 정서를 바탕으로,
-        청년 국악인들만의 감각과 호흡을 더해 새로운 무대로 탄생합니다.
+        국악LAB 한양팔도는 완창, 시나위, 레퍼토리 시리즈, 축하·초청 공연 등
+        여러 형태의 공연 프로그램으로 관객과 만납니다.
+        전통 판소리의 서사와 시나위의 즉흥성을 중심에 두고,
+        팔도 전통음악의 결을 현대 감각으로 재구성합니다.
       </p>
     </section>
 
-    <!-- PROGRAM / HISTORY 상세 리스트 -->
-    <section class="section">
-      <div class="kicker">HISTORY</div>
-      <h2>HISTORY</h2>
-      <p class="lead">
-        국악LAB 한양팔도의 주요 공연 이력을 연도별로 정리했습니다.
-        완창 프로젝트, 축하 공연, 레퍼토리 시리즈 등 다양한 포맷을 통해
-        우리 소리의 깊이와 확장을 동시에 모색하고 있습니다.
-      </p>
+    <!-- 카드형 PROGRAM 섹션 -->
+    <section class="section program-grid-wrap">
+      <div class="program-grid">
 
-      <div class="program-list">
-
-        <!-- 2025 - Program 1 -->
-        <article class="program-item">
-          <div class="program-meta">
-            <div class="year">2025</div>
-            <div>완창 프로젝트</div>
-            <span class="tag">판소리</span>
+        <!-- CARD 1: 완창 프로젝트 -->
+        <article class="program-card">
+          <div class="program-card-kicker">PROJECT 01</div>
+          <h3 class="program-card-title">완창 프로젝트</h3>
+          <p class="program-card-text">
+            한 편의 판소리를 처음부터 끝까지 온전히 풀어내는
+            완창 프로젝트는 국악LAB 한양팔도의 대표 프로그램입니다.
+            보성소리를 비롯한 다양한 유파의 소리를
+            한 무대에서 깊이 있게 전달합니다.
+          </p>
+          <div class="program-card-meta">
+            <span>· 형식: 판소리 완창</span>
+            <span>· 구성: 소리꾼 · 고수</span>
           </div>
-          <div class="program-body">
-            <h3>김세종제 춘향가 완창 : 꺾이지 않는 정절</h3>
-            <p class="subtitle">시나위와 장단이 이끄는 즉흥적 호흡</p>
-            <p>
-              전통 시나위의 즉흥성과 현대적 사운드를 결합한 무대로,
-              타악·피리·판소리가 서로의 숨을 주고받으며
-              하나의 흐름을 만들어 갑니다.
-              판소리의 서사와 즉흥 연주가 자연스럽게 연결되며
-              관객과의 긴장감 있는 호흡을 만들어 냅니다.
-            </p>
-            <p class="meta-line">
-              구성: 시나위 / 타악 솔로 / 피리·판소리 콜라보레이션
-            </p>
-          </div>
+          <p class="program-card-footnote">
+            예) 춘향가 완창, 김세종제 춘향가 완창 등
+          </p>
         </article>
 
-        <!-- 2025 - Program 2 -->
-        <article class="program-item">
-          <div class="program-meta">
-            <div class="year">2025</div>
-            <div>축하공연 프로젝트</div>
-            <span class="tag">민속악 레퍼토리</span>
+        <!-- CARD 2: 시나위 & 즉흥 -->
+        <article class="program-card">
+          <div class="program-card-kicker">PROJECT 02</div>
+          <h3 class="program-card-title">시나위 &amp; 즉흥 프로젝트</h3>
+          <p class="program-card-text">
+            타악, 피리, 소리 등이 서로의 숨을 주고받으며
+            흐름을 만들어가는 시나위 중심의 공연입니다.
+            전통 시나위의 즉흥성과 현대적 사운드를 결합해,
+            매 공연마다 다른 결과를 만들어냅니다.
+          </p>
+          <div class="program-card-meta">
+            <span>· 형식: 시나위 · 앙상블</span>
+            <span>· 편성: 타악 · 피리 · 판소리 등</span>
           </div>
-          <div class="program-body">
-            <h3>제23회 대한민국서당문화한마당 축하공연</h3>
-            <p class="subtitle">
-              서당 문화의 정체성과 현대적 감각을 잇는 축하 무대
-            </p>
-            <p>
-              K-컬처의 근간을 이루는 전통 교육 문화인 ‘서당’을 주제로,
-              서당에서 이루어지는 다양한 의식과 장면들을
-              민속악 레퍼토리로 재구성한 공연입니다.
-              남녀노소 관객이 함께 즐길 수 있도록
-              친숙한 장단과 선율로 구성하였습니다.
-            </p>
-            <p class="meta-line">
-              형식: 기악·성악이 어우러진 하이라이트 중심 무대
-            </p>
-          </div>
+          <p class="program-card-footnote">
+            예) 시나위 중심 레퍼토리, 타악 솔로 &amp; 콜라보레이션
+          </p>
         </article>
 
-        <!-- 2024 - Program -->
-        <article class="program-item">
-          <div class="program-meta">
-            <div class="year">2024</div>
-            <div>완창 프로젝트</div>
-            <span class="tag">판소리</span>
+        <!-- CARD 3: 레퍼토리 시리즈 -->
+        <article class="program-card">
+          <div class="program-card-kicker">PROJECT 03</div>
+          <h3 class="program-card-title">레퍼토리 시리즈</h3>
+          <p class="program-card-text">
+            팔도 민요, 산조, 무가(굿 음악) 등
+            지역성과 장르성을 드러내는 레퍼토리를 묶어
+            하나의 공연 시리즈로 구성합니다.
+            각 레퍼토리는 단독 공연 또는 기획형 시리즈로 확장 가능합니다.
+          </p>
+          <div class="program-card-meta">
+            <span>· 형식: 테마형 레퍼토리 공연</span>
+            <span>· 대상: 극장 · 축제 · 기획 공연</span>
           </div>
-          <div class="program-body">
-            <h3>춘향가 완창: 꺾이지 않는 정절</h3>
-            <p class="subtitle">보성소리의 맥을 잇는 판소리 레퍼토리</p>
-            <p>
-              미산제 춘향가를 중심으로, 전통 판소리의 서사와
-              소리의 결을 온전히 담아낸 완창 무대입니다.
-              소리꾼과 고수가 긴 호흡으로 서사를 이끌어 가며,
-              보성소리 특유의 맛과 정서를 깊이 있게 전합니다.
-            </p>
-            <p class="meta-line">
-              형식: 판소리 완창 · 반주 고수 동반
-            </p>
-          </div>
+          <p class="program-card-footnote">
+            예) 팔도 소리 시리즈, 무가·굿 음악 중심 기획 등
+          </p>
         </article>
 
-        <!-- 필요하면 여기 아래로 2023, 2022... 항목 추가 -->
-        <!-- 같은 구조로 article.program-item 복사해서 내용만 바꾸면 됨 -->
+        <!-- CARD 4: 축하·초청 공연 -->
+        <article class="program-card">
+          <div class="program-card-kicker">PROJECT 04</div>
+          <h3 class="program-card-title">축하 · 초청 공연</h3>
+          <p class="program-card-text">
+            행사 성격과 공간, 관객 구성에 맞춰
+            맞춤형 국악 프로그램을 구성합니다.
+            전통적인 의식 공연부터 현대적 감각의 축하 무대까지
+            다양한 형태로 조율이 가능합니다.
+          </p>
+          <div class="program-card-meta">
+            <span>· 형식: 축하 공연 · 초청 공연</span>
+            <span>· 구성: 기악 · 성악 · 합동 무대</span>
+          </div>
+          <p class="program-card-footnote">
+            예) 대한민국서당문화한마당 축하공연 등
+          </p>
+        </article>
+
+        <!-- CARD 5: 교육 · 워크숍 (옵션) -->
+        <article class="program-card">
+          <div class="program-card-kicker">PROJECT 05</div>
+          <h3 class="program-card-title">교육 · 워크숍</h3>
+          <p class="program-card-text">
+            청소년, 성인, 외국인 등 다양한 대상에게
+            우리 전통음악을 소개하는 교육 프로그램입니다.
+            짧은 강연과 시연, 참여형 체험을 결합해
+            국악의 구조와 매력을 쉽고 깊이 있게 전달합니다.
+          </p>
+          <div class="program-card-meta">
+            <span>· 형식: 강연 · 시연 · 참여형 워크숍</span>
+            <span>· 대상: 학교 · 기관 · 축제 부대 프로그램</span>
+          </div>
+          <p class="program-card-footnote">
+            필요에 따라 공연 프로그램과 연계 구성 가능
+          </p>
+        </article>
+
+        <!-- CARD 6: 콜라보레이션 (옵션) -->
+        <article class="program-card">
+          <div class="program-card-kicker">PROJECT 06</div>
+          <h3 class="program-card-title">콜라보레이션 프로젝트</h3>
+          <p class="program-card-text">
+            다른 장르의 음악, 무용, 시각예술 등과 협업하여
+            국악의 표현 영역을 확장하는 프로젝트입니다.
+            전통의 틀을 유지하면서도 새로운 형식과 언어를 실험합니다.
+          </p>
+          <div class="program-card-meta">
+            <span>· 형식: 크로스오버 · 인터디시플리너리</span>
+            <span>· 대상: 페스티벌 · 기획 공연</span>
+          </div>
+          <p class="program-card-footnote">
+            제안 성격에 따라 내용 및 편성 맞춤 조율 가능
+          </p>
+        </article>
 
       </div>
+
+      <p class="program-note">
+        ※ 모든 프로그램은 공연 장소, 음향 환경, 일정, 관객 구성에 따라
+        러닝타임과 편성을 유연하게 조정할 수 있습니다.
+        구체적인 제안이나 협의가 필요하신 경우
+        CONTACT 페이지를 통해 문의해 주세요.
+      </p>
     </section>
 
   </main>

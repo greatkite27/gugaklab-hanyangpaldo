@@ -505,7 +505,10 @@ nav a.active {
   color: #89a7ff !important;
 }
 
-/* HEADER LOGO */
+===================
+ /* HEADER LOGO */
+===================
+
 .site-header-inner {
   display: flex;
   justify-content: flex-start; /* 왼쪽 정렬 */

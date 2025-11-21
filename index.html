@@ -3,380 +3,387 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>국악LAB 한양팔도 - 소개</title>
+  <title>국악LAB 한양팔도 - HOME</title>
 
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="common.css" />
+  <!-- 공통 HEADER / NAV / FOOTER 자동 삽입 -->
+  <script src="layout.js" defer></script>
+
+  <!-- 홈 화면 전용 스타일 -->
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #000;
-      color: #fff;
-    }
-
-    /* ====== HEADER ====== */
-    header {
-      background: url('진도씻김굿0.jpg') no-repeat;
-      background-size: cover;
-      background-position: 50% 75%;
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
-      z-index: 0;
-    }
-    header * { position: relative; z-index: 1; }
-    header h1 { margin: 0 0 0.5rem; font-size: 3rem; letter-spacing: 0.08em; }
-    header h2 { margin: 0; font-size: 1.2rem; opacity: 0.9; }
-
-    @media (max-width: 768px) {
-      header { padding: 3rem 1.5rem; background-position: 50% 60%; }
-      header h1 { font-size: 2.1rem; }
-      header h2 { font-size: 1rem; }
-    }
-
-    /* ====== NAV ====== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    /* =========================
+       HOME: HERO
+       ========================= */
+    .home-hero {
       display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      padding: 0.7rem 1rem;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(8px);
-      overflow-x: auto;
-    }
-    nav a {
-      white-space: nowrap;
-      text-decoration: none;
-      color: #ddd;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav a:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.05);
-    }
-    @media (max-width: 600px) {
-      nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
-      nav a { font-size: 0.8rem; }
-    }
-
-    /* ====== SECTION 공통 ====== */
-    .section {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-    .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-      border-left: 4px solid #0737b4;
-      padding-left: 0.7rem;
-    }
-    .section p {
-      line-height: 1.7;
-      color: #ddd;
-    }
-
-    /* 소개 페이지 전용 레이아웃 */
-    .section--split {
-      display: flex;
-      gap: 3rem;
-      align-items: flex-start;
       flex-wrap: wrap;
-    }
-    .section--split .col-main { flex: 1.4; }
-    .section--split .col-side {
-      flex: 1;
-      border-left: 1px solid rgba(255,255,255,0.12);
-      padding-left: 1.5rem;
-      margin-top: 0.3rem;
+      gap: 3rem;
+      align-items: center;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
-    /* 작은 설명 텍스트, 키워드 스타일 */
-    .kicker {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #0737b4;
-      margin-bottom: 0.6rem;
-    }
-    .section .lead {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #eee;
-      margin-bottom: 1.4rem;
+    .home-hero-main {
+      flex: 1.4;
+      min-width: 260px;
     }
 
-    .highlight-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-    }
-
-    .highlight-list li {
+    .home-hero-kicker {
       font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 0.4rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8ba4ff;
+      margin-bottom: 0.7rem;
     }
 
-    /* 작은 캡션 */
-    .muted {
-      font-size: 0.8rem;
-      color: #888;
+    .home-hero-title {
+      font-size: 2.3rem;
+      margin: 0 0 0.7rem;
+      letter-spacing: 0.05em;
     }
 
-    /* 버튼 느낌 링크 */
-    .btn-link {
+    .home-hero-sub {
+      font-size: 1.05rem;
+      color: #cfd3ff;
+      margin: 0 0 1.8rem;
+      line-height: 1.9;
+    }
+
+    .home-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      margin-top: 1rem;
-      font-size: 0.9rem;
+      justify-content: center;
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       text-decoration: none;
-      color: #0737b4;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+      border: 1px solid transparent;
     }
-    .btn-link span.arrow {
+
+    .btn-primary {
+      background: #ffffff;
+      color: #000;
+      border-color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #e6e6e6;
+      border-color: #e6e6e6;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .home-hero-side {
+      flex: 1;
+      min-width: 230px;
+      border-left: 1px solid rgba(255,255,255,0.12);
+      padding-left: 1.8rem;
+    }
+
+    .home-hero-side-title {
+      font-size: 0.9rem;
+      color: #aaaaaa;
+      margin-bottom: 0.6rem;
+    }
+
+    .home-hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .home-hero-list li {
+      font-size: 0.95rem;
+      color: #dddddd;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .home-hero {
+        padding-top: 2.2rem;
+      }
+      .home-hero-side {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding-top: 1.5rem;
+      }
+      .home-hero-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* =========================
+       HOME: 핵심 섹션 카드
+       ========================= */
+    .home-sections {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .home-sections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.7rem;
+    }
+
+    .home-card {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.5rem 1.6rem 1.6rem;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .home-card-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7f95ff;
+    }
+
+    .home-card-title {
       font-size: 1.1rem;
+      margin: 0.1rem 0 0.4rem;
+    }
+
+    .home-card-text {
+      font-size: 0.95rem;
+      color: #cccccc;
+      flex: 1;
+    }
+
+    .home-card-link {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #89a7ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .home-card-link span {
+      font-size: 1rem;
       transform: translateY(1px);
     }
 
-    /* ====== FOOTER ====== */
-    .site-footer {
-      margin-top: 4rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid rgba(255,255,255,0.18); /* 구분선 추가 */
-      background: #050505;
-      font-size: 0.8rem;
-      color: #aaa;
+    @media (max-width: 900px) {
+      .home-sections-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    .site-footer .footer-inner {
-      max-width: 1100px; /* 본문과 동일한 중앙 너비 */
-      margin: 0 auto; /* 화면 가운데 정렬 */
-      padding: 0 1.5rem; /* 본문 섹션과 동일한 좌우 여백 */
+    @media (max-width: 640px) {
+      .home-sections-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================
+       HOME: HISTORY 요약
+       ========================= */
+    .home-history {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .home-history-header {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start; /* 왼쪽 정렬 */
-      text-align: left; /* 텍스트 왼쪽 정렬 */
-      gap: 0.35rem;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
     }
 
-    .footer-brand{
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #fff;
-      margin-bottom: 0.4rem;
+    .home-history-title {
+      margin: 0;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
     }
 
-    .footer-item{
-      font-weight: 400;
-      color: #aaa;
-    }
-
-    .footer-link{
-      color: #0737b4;
+    .home-history-more {
+      font-size: 0.85rem;
       text-decoration: none;
-      font-weight: 500;
+      color: #89a7ff;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    .footer-link:hover{
-      text-decoration: underline;
-    }
-
-    .footer-sns{
+    .home-history-years {
       display: flex;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    .footer-sns a svg {
-      width: 18px;
-      height: 18px;
-      fill: #aaa;
-      transition: fill 0.2s, transform 0.2s;
+    .home-history-tag {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.05rem;
     }
 
-    .footer-sns a:hover svg{
-      fill: #0737b4;
-      transform: translateY(-1px);
+    .home-history-year {
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
     }
 
-    @media (max-width: 768px){
-      .site-footer{
-        padding: 2rem 1.2rem 1.7rem;
-      }
-      .section--split {
-        gap: 2rem;
-      }
+    .home-history-label {
+      font-size: 0.8rem;
+      color: #bbbbbb;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 공통 HEADER -->
-  <header>
-    <a href="index.html" style="text-decoration:none; color:inherit;">
-      <h1>국악LAB 한양팔도</h1>
-      <h2>GUGAKLAB HANYANGPALDO</h2>
-    </a>
-  </header>
+  <!-- 공통 HEADER / NAV (layout.js가 내용 채워줌) -->
+  <header></header>
+  <nav></nav>
 
-  <!-- 공통 NAV -->
-  <nav>
-    <a href="index.html">ABOUT</a>
-    <a href="program.html">PROGRAM</a>
-    <a href="artists.html">ARTISTS</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="videos.html">VIDEOS</a>
-    <a href="notice.html">NOTICE</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
+  <!-- 메인 콘텐츠 -->
+  <main>
 
-  <!-- 이 페이지 전용 CONTENT -->
-  <section class="section section--split">
-    <div class="col-main">
-      <div class="kicker">ABOUT GUGAKLAB HANYANGPALDO</div>
-      <h2>ABOUT</h2>
-      <p class="lead">
-      “젊은 국악인들이 빚어내는 전통음악의 정수!”
-       서울대학교, 한양대학교, 한국예술종합학교, 중앙대학교 등
-       국내 최고 음악대학 출신의 청년국악인들이 모여 결성한 연주단체입니다.
-      </p>
-      <p class="lead">
-       우리나라 팔도 전통음악이 지닌 고결한 정서와 예술적 아름다움을 온전히 담아내며,
-       청년 국악인들의 열정으로 우리 전통음악의 고유한 색채를 지켜나가고자 합니다.
-      </p>
+    <!-- HERO 섹션 -->
+    <section class="section home-hero">
+      <div class="home-hero-main">
+        <div class="home-hero-kicker">GUGAKLAB HANYANGPALDO</div>
+        <h2 class="home-hero-title">젊은 국악인들이 빚어내는<br />전통음악의 정수</h2>
+        <p class="home-hero-sub">
+          서울대학교, 한양대학교, 한국예술종합학교, 중앙대학교 등
+          국내 최고 음악대학 출신의 청년 국악인들이 모여 결성한 연주단체.
+          팔도 전통음악의 고결한 정서와 예술적 아름다움을
+          오늘의 무대 위에서 다시 숨 쉬게 합니다.
+        </p>
 
-      <a href="program.html" class="btn-link">
-        프로그램 보러가기 <span class="arrow">→</span>
-      </a>
-    </div>
-
-    <div class="col-side">
-      <p class="muted">국악LAB 한양팔도 키워드</p>
-      <ul class="highlight-list">
-        <li>· 전통과 현대의 공존</li>
-        <li>· 즉흥성과 호흡이 살아 있는 시나위</li>
-        <li>· 레퍼토리 기반 기획형 국악 공연</li>
-        <li>· 연주자 중심의 실험적 협업</li>
-      </ul>
-
-      <p class="muted" style="margin-top:1.5rem;">주요 구성</p>
-      <ul class="highlight-list">
-        <li>· 타악, 피리, 판소리 등 다양한 편성</li>
-        <li>· 완창 공연, 레퍼토리 시리즈, 콜라보 프로젝트</li>
-      </ul>
-    </div>
-    <!===== PROGRAM SECTION =====!>
-   <section class="section section--split">
-    <div class="col-main">
-    <div class="kicker">HISTORY</div>
-    <h2>HISTORY</h2>
-    <p class="lead">
-      국악LAB 한양팔도는 전통음악과 창장음악을 아우르는 완창, 시나위, 레퍼토리 시리즈 등
-      다양한 형식의 국악 공연을 선보입니다.
-    </p>
-
-    <div class="program-list">
-
-      <!-- Program 1 -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2025</div>
-          <div>완창 프로젝트</div>
-          <span class="tag">판소리</span>
+        <div class="home-hero-actions">
+          <a href="program.html" class="btn-primary">PROGRAM 보기</a>
+          <a href="artists.html" class="btn-ghost">ARTISTS 소개</a>
         </div>
-        <div class="program-body">
-          <h3> - 김세종제 춘향가 완창 : 꺾이지 않는 정절</h3>
-          <p class="subtitle">시나위와 장단이 이끄는 즉흥적 호흡</p>
-          <p>
-            전통 시나위의 즉흥성과 현대적 사운드를 결합한 공연으로,
-            타악·피리·판소리가 서로의 숨을 주고받으며 하나의 흐름을 만들어갑니다.
-          </p>
-          <p class="meta-line">
-            구성: 시나위 / 타악 솔로 / 피리·판소리 콜라보레이션
-          </p>
-        </div>
-      </article>
-
-            <!-- Program 2 -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2025</div>
-          <div>축하공연 프로젝트</div>
-          <span class="tag">민속악 레퍼토리</span>
-        </div>
-        <div class="program-body">
-          <h3>제23회 대한민국서당문화한마당 축하공연</h3>
-          <p class="subtitle">K-Culture의 근간을 이루는 전통 교육인 서당과 서당에서 이루어지는 다양한 </p>
-          <p>
-          
-          </p>
-          <p class="meta-line">
-            형식: 판소리 완창 · 반주 고수 동반
-          </p>
-        </div>
-      </article>
-
-            <!-- Program 2 -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2024</div>
-          <div>완창 프로젝트</div>
-          <span class="tag">판소리</span>
-        </div>
-        <div class="program-body">
-          <h3>춘향가 완창: 꺾이지 않는 정절</h3>
-          <p class="subtitle">보성소리의 맥을 잇는 판소리 레퍼토리</p>
-          <p>
-            미산제 춘향가를 중심으로, 전통 판소리의 서사와 소리의 결을 온전히 담아낸 완창 무대입니다.
-            소리꾼과 고수가 함께 만들어내는 밀도 높은 서사의 힘을 느낄 수 있습니다.
-          </p>
-          <p class="meta-line">
-            형식: 판소리 완창 · 반주 고수 동반
-          </p>
-        </div>
-      </article>
-  </section>
-
-  <!-- 공통 FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">국악LAB 한양팔도</div>
-      <span class="footer-item">
-        주소: 서울특별시 서초구 효령로 229 B1층 B07호 &nbsp;&nbsp;
-        <a href="https://map.naver.com/p/search/국악LAB한양팔도" 
-           class="footer-link" 
-           target="_blank" 
-           rel="noopener">map</a>
-      </span>
-      <span class="footer-item">
-        이메일: <a href="mailto:gugaklab@naver.com" class="footer-link">gugaklab@naver.com</a>
-      </span>
-      <div class="footer-sns">
-        <a href="https://www.instagram.com/hanyangpaldo?igsh=aHNzdXRrOXh6YWx5" class="footer-link" aria-label="국악LAB 한양팔도 인스타그램" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-7.9a1.1 1.1 0 1 1-1.1-1.1 1.09 1.09 0 0 1 1.1 1.1ZM21 7.1a6.32 6.32 0 0 0-.4-2.2 4.4 4.4 0 0 0-2.5-2.5A6.32 6.32 0 0 0 16 2H8a6.32 6.32 0 0 0-2.2.4 4.4 4.4 0 0 0-2.5 2.5A6.32 6.32 0 0 0 3 7.1V17a6.32 6.32 0 0 0 .4 2.2 4.4 4.4 0 0 0 2.5 2.5A6.32 6.32 0 0 0 8 22h8a6.32 6.32 0 0 0 2.2-.4 4.4 4.4 0 0 0 2.5-2.5A6.32 6.32 0 0 0 21 17V7.1Zm-1.8 9.9a4 4 0 0 1-.2 1.4 2.7 2.7 0 0 1-1.5 1.5 4 4 0 0 1-1.4.2H8a4 4 0 0 1-1.4-.2 2.7 2.7 0 0 1-1.5-1.5 4 4 0 0 1-.2-1.4V7.1a4 4 0 0 1 .2-1.4 2.7 2.7 0 0 1 1.5-1.5A4 4 0 0 1 8 4h8a4 4 0 0 1 1.4.2 2.7 2.7 0 0 1 1.5 1.5 4 4 0 0 1 .2 1.4Z"/>
-          </svg>
-        </a>
       </div>
-    </div>
-  </footer>
+
+      <div class="home-hero-side">
+        <div class="home-hero-side-title">키워드로 보는 국악LAB 한양팔도</div>
+        <ul class="home-hero-list">
+          <li>· 팔도 전통음악을 기반으로 한 기획형 국악 공연</li>
+          <li>· 즉흥성과 호흡이 살아 있는 시나위와 완창 레퍼토리</li>
+          <li>· 타악, 피리, 판소리 등 다양한 편성의 실험적 협업</li>
+          <li>· 전통의 고결함과 현대적 감각의 균형을 추구하는 청년 국악인 연주단체</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 핵심 섹션 카드 (ABOUT / PROGRAM / ARTISTS) -->
+    <section class="section home-sections">
+      <div class="home-sections-grid">
+
+        <!-- ABOUT 카드 -->
+        <article class="home-card">
+          <div class="home-card-kicker">ABOUT</div>
+          <h3 class="home-card-title">단체 소개</h3>
+          <p class="home-card-text">
+            우리나라 팔도 전통음악이 지닌 정서와 아름다움을 온전히 담아내며,
+            청년 국악인들의 열정으로 전통음악의 고유한 색채를 지켜나갑니다.
+          </p>
+          <a href="index.html" class="home-card-link">
+            ABOUT 바로가기 <span>↗</span>
+          </a>
+        </article>
+
+        <!-- PROGRAM 카드 -->
+        <article class="home-card">
+          <div class="home-card-kicker">PROGRAM</div>
+          <h3 class="home-card-title">공연 프로그램</h3>
+          <p class="home-card-text">
+            완창, 시나위, 레퍼토리 시리즈 등
+            전통과 창작을 아우르는 다양한 공연 포맷으로
+            관객과 만납니다.
+          </p>
+          <a href="program.html" class="home-card-link">
+            PROGRAM 보기 <span>↗</span>
+          </a>
+        </article>
+
+        <!-- ARTISTS 카드 -->
+        <article class="home-card">
+          <div class="home-card-kicker">ARTISTS</div>
+          <h3 class="home-card-title">연주자 소개</h3>
+          <p class="home-card-text">
+            각기 다른 배경과 색채를 지닌 청년 국악인들이
+            한 무대에서 호흡하며 새로운 사운드를 만들어냅니다.
+          </p>
+          <a href="artists.html" class="home-card-link">
+            ARTISTS 보기 <span>↗</span>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- HISTORY 요약 섹션 -->
+    <section class="section home-history">
+      <div class="home-history-header">
+        <h3 class="home-history-title">HISTORY</h3>
+        <a href="index.html#history" class="home-history-more">자세히 보기 →</a>
+      </div>
+
+      <p class="lead" style="margin-bottom:1.5rem;">
+        국악LAB 한양팔도는 완창 프로젝트와 축하 공연, 레퍼토리 시리즈 등
+        다양한 무대를 통해 우리 소리의 깊이와 확장을 동시에 모색하고 있습니다.
+      </p>
+
+      <div class="home-history-years">
+        <div class="home-history-tag">
+          <span class="home-history-year">2025</span>
+          <span class="home-history-label">김세종제 춘향가 완창 프로젝트</span>
+        </div>
+        <div class="home-history-tag">
+          <span class="home-history-year">2025</span>
+          <span class="home-history-label">제23회 대한민국서당문화한마당 축하공연</span>
+        </div>
+        <div class="home-history-tag">
+          <span class="home-history-year">2024</span>
+          <span class="home-history-label">춘향가 완창 &amp; 보성소리 레퍼토리</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 공통 FOOTER (layout.js가 내용 채워줌) -->
+  <footer class="site-footer"></footer>
 
 </body>
 </html>

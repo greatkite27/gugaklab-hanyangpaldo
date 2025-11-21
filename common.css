@@ -27,20 +27,47 @@ body {
 }
 
 /* =========================
-   HEADER
+   HEADER (배너 이미지)
    ========================= */
 
 header {
-  background: url('배너.png') no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-   
-   /* 기존 레이아웃 유지 */
-  padding: 4rem 3rem;
+  background: url('배너.png') no-repeat center/cover;
+  /* 🔥 배너 위아래 여백(PC 기준) */
+  padding: 5rem 2rem;
+  min-height: 340px;     /* 🔥 PC에서 배너가 충분히 보이도록 */
   text-align: center;
   position: relative;
 }
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+header * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- 태블릿 (width ≤ 768px) ---------- */
+@media (max-width: 768px) {
+  header {
+    padding: 4rem 1.5rem;
+    min-height: 280px;   /* 🔥 태블릿에서 조금 낮게 */
+  }
+}
+
+/* ---------- 모바일 (width ≤ 480px) ---------- */
+@media (max-width: 480px) {
+  header {
+    padding: 3rem 1rem;
+    min-height: 220px;   /* 🔥 모바일에서 더 낮게 */
+    background-position: center top;   /* 모바일 화면 비율에 더 잘 맞음 */
+  }
+}
+
 
 header::before {
   content: "";

@@ -128,17 +128,18 @@
     });
   }
 
-  function buildFooter() {
-    const footerEl = document.querySelector('footer.site-footer');
-    if (!footerEl) return;
+function buildFooter() {
+  const footerEl = document.querySelector('footer.site-footer');
+  if (!footerEl) return;
 
-    const t = labels[lang];
+  const t = labels[lang];
 
-    footerEl.innerHTML = `
+  footerEl.innerHTML = `
       <div class="footer-inner">
         <div class="footer-brand">${labels.ko.siteTitleKo}</div>
+
         <span class="footer-item">
-          ${t.footer.addressLabel}: 서울특별시 서초구 효령로 229 B1층 B07호&nbsp;&nbsp;
+          서울특별시 서초구 효령로 229 B1층 B07호&nbsp;&nbsp;
           <a href="https://map.naver.com/p/search/국악LAB한양팔도"
              class="footer-link"
              target="_blank"
@@ -146,12 +147,13 @@
             ${t.footer.map}
           </a>
         </span>
+
         <span class="footer-item">
-          ${t.footer.emailLabel}:
           <a href="mailto:hanyangpaldo@gmail.com" class="footer-link">
             hanyangpaldo@gmail.com
           </a>
         </span>
+
         <div class="footer-sns">
           <a href="https://www.instagram.com/hanyangpaldo?igsh=aHNzdXRrOXh6YWx5"
              class="footer-link"
@@ -165,7 +167,7 @@
         </div>
       </div>
     `;
-  }
+}
 
   // 실행
   buildHeader();

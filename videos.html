@@ -3,292 +3,500 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>국악LAB 한양팔도 - 영상</title>
+  <title>국악LAB 한양팔도 - VIDEOS</title>
+
+  <link rel="stylesheet" href="common.css" />
+  <script src="layout.js" defer></script>
+
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #000;
-      color: #fff;
+    /* HERO */
+    .videos-hero {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
     }
 
-    header {
-      background: url('진도씻김굿0.jpg') no-repeat;
-      background-size: cover;
-      background-position: 50% 75%;
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
-      z-index: 0;
-    }
-    header * { position: relative; z-index: 1; }
-    header h1 { margin: 0 0 0.5rem; font-size: 3rem; letter-spacing: 0.08em; }
-    header h2 { margin: 0; font-size: 1.2rem; opacity: 0.9; }
-    
-    @media (max-width: 768px) {
-      header {
-        padding: 3rem 1.5rem;
-        background-position: 50% 60%;
-      }
-      header h1 { font-size: 2.1rem; }
-      header h2 { font-size: 1rem; }
-    }
-
-    /* ===== NAV ===== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      padding: 0.7rem 1rem;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(8px);
-      overflow-x: auto;
-    }
-    nav a {
-      text-decoration: none;
-      color: #ddd;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav a:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.05);
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-    .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-      border-left: 4px solid #f4c842;
-      padding-left: 0.7rem;
-    }
-
-    /* ====== VIDEO GALLERY STYLE ====== */
-    .video-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .video-card {
-      background: radial-gradient(circle at top, #222 0, #111 70%);
-      padding: 1rem;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: 0.2s;
-      cursor: pointer;
-      position: relative;
-    }
-    .video-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 32px rgba(0,0,0,0.85);
-      border-color: rgba(244,200,66,0.6);
-    }
-    .video-card iframe {
-      width: 100%;
-      height: 200px;
-      border-radius: 10px;
-    }
-    .video-card h3 {
-      margin: 0.5rem 0;
-      font-size: 1.05rem;
-    }
-    .video-card p {
-      font-size: 0.9rem;
-      color: #ddd;
-    }
-
-    .video-card .video-link {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-    }
-    .video-card .video-link a {
-      color: #fff;
-      border: 1px solid #fff;
-      padding: .35rem .8rem;
-      border-radius: 20px;
-      text-decoration: none;
-    }
-    .video-card .video-link a:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    /* ====== FOOTER ====== */
-    .site-footer {
-      margin-top: 4rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid rgba(255,255,255,0.18);
-      background: #050505;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-    
-    .site-footer .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      gap: 0.35rem;
-    }
-    .footer-brand {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #fff;
+    .videos-hero .kicker {
       margin-bottom: 0.4rem;
     }
 
-    .footer-item {
-      font-weight: 400;
-      color: #aaa;
+    .videos-hero h2 {
+      border-left: none;
+      padding-left: 0;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
     }
-    .footer-link {
-      color: #f4c842;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .footer-link:hover { text-decoration: underline; }
 
-    .footer-sns {
+    .videos-hero .lead {
+      max-width: 42rem;
+    }
+
+    /* FILTER BAR */
+    .video-filters {
+      margin-top: 2rem;
       display: flex;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
-    }
-    .footer-sns a svg {
-      width: 18px;
-      height: 18px;
-      fill: #aaa;
-      transition: fill 0.2s, transform 0.2s;
-    }
-    .footer-sns a:hover svg {
-      fill: #f4c842;
-      transform: translateY(-1px);
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
-    @media (max-width: 768px) {
-      .site-footer {
-        padding: 2rem 1.2rem 1.7rem;
+    .video-filter-btn {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: transparent;
+      color: #ddd;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .video-filter-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .video-filter-btn.active {
+      background: #ffffff;
+      color: #000;
+      border-color: #ffffff;
+    }
+
+    /* VIDEO GRID */
+    .video-grid-wrap {
+      margin-top: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .video-card {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.85);
+      border-color: rgba(137,167,255,0.7);
+    }
+
+    .video-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .video-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, opacity 0.25s ease;
+    }
+
+    .video-card:hover .video-thumb-wrap img {
+      transform: scale(1.06);
+      opacity: 0.9;
+    }
+
+    .video-play-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .video-play-icon::before {
+      content: "";
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.85);
+      display: block;
+      position: relative;
+    }
+
+    .video-play-icon::after {
+      content: "";
+      position: absolute;
+      border-style: solid;
+      border-width: 10px 0 10px 16px;
+      border-color: transparent transparent transparent #ffffff;
+      margin-left: 4px;
+    }
+
+    .video-card-body {
+      padding: 1rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .video-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8ba4ff;
+    }
+
+    .video-title {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .video-meta {
+      font-size: 0.8rem;
+      color: #999999;
+    }
+
+    .video-desc {
+      font-size: 0.9rem;
+      color: #dddddd;
+      margin-top: 0.3rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+
+    @media (max-width: 640px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* LIGHTBOX (VIDEO PLAYER) */
+    .video-lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 999;
+    }
+
+    .video-lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .video-lightbox-inner {
+      max-width: 960px;
+      width: 90%;
+    }
+
+    .video-lightbox-frame-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: #000;
+    }
+
+    .video-lightbox-frame-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-lightbox-caption {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #eeeeee;
+    }
+
+    .video-lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.8rem;
+      font-size: 1.8rem;
+      color: #ffffff;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .video-lightbox-close:hover {
+      color: #cccccc;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="index.html" style="text-decoration:none; color:inherit;">
-      <h1>국악LAB 한양팔도</h1>
-      <h2>GUGAKLAB HANYANGPALDO</h2>
-    </a>
-  </header>
+<header></header>
+<nav></nav>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html">ABOUT</a>
-    <a href="program.html">PROGRAM</a>
-    <a href="artists.html">ARTISTS</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="videos.html">VIDEOS</a>
-    <a href="notice.html">NOTICE</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
+<main>
 
+  <!-- HERO -->
+  <section class="section videos-hero">
+    <div class="kicker">VIDEOS</div>
+    <h2>VIDEOS</h2>
+    <p class="lead">
+      국악LAB 한양팔도의 공연 실황, 리허설 스케치, 인터뷰 영상 등을 모았습니다.
+      무대 위와 무대 뒤의 순간들을 영상으로 만나보세요.
+    </p>
 
-  <!-- VIDEO GALLERY SECTION -->
-  <section class="section">
-    <h2>공연 영상</h2>
-    <div class="video-gallery">
+    <!-- FILTER BUTTONS -->
+    <div class="video-filters">
+      <button class="video-filter-btn active" data-filter="all">All</button>
+      <button class="video-filter-btn" data-filter="performance">공연 영상</button>
+      <button class="video-filter-btn" data-filter="rehearsal">리허설</button>
+      <button class="video-filter-btn" data-filter="interview">인터뷰</button>
+      <button class="video-filter-btn" data-filter="documentary">기록 영상</button>
+    </div>
+  </section>
 
-      <!-- Video 1 -->
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/tpxx2E2R5tA" allowfullscreen></iframe>
-        <h3>시나위</h3>
-        <p>시나위와 장단이 이끄는 즉흥적 호흡을 담은 공연 영상입니다.</p>
-        <div class="video-link">
-          <a href="https://www.youtube.com/watch?v=tpxx2E2R5tA" target="_blank">YouTube에서 보기</a>
+  <!-- VIDEO GRID -->
+  <section class="section video-grid-wrap">
+    <div class="video-grid">
+
+      <!-- 예시1: 공연 영상 -->
+      <article class="video-card"
+               data-category="performance"
+               data-video-src="https://www.youtube.com/embed/VIDEO_ID_1"
+               data-video-title="김세종제 춘향가 완창 : 꺾이지 않는 정절 (하이라이트)">
+        <div class="video-thumb-wrap">
+          <img src="video-thumb-1.jpg"
+               alt="김세종제 춘향가 완창 하이라이트"
+               loading="lazy" />
+          <div class="video-play-icon"></div>
         </div>
-      </div>
-
-      <!-- Video 2 -->
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/jSN5xV2isjE?start=175" allowfullscreen></iframe>
-        <h3>진도북춤</h3>
-        <p>진도북춤의 리듬과 흥을 담은 공연 영상입니다.</p>
-        <div class="video-link">
-          <a href="https://www.youtube.com/watch?v=jSN5xV2isjE&t=175s" target="_blank">YouTube에서 보기</a>
+        <div class="video-card-body">
+          <div class="video-tag">PERFORMANCE</div>
+          <h3 class="video-title">김세종제 춘향가 완창 : 꺾이지 않는 정절 (하이라이트)</h3>
+          <div class="video-meta">러닝타임 12분 · 국악LAB 한양팔도</div>
+          <p class="video-desc">
+            완창 프로젝트의 주요 대목을 모은 하이라이트 영상으로,
+            보성소리의 서사와 시나위의 호흡을 함께 느낄 수 있습니다.
+          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- Video 3 -->
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/9gmQNSYlXIM?start=1" allowfullscreen></iframe>
-        <h3>연희한마당</h3>
-        <p>연희와 함께하는 전통과 현대의 경계를 허무는 공연 영상입니다.</p>
-        <div class="video-link">
-          <a href="https://www.youtube.com/watch?v=9gmQNSYlXIM&t=1s" target="_blank">YouTube에서 보기</a>
+      <!-- 예시2: 공연 영상 -->
+      <article class="video-card"
+               data-category="performance"
+               data-video-src="https://www.youtube.com/embed/VIDEO_ID_2"
+               data-video-title="시나위 프로젝트 라이브 세션">
+        <div class="video-thumb-wrap">
+          <img src="video-thumb-2.jpg"
+               alt="시나위 프로젝트 라이브 세션"
+               loading="lazy" />
+          <div class="video-play-icon"></div>
         </div>
-      </div>
+        <div class="video-card-body">
+          <div class="video-tag">PERFORMANCE</div>
+          <h3 class="video-title">시나위 프로젝트 라이브 세션</h3>
+          <div class="video-meta">러닝타임 9분 · 타악 · 피리 · 판소리</div>
+          <p class="video-desc">
+            타악과 피리, 소리가 즉흥적으로 주고받는 시나위 라이브 세션입니다.
+            매 공연마다 다른 결을 만들어내는 즉흥의 순간을 담았습니다.
+          </p>
+        </div>
+      </article>
 
-      <!-- Video 4 -->
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/5tWfkoToiUA" allowfullscreen></iframe>
-        <h3>추억, 흥타령</h3>
-        <p>흥과 감동이 가득한 추억의 흥타령 공연 영상입니다.</p>
-        <div class="video-link">
-          <a href="https://www.youtube.com/watch?v=5tWfkoToiUA" target="_blank">YouTube에서 보기</a>
+      <!-- 예시3: 리허설 -->
+      <article class="video-card"
+               data-category="rehearsal"
+               data-video-src="https://www.youtube.com/embed/VIDEO_ID_3"
+               data-video-title="춘향가 완창 리허설 스케치">
+        <div class="video-thumb-wrap">
+          <img src="video-thumb-3.jpg"
+               alt="춘향가 완창 리허설"
+               loading="lazy" />
+          <div class="video-play-icon"></div>
         </div>
-      </div>
+        <div class="video-card-body">
+          <div class="video-tag">REHEARSAL</div>
+          <h3 class="video-title">춘향가 완창 리허설 스케치</h3>
+          <div class="video-meta">러닝타임 5분 · 리허설 기록</div>
+          <p class="video-desc">
+            완창 공연을 앞두고 세밀한 호흡을 맞추는 리허설 현장을 담은 영상입니다.
+          </p>
+        </div>
+      </article>
+
+      <!-- 예시4: 인터뷰 -->
+      <article class="video-card"
+               data-category="interview"
+               data-video-src="https://www.youtube.com/embed/VIDEO_ID_4"
+               data-video-title="국악LAB 한양팔도 멤버 인터뷰">
+        <div class="video-thumb-wrap">
+          <img src="video-thumb-4.jpg"
+               alt="멤버 인터뷰"
+               loading="lazy" />
+          <div class="video-play-icon"></div>
+        </div>
+        <div class="video-card-body">
+          <div class="video-tag">INTERVIEW</div>
+          <h3 class="video-title">국악LAB 한양팔도 멤버 인터뷰</h3>
+          <div class="video-meta">러닝타임 7분 · 인터뷰</div>
+          <p class="video-desc">
+            각 연주자가 생각하는 전통음악, 그리고 국악LAB 한양팔도가 지향하는 무대에 대한 이야기를 담았습니다.
+          </p>
+        </div>
+      </article>
+
+      <!-- 예시5: 기록 영상 -->
+      <article class="video-card"
+               data-category="documentary"
+               data-video-src="https://www.youtube.com/embed/VIDEO_ID_5"
+               data-video-title="현장 스케치 : 무대 뒤의 하루">
+        <div class="video-thumb-wrap">
+          <img src="video-thumb-5.jpg"
+               alt="무대 뒤 현장 스케치"
+               loading="lazy" />
+          <div class="video-play-icon"></div>
+        </div>
+        <div class="video-card-body">
+          <div class="video-tag">DOCUMENTARY</div>
+          <h3 class="video-title">현장 스케치 : 무대 뒤의 하루</h3>
+          <div class="video-meta">러닝타임 6분 · 현장 스케치</div>
+          <p class="video-desc">
+            공연 준비부터 마무리까지, 무대 뒤에서 흘러가는 하루를 따라가는 기록 영상입니다.
+          </p>
+        </div>
+      </article>
+
+      <!-- 예시6: 추가 공연 영상 -->
+      <article class="video-card"
+               data-category="performance"
+               data-video-src="https://www.youtube.com/embed/VIDEO_ID_6"
+               data-video-title="팔도 레퍼토리 시리즈 라이브">
+        <div class="video-thumb-wrap">
+          <img src="video-thumb-6.jpg"
+               alt="팔도 레퍼토리 시리즈"
+               loading="lazy" />
+          <div class="video-play-icon"></div>
+        </div>
+        <div class="video-card-body">
+          <div class="video-tag">PERFORMANCE</div>
+          <h3 class="video-title">팔도 레퍼토리 시리즈 라이브</h3>
+          <div class="video-meta">러닝타임 11분 · 레퍼토리 시리즈</div>
+          <p class="video-desc">
+            팔도 전통음악을 테마별로 엮은 레퍼토리 시리즈 중 일부 하이라이트 영상입니다.
+          </p>
+        </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">국악LAB 한양팔도</div>
-      <span class="footer-item">
-        주소: 서울특별시 서초구 효령로 229 B1층 B07호 &nbsp;&nbsp;
-        <a href="https://map.naver.com/p/search/국악LAB한양팔도" 
-           class="footer-link" 
-           target="_blank" 
-           rel="noopener">map</a>
-      </span>
-      <span class="footer-item">
-        이메일: <a href="mailto:gugaklab@naver.com" class="footer-link">gugaklab@naver.com</a>
-      </span>
-      <div class="footer-sns">
-        <a href="https://www.instagram.com/hanyangpaldo?igsh=aHNzdXRrOXh6YWx5" class="footer-link" aria-label="국악LAB 한양팔도 인스타그램" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-7.9a1.1 1.1 0 1 1-1.1-1.1 1.09 1.09 0 0 1 1.1 1.1ZM21 7.1a6.32 6.32 0 0 0-.4-2.2 4.4 4.4 0 0 0-2.5-2.5A6.32 6.32 0 0 0 16 2H8a6.32 6.32 0 0 0-2.2.4 4.4 4.4 0 0 0-2.5 2.5A6.32 6.32 0 0 0 3 7.1V17a6.32 6.32 0 0 0 .4 2.2 4.4 4.4 0 0 0 2.5 2.5A6.32 6.32 0 0 0 8 22h8a6.32 6.32 0 0 0 2.2-.4 4.4 4.4 0 0 0 2.5-2.5A6.32 6.32 0 0 0 21 17V7.1Zm-1.8 9.9a4 4 0 0 1-.2 1.4 2.7 2.7 0 0 1-1.5 1.5 4 4 0 0 1-1.4.2H8a4 4 0 0 1-1.4-.2 2.7 2.7 0 0 1-1.5-1.5 4 4 0 0 1-.2-1.4V7.1a4 4 0 0 1 .2-1.4 2.7 2.7 0 0 1 1.5-1.5A4 4 0 0 1 8 4h8a4 4 0 0 1 1.4.2 2.7 2.7 0 0 1 1.5 1.5 4 4 0 0 1 .2 1.4Z"/>
-          </svg>
-        </a>
-      </div>
+</main>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="video-lightbox-overlay" id="videoLightbox">
+  <div class="video-lightbox-inner">
+    <div class="video-lightbox-frame-wrap">
+      <iframe id="videoFrame"
+              src=""
+              title="국악LAB 한양팔도 영상 재생"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
     </div>
-  </footer>
+    <div class="video-lightbox-caption" id="videoCaption"></div>
+  </div>
+  <div class="video-lightbox-close" id="videoLightboxClose">&times;</div>
+</div>
+
+<footer class="site-footer"></footer>
+
+<script>
+  // FILTERING
+  const vFilterButtons = document.querySelectorAll('.video-filter-btn');
+  const vCards         = document.querySelectorAll('.video-card');
+
+  vFilterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      vFilterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      vCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // LIGHTBOX (VIDEO PLAYER)
+  const videoLightbox      = document.getElementById('videoLightbox');
+  const videoFrame         = document.getElementById('videoFrame');
+  const videoCaption       = document.getElementById('videoCaption');
+  const videoLightboxClose = document.getElementById('videoLightboxClose');
+
+  const openVideo = (src, title) => {
+    // autoplay 쿼리 추가 (YouTube 기준)
+    const autoSrc = src.includes('?') ? src + '&autoplay=1' : src + '?autoplay=1';
+    videoFrame.setAttribute('src', autoSrc);
+    videoCaption.textContent = title || '';
+    videoLightbox.classList.add('open');
+  };
+
+  const closeVideo = () => {
+    videoLightbox.classList.remove('open');
+    videoFrame.setAttribute('src', '');
+    videoCaption.textContent = '';
+  };
+
+  vCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const src   = card.getAttribute('data-video-src');
+      const title = card.getAttribute('data-video-title');
+      if (src) {
+        openVideo(src, title);
+      }
+    });
+  });
+
+  videoLightboxClose.addEventListener('click', closeVideo);
+
+  videoLightbox.addEventListener('click', (e) => {
+    if (e.target === videoLightbox) {
+      closeVideo();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoLightbox.classList.contains('open')) {
+      closeVideo();
+    }
+  });
+</script>
 
 </body>
 </html>

@@ -3,415 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>국악LAB 한양팔도 - 프로그램</title>
+  <title>국악LAB 한양팔도 - PROGRAM</title>
 
-  <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #000;
-      color: #fff;
-    }
-
-    /* ====== HEADER (index.html과 동일) ====== */
-    header {
-      background: url('진도씻김굿0.jpg') no-repeat;
-      background-size: cover;
-      background-position: 50% 75%;
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(0,0,0,0.4),
-        rgba(0,0,0,0.9)
-      );
-      z-index: 0;
-    }
-    header * {
-      position: relative;
-      z-index: 1;
-    }
-    header h1 {
-      margin: 0 0 0.5rem;
-      font-size: 3rem;
-      letter-spacing: 0.08em;
-    }
-    header h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 3rem 1.5rem;
-        background-position: 50% 60%;
-      }
-      header h1 { font-size: 2.1rem; }
-      header h2 { font-size: 1rem; }
-    }
-
-    /* ====== NAV (index.html과 동일) ====== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      padding: 0.7rem 1rem;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(8px);
-      overflow-x: auto;
-    }
-    nav a {
-      white-space: nowrap;
-      text-decoration: none;
-      color: #ddd;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      transition: background 0.2s, color 0.2s;
-    }
-    
-    nav a:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.05);  /* hover 시 살짝 확대되는 효과 */
-    }
-    
-    @media (max-width: 600px) {
-      nav { gap: 0.6rem; padding: 0.5rem 0.6rem; }
-      nav a { font-size: 0.8rem; }
-    }
-
-    /* ====== SECTION 공통 ====== */
-    .section {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-    .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-      border-left: 4px solid #f4c842;
-      padding-left: 0.7rem;
-    }
-
-    .kicker {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #f4c842;
-      margin-bottom: 0.6rem;
-    }
-
-    /* ====== PROGRAM LIST ====== */
-    .program-intro {
-      font-size: 0.95rem;
-      color: #ddd;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .program-list {
-      border-top: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .program-item {
-      display: flex;
-      gap: 2rem;
-      padding: 1.7rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      flex-wrap: wrap;
-    }
-
-    .program-meta {
-      min-width: 160px;
-      max-width: 220px;
-      color: #aaa;
-      font-size: 0.85rem;
-    }
-
-    .program-meta .year {
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #f4c842;
-      margin-bottom: 0.3rem;
-    }
-
-    .program-meta .tag {
-      display: inline-block;
-      margin-top: 0.4rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      font-size: 0.75rem;
-      color: #ccc;
-    }
-
-    .program-body h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.15rem;
-    }
-
-    .program-body .subtitle {
-      margin: 0 0 0.6rem;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    .program-body p {
-      margin: 0 0 0.5rem;
-      font-size: 0.9rem;
-      color: #ddd;
-      line-height: 1.7;
-    }
-
-    .program-body .meta-line {
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .program-item {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .program-meta {
-        max-width: 100%;
-      }
-    }
-
-    /* ====== FOOTER (index와 동일, 정렬 맞춘 버전) ====== */
-    .site-footer{
-      margin-top: 4rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid rgba(255,255,255,0.18);
-      background: #050505;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-
-    .site-footer .footer-inner{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;  /* 본문과 좌우 여백 맞춤 */
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      gap: 0.35rem;
-    }
-
-    .footer-brand{
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #fff;
-      margin-bottom: 0.4rem;
-    }
-
-    .footer-item{
-      font-weight: 400;
-      color: #aaa;
-    }
-
-    .footer-link{
-      color: #f4c842;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .footer-link:hover{
-      text-decoration: underline;
-    }
-
-    .footer-sns{
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
-    }
-
-    .footer-sns a svg{
-      width: 18px;
-      height: 18px;
-      fill: #aaa;
-      transition: fill 0.2s, transform 0.2s;
-    }
-
-    .footer-sns a:hover svg{
-      fill: #f4c842;
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 768px){
-      .site-footer{
-        padding: 2rem 0 1.7rem;
-      }
-    }
-  </style>
+  <!-- 공통 스타일 & 레이아웃 -->
+  <link rel="stylesheet" href="common.css" />
+  <script src="layout.js" defer></script>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="index.html" style="text-decoration:none; color:inherit;">
-      <h1>국악LAB 한양팔도</h1>
-      <h2>GUGAKLAB HANYANGPALDO</h2>
-    </a>
-  </header>
+  <!-- 공통 HEADER / NAV (layout.js가 채움) -->
+  <header></header>
+  <nav></nav>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html">ABOUT</a>
-    <a href="program.html">PROGRAM</a>
-    <a href="artists.html">ARTISTS</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="videos.html">VIDEOS</a>
-    <a href="notice.html">NOTICE</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
+  <main>
 
-  <!-- PROGRAM SECTION -->
-  <section class="section">
-    <div class="kicker">PROGRAM</div>
-    <h2>PROGRAM</h2>
-    <p class="program-intro">
-      국악LAB 한양팔도는 완창 공연, 시나위, 레퍼토리 시리즈 등
-      다양한 형식의 국악 공연을 선보입니다. 아래의 프로그램은
-      대표적인 레퍼토리와 기획 시리즈를 중심으로 구성된 예시입니다.
-    </p>
+    <!-- PROGRAM 소개 -->
+    <section class="section">
+      <div class="kicker">PROGRAM</div>
+      <h2>PROGRAM</h2>
+      <p class="lead">
+        국악LAB 한양팔도는 완창, 시나위, 레퍼토리 시리즈 등
+        전통과 창작을 아우르는 다양한 국악 공연 프로그램을 선보입니다.
+        각 공연은 팔도 전통음악의 정서를 바탕으로,
+        청년 국악인들만의 감각과 호흡을 더해 새로운 무대로 탄생합니다.
+      </p>
+    </section>
 
-    <div class="program-list">
+    <!-- PROGRAM / HISTORY 상세 리스트 -->
+    <section class="section">
+      <div class="kicker">HISTORY</div>
+      <h2>HISTORY</h2>
+      <p class="lead">
+        국악LAB 한양팔도의 주요 공연 이력을 연도별로 정리했습니다.
+        완창 프로젝트, 축하 공연, 레퍼토리 시리즈 등 다양한 포맷을 통해
+        우리 소리의 깊이와 확장을 동시에 모색하고 있습니다.
+      </p>
 
-      <!-- Program 1 -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2025</div>
-          <div>레퍼토리 시리즈</div>
-          <span class="tag">시나위</span>
-        </div>
-        <div class="program-body">
-          <h3>동락(同樂): 함께 즐기다</h3>
-          <p class="subtitle">시나위와 장단이 이끄는 즉흥적 호흡</p>
-          <p>
-            전통 시나위의 즉흥성과 현대적 사운드를 결합한 공연으로,
-            타악·피리·판소리가 서로의 숨을 주고받으며 하나의 흐름을 만들어갑니다.
-          </p>
-          <p class="meta-line">
-            구성: 시나위 / 타악 솔로 / 피리·판소리 콜라보레이션
-          </p>
-        </div>
-      </article>
+      <div class="program-list">
 
-      <!-- Program 2 -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2024</div>
-          <div>완창 프로젝트</div>
-          <span class="tag">판소리</span>
-        </div>
-        <div class="program-body">
-          <h3>춘향가 완창: 꺾이지 않는 정절</h3>
-          <p class="subtitle">보성소리의 맥을 잇는 판소리 레퍼토리</p>
-          <p>
-            미산제 춘향가를 중심으로, 전통 판소리의 서사와 소리의 결을 온전히 담아낸 완창 무대입니다.
-            소리꾼과 고수가 함께 만들어내는 밀도 높은 서사의 힘을 느낄 수 있습니다.
-          </p>
-          <p class="meta-line">
-            형식: 판소리 완창 · 반주 고수 동반
-          </p>
-        </div>
-      </article>
+        <!-- 2025 - Program 1 -->
+        <article class="program-item">
+          <div class="program-meta">
+            <div class="year">2025</div>
+            <div>완창 프로젝트</div>
+            <span class="tag">판소리</span>
+          </div>
+          <div class="program-body">
+            <h3>김세종제 춘향가 완창 : 꺾이지 않는 정절</h3>
+            <p class="subtitle">시나위와 장단이 이끄는 즉흥적 호흡</p>
+            <p>
+              전통 시나위의 즉흥성과 현대적 사운드를 결합한 무대로,
+              타악·피리·판소리가 서로의 숨을 주고받으며
+              하나의 흐름을 만들어 갑니다.
+              판소리의 서사와 즉흥 연주가 자연스럽게 연결되며
+              관객과의 긴장감 있는 호흡을 만들어 냅니다.
+            </p>
+            <p class="meta-line">
+              구성: 시나위 / 타악 솔로 / 피리·판소리 콜라보레이션
+            </p>
+          </div>
+        </article>
 
-      <!-- Program 3 -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2024</div>
-          <div>퍼커션 레퍼토리</div>
-          <span class="tag">타악</span>
-        </div>
-        <div class="program-body">
-          <h3>진도북춤과 장단의 미학</h3>
-          <p class="subtitle">흥과 절제가 공존하는 북의 레퍼토리</p>
-          <p>
-            진도북춤을 비롯한 남도 굿거리 장단을 중심으로, 타악이 이끄는 리듬과 몸짓의 미학을
-            집중적으로 보여주는 프로그램입니다.
-          </p>
-          <p class="meta-line">
-            구성: 진도북춤 / 남도굿 거리 / 창작 타악 작품
-          </p>
-        </div>
-      </article>
+        <!-- 2025 - Program 2 -->
+        <article class="program-item">
+          <div class="program-meta">
+            <div class="year">2025</div>
+            <div>축하공연 프로젝트</div>
+            <span class="tag">민속악 레퍼토리</span>
+          </div>
+          <div class="program-body">
+            <h3>제23회 대한민국서당문화한마당 축하공연</h3>
+            <p class="subtitle">
+              서당 문화의 정체성과 현대적 감각을 잇는 축하 무대
+            </p>
+            <p>
+              K-컬처의 근간을 이루는 전통 교육 문화인 ‘서당’을 주제로,
+              서당에서 이루어지는 다양한 의식과 장면들을
+              민속악 레퍼토리로 재구성한 공연입니다.
+              남녀노소 관객이 함께 즐길 수 있도록
+              친숙한 장단과 선율로 구성하였습니다.
+            </p>
+            <p class="meta-line">
+              형식: 기악·성악이 어우러진 하이라이트 중심 무대
+            </p>
+          </div>
+        </article>
 
-      <!-- Program 4 (예시: 평조회상) -->
-      <article class="program-item">
-        <div class="program-meta">
-          <div class="year">2023</div>
-          <div>정악 레퍼토리</div>
-          <span class="tag">평조회상</span>
-        </div>
-        <div class="program-body">
-          <h3>평조회상 中 중령산</h3>
-          <p class="subtitle">정중동의 미학을 담은 정악 프로그램</p>
-          <p>
-            평조회상의 중 중령산을 중심으로, 정악의 호흡과 선율 구조를 현대 무대 위에서
-            집중하여 감상할 수 있도록 구성한 프로그램입니다.
-          </p>
-          <p class="meta-line">
-            편성: 피리 · 대금 · 해금 · 장구 등
-          </p>
-        </div>
-      </article>
+        <!-- 2024 - Program -->
+        <article class="program-item">
+          <div class="program-meta">
+            <div class="year">2024</div>
+            <div>완창 프로젝트</div>
+            <span class="tag">판소리</span>
+          </div>
+          <div class="program-body">
+            <h3>춘향가 완창: 꺾이지 않는 정절</h3>
+            <p class="subtitle">보성소리의 맥을 잇는 판소리 레퍼토리</p>
+            <p>
+              미산제 춘향가를 중심으로, 전통 판소리의 서사와
+              소리의 결을 온전히 담아낸 완창 무대입니다.
+              소리꾼과 고수가 긴 호흡으로 서사를 이끌어 가며,
+              보성소리 특유의 맛과 정서를 깊이 있게 전합니다.
+            </p>
+            <p class="meta-line">
+              형식: 판소리 완창 · 반주 고수 동반
+            </p>
+          </div>
+        </article>
 
-    </div>
-  </section>
+        <!-- 필요하면 여기 아래로 2023, 2022... 항목 추가 -->
+        <!-- 같은 구조로 article.program-item 복사해서 내용만 바꾸면 됨 -->
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">국악LAB 한양팔도</div>
-
-      <span class="footer-item">
-        주소: 서울특별시 서초구 효령로 229 B1층 B07호 &nbsp;&nbsp;
-        <a href="https://map.naver.com/p/search/국악LAB한양팔도" 
-           class="footer-link" 
-           target="_blank" 
-           rel="noopener">
-          map
-        </a>
-      </span>
-
-      <span class="footer-item">
-        이메일: 
-        <a href="mailto:gugaklab@naver.com" class="footer-link">
-          gugaklab@naver.com
-        </a>
-      </span>
-
-      <div class="footer-sns">
-        <a href="https://www.instagram.com/hanyangpaldo?igsh=aHNzdXRrOXh6YWx5"
-           class="footer-link"
-           aria-label="국악LAB 한양팔도 인스타그램"
-           target="_blank"
-           rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-7.9a1.1 1.1 0 1 1-1.1-1.1 1.09 1.09 0 0 1 1.1 1.1ZM21 7.1a6.32 6.32 0 0 0-.4-2.2 4.4 4.4 0 0 0-2.5-2.5A6.32 6.32 0 0 0 16 2H8a6.32 6.32 0 0 0-2.2.4 4.4 4.4 0 0 0-2.5 2.5A6.32 6.32 0 0 0 3 7.1V17a6.32 6.32 0 0 0 .4 2.2 4.4 4.4 0 0 0 2.5 2.5A6.32 6.32 0 0 0 8 22h8a6.32 6.32 0 0 0 2.2-.4 4.4 4.4 0 0 0 2.5-2.5A6.32 6.32 0 0 0 21 17V7.1Zm-1.8 9.9a4 4 0 0 1-.2 1.4 2.7 2.7 0 0 1-1.5 1.5 4 4 0 0 1-1.4.2H8a4 4 0 0 1-1.4-.2 2.7 2.7 0 0 1-1.5-1.5 4 4 0 0 1-.2-1.4V7.1a4 4 0 0 1 .2-1.4 2.7 2.7 0 0 1 1.5-1.5A4 4 0 0 1 8 4h8a4 4 0 0 1 1.4.2 2.7 2.7 0 0 1 1.5 1.5 4 4 0 0 1 .2 1.4Z"/>
-          </svg>
-        </a>
       </div>
-    </div>
-  </footer>
+    </section>
+
+  </main>
+
+  <!-- 공통 FOOTER -->
+  <footer class="site-footer"></footer>
 
 </body>
 </html>

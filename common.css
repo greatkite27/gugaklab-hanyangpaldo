@@ -493,3 +493,8 @@ nav a.active {
   color: #f4c842;
   font-weight: 600;
 }
+/* ARTISTS category title color */
+.artists-category-title {
+  color: #89a7ff;   /* 파란색 */
+  letter-spacing: 0.06em;
+}

@@ -31,7 +31,7 @@ body {
    ========================= */
 
 header {
-  background: url('배너.jpg') no-repeat;
+  background: url('배너.png') no-repeat;
   background-size: cover;
   background-position: 50% 75%;
   padding: 4rem 3rem;

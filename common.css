@@ -520,9 +520,9 @@ nav a.active {
 }
 
 .site-logo img {
-  width: 140px;   /* 로고 크기 조절 */
-  height: 48px;
-  margin-left: 12px;   /* 왼쪽으로 12px 이동 */
-  margin-top: -6px;    /* 위로 6px 올리기 */
+  width: 70px;   /* 로고 크기 조절 */
+  height: 24px;
+  margin-left: 50px;   /* 왼쪽으로 12px 이동 */
+  margin-top: -10px;    /* 위로 6px 올리기 */
   display: block;
 }

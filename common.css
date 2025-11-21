@@ -503,3 +503,22 @@ nav a.active {
   color: #89a7ff !important;
 }
 
+/* HEADER LOGO */
+.site-header-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.site-header-brand {
+  display: inline-block;
+}
+
+.site-logo {
+  width: 140px;   /* 로고 크기 조절 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

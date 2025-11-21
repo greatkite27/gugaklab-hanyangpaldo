@@ -1,1 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUGAKLAB HANYANGPALDO - Artists</title>
 
+  <!-- Common CSS / JS (go one level up) -->
+  <link rel="stylesheet" href="../common.css" />
+  <script src="../layout.js" defer></script>
+
+  <!-- ARTISTS page specific styles -->
+  <style>
+    /* ARTISTS: HERO section */
+    .artists-hero {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .artists-hero .kicker {
+      margin-bottom: 0.4rem;
+    }
+
+    .artists-hero h2 {
+      border-left: none;
+      padding-left: 0;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+
+    .artists-hero .lead {
+      max-width: 42rem;
+    }
+
+    /* ARTISTS: card grid */
+    .artists-grid-wrap {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .artist-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .artist-card {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.4rem 1.5rem 1.5rem;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.04), rgba(0,0,0,0.95));
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+      cursor: pointer;
+      min-height: 220px;
+    }
+
+    .artist-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.85);
+      border-color: rgba(137,167,255,0.7);
+    }
+
+    .artist-image {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 0.4rem;
+    }
+
+    .artist-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .artist-role {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8ba4ff;
+    }
+
+    .artist-name {
+      font-size: 1.1rem;
+      margin: 0.1rem 0 0.3rem;
+    }
+
+    .artist-desc {
+      font-size: 0.95rem;
+      color: #dddddd;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .artist-more {
+      margin-top: 0.3rem;
+      font-size: 0.82rem;
+      text-decoration: none;
+      color: #89a7ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .artist-more span {
+      font-size: 1rem;
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 1024px) {
+      .artists-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .artists-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* bottom note */
+    .artists-note {
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.7rem;
+      font-size: 0.9rem;
+      color: #bbbbbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- header / nav are injected by layout.js -->
+  <header></header>
+  <nav></nav>
+
+  <main>
+
+    <!-- HERO: ARTISTS intro -->
+    <section class="section artists-hero">
+      <div class="kicker">ARTISTS</div>
+      <h2>ARTISTS</h2>
+      <p class="lead">
+        GUGAKLAB HANYANGPALDO brings together young Korean traditional musicians
+        specializing in percussion, piri, and pansori. Each artist carries a distinct
+        voice and musical color, and together they create a shared breath on stage
+        where tradition and contemporary sensibility meet.
+      </p>
+    </section>
+
+    <!-- ARTIST CARDS -->
+    <section class="section artists-grid-wrap">
+      <div class="artists-grid">
+
+        <!-- Percussion: Kim Gwangyoon -->
+        <a href="artists-kimgwangyoon.html" class="artist-card-link">
+          <article class="artist-card">
+            <div class="artist-image">
+              <img src="../진도씻김굿0.jpg" alt="Percussionist Kim Gwangyoon">
+            </div>
+            <div class="artist-role">CO-DIRECTOR · PERCUSSION</div>
+            <h3 class="artist-name">Kim Gwangyoon</h3>
+            <p class="artist-desc">
+              A percussionist who leads the stage with powerful yet controlled rhythms,
+              drawing from the energy of southern gut rhythms including Jindo Ssitgimgut.
+            </p>
+            <span class="artist-more">
+              View Profile <span>↗</span>
+            </span>
+          </article>
+        </a>
+
+        <!-- Pansori: Han Yunkyung -->
+        <a href="artists-hanyunkyung.html" class="artist-card-link">
+          <article class="artist-card">
+            <div class="artist-image">
+              <img src="../한윤경 프로필 사진.png" alt="Pansori singer Han Yunkyung">
+            </div>
+            <div class="artist-role">CO-DIRECTOR · PANSORI</div>
+            <h3 class="artist-name">Han Yunkyung</h3>
+            <p class="artist-desc">
+              A pansori singer who delicately connects story and sound,
+              expressing deep emotional lines through subtle vocal colors.
+            </p>
+            <span class="artist-more">
+              View Profile <span>↗</span>
+            </span>
+          </article>
+        </a>
+
+        <!-- Piri: Moon Sangjun -->
+        <a href="artists-moonsangjun.html" class="artist-card-link">
+          <article class="artist-card">
+            <div class="artist-image">
+              <img src="../진도씻김굿1.jpg" alt="Piri player Moon Sangjun">
+            </div>
+            <div class="artist-role">LEAD ARTIST · PIRI</div>
+            <h3 class="artist-name">Moon Sangjun</h3>
+            <p class="artist-desc">
+              A piri player who brings the aesthetics of stillness-in-movement into a
+              contemporary context, weaving flexible yet solid melodies across sinawi
+              and ensemble stages.
+            </p>
+            <span class="artist-more">
+              View Profile <span>↗</span>
+            </span>
+          </article>
+        </a>
+
+      </div>
+
+      <p class="artists-note">
+        Detailed biographies and activities of each artist will be available
+        on their individual profile pages.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer"></footer>
+
+</body>
+</html>

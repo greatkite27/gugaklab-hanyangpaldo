@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUGAKLAB HANYANGPALDO - Notice</title>
 
+  <link rel="stylesheet" href="../common.css" />
+  <script src="../layout.js" defer></script>
+
+  <style>
+    /* HERO */
+    .notice-hero {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .notice-hero h2 {
+      border-left: none;
+      padding-left: 0;
+      font-size: 2rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .notice-hero .lead {
+      max-width: 42rem;
+    }
+
+    /* NOTICE LIST */
+    .notice-list {
+      margin-top: 2.4rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .notice-item {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .notice-title {
+      font-size: 1.05rem;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .notice-date {
+      font-size: 0.85rem;
+      color: #aaa;
+      letter-spacing: 0.03em;
+    }
+
+    .notice-desc {
+      font-size: 0.9rem;
+      color: #d0d0d0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .notice-item {
+        padding: 1.3rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header></header>
+<nav></nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="section notice-hero">
+    <div class="kicker">NOTICE</div>
+    <h2>NOTICE</h2>
+    <p class="lead">
+      Here you can find news, announcements, and updates from GUGAKLAB HANYANGPALDO,
+      including performance schedules, project information, and important notices.
+    </p>
+  </section>
+
+  <!-- NOTICE LIST -->
+  <section class="section">
+    <div class="notice-list">
+
+      <!-- Notice 1 -->
+      <article class="notice-item">
+        <h3 class="notice-title">2025 Full-Length Pansori Project – Performance Notice</h3>
+        <div class="notice-date">January 15, 2025</div>
+        <p class="notice-desc">
+          Details about the full-length pansori project for the year 2025 will be announced soon.
+          Please stay tuned for schedule updates and reservation information.
+        </p>
+      </article>
+
+      <!-- Notice 2 -->
+      <article class="notice-item">
+        <h3 class="notice-title">Participation in the 23rd Korea Seodang Culture Festival</h3>
+        <div class="notice-date">September 3, 2024</div>
+        <p class="notice-desc">
+          GUGAKLAB HANYANGPALDO successfully presented a celebratory performance
+          at the 23rd Korea Seodang Culture Festival. Thank you for your continued support.
+        </p>
+      </article>
+
+      <!-- Notice 3 -->
+      <article class="notice-item">
+        <h3 class="notice-title">2024 Full-Length Pansori Stage Completed</h3>
+        <div class="notice-date">June 28, 2024</div>
+        <p class="notice-desc">
+          Our full-length performance of “Chunhyangga – Unbreakable Virtue” has concluded.
+          We appreciate everyone who attended and supported the performance.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer"></footer>
+
+</body>
+</html>

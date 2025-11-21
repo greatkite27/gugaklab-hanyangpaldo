@@ -64,19 +64,17 @@
     const headerEl = document.querySelector('header');
     if (!headerEl) return;
 
-    const t = labels[lang];
+  // 단체 로고 경로 (원하는 파일명으로 교체)
+  const logoSrc = "images/logo.png";
 
-    // index.html에서 쓰던 헤더 이미지는 한국어/영어 공통으로 사용한다고 가정
-    headerEl.innerHTML = `
-      <div class="site-header-inner">
-        <a href="index.html" class="site-header-brand">
-          <h1 class="site-title-ko">${t.siteTitleKo}</h1>
-          <h2 class="site-title-en">${t.siteTitleEn}</h2>
-        </a>
-      </div>
-    `;
-  }
-
+  headerEl.innerHTML = `
+    <div class="site-header-inner">
+      <a href="index.html" class="site-header-brand">
+        <img src="${logoSrc}" alt="국악LAB 한양팔도 로고" class="site-logo">
+      </a>
+    </div>
+  `;
+}
   function buildNav() {
     const navEl = document.querySelector('nav');
     if (!navEl) return;

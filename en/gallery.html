@@ -1,1 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUGAKLAB HANYANGPALDO - Gallery</title>
 
+  <link rel="stylesheet" href="../common.css" />
+  <script src="../layout.js" defer></script>
+
+  <style>
+    /* HERO */
+    .gallery-hero {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .gallery-hero .kicker {
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-hero h2 {
+      border-left: none;
+      padding-left: 0;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+
+    .gallery-hero .lead {
+      max-width: 42rem;
+    }
+
+    /* FILTER BAR */
+    .gallery-filters {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .gallery-filter-btn {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: transparent;
+      color: #ddd;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .gallery-filter-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .gallery-filter-btn.active {
+      background: #ffffff;
+      color: #000;
+      border-color: #ffffff;
+    }
+
+    /* MASONRY GRID */
+    .gallery-section {
+      margin-top: 2.5rem;
+    }
+
+    .gallery-masonry {
+      column-count: 3;
+      column-gap: 1.4rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 1.4rem;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #050505;
+      break-inside: avoid;
+      transition: transform .2s ease, box-shadow .25s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .3s ease, opacity .25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      opacity: 0.9;
+    }
+
+    .gallery-caption {
+      padding: 0.6rem 0.8rem 0.7rem;
+      font-size: 0.85rem;
+      color: #dddddd;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.8));
+    }
+
+    @media(max-width: 1024px){
+      .gallery-masonry{
+        column-count: 2;
+      }
+    }
+
+    @media(max-width: 640px){
+      .gallery-masonry{
+        column-count: 1;
+      }
+    }
+
+    /* LIGHTBOX */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 999;
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-inner {
+      max-width: 960px;
+      width: 90%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .lightbox-image-wrap {
+      max-height: 80vh;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: #000;
+    }
+
+    .lightbox-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-caption {
+      font-size: 0.9rem;
+      color: #eeeeee;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.8rem;
+      font-size: 1.8rem;
+      color: #ffffff;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      color: #cccccc;
+    }
+
+  </style>
+</head>
+<body>
+
+<header></header>
+<nav></nav>
+
+<main>
+
+  <!-- HERO SECTION -->
+  <section class="section gallery-hero">
+    <div class="kicker">GALLERY</div>
+    <h2>GALLERY</h2>
+    <p class="lead">
+      Here you can explore scenes from GUGAKLAB HANYANGPALDO’s performances,
+      rehearsals, and behind-the-scenes moments. Take a closer look at the
+      breath, rhythm, and expressions captured on and off the stage.
+    </p>
+
+    <!-- FILTER BUTTONS -->
+    <div class="gallery-filters">
+      <button class="gallery-filter-btn active" data-filter="all">All</button>
+      <button class="gallery-filter-btn" data-filter="performance">Performance</button>
+      <button class="gallery-filter-btn" data-filter="rehearsal">Rehearsal</button>
+      <button class="gallery-filter-btn" data-filter="backstage">Backstage</button>
+    </div>
+  </section>
+
+  <!-- GALLERY GRID -->
+  <section class="section gallery-section">
+    <div class="gallery-masonry">
+
+      <!-- Example images: replace src with your own file names if needed -->
+      <!-- PERFORMANCE -->
+      <div class="gallery-item"
+           data-category="performance"
+           data-caption="Jindo Ssitgimgut – percussion-centered sinawi performance">
+        <img src="../진도씻김굿0.jpg"
+             alt="Jindo Ssitgimgut performance"
+             loading="lazy" />
+        <div class="gallery-caption">
+          Jindo Ssitgimgut – percussion-centered sinawi performance
+        </div>
+      </div>
+
+      <div class="gallery-item"
+           data-category="performance"
+           data-caption="Chunhyangga full-length stage – capturing the essence of pansori storytelling">
+        <img src="../진도씻김굿1.jpg"
+             alt="Chunhyangga full-length stage"
+             loading="lazy" />
+        <div class="gallery-caption">
+          Chunhyangga full-length stage – capturing the essence of pansori storytelling
+        </div>
+      </div>
+
+      <!-- REHEARSAL -->
+      <div class="gallery-item"
+           data-category="rehearsal"
+           data-caption="Full-length project rehearsal – tuning breath and timing in detail">
+        <img src="../한윤경 프로필 사진.png"
+             alt="Full-length rehearsal scene"
+             loading="lazy" />
+        <div class="gallery-caption">
+          Full-length project rehearsal – tuning breath and timing in detail
+        </div>
+      </div>
+
+      <div class="gallery-item"
+           data-category="rehearsal"
+           data-caption="Sinawi ensemble rehearsal – dialogue between percussion, piri, and voice">
+        <img src="../진도씻김굿1.jpg"
+             alt="Sinawi ensemble rehearsal"
+             loading="lazy" />
+        <div class="gallery-caption">
+          Sinawi ensemble rehearsal – dialogue between percussion, piri, and voice
+        </div>
+      </div>
+
+      <!-- BACKSTAGE -->
+      <div class="gallery-item"
+           data-category="backstage"
+           data-caption="Preparing in the dressing room before the performance">
+        <img src="../진도씻김굿0.jpg"
+             alt="Backstage preparation"
+             loading="lazy" />
+        <div class="gallery-caption">
+          Preparing in the dressing room before the performance
+        </div>
+      </div>
+
+      <div class="gallery-item"
+           data-category="backstage"
+           data-caption="Checking each other’s sound behind the stage">
+        <img src="../한윤경 프로필 사진.png"
+             alt="Behind the stage"
+             loading="lazy" />
+        <div class="gallery-caption">
+          Checking each other’s sound behind the stage
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- LIGHTBOX OVERLAY -->
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-inner">
+    <div class="lightbox-image-wrap">
+      <img src="" alt="gallery large" id="lightbox-img">
+    </div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+  <div class="lightbox-close" id="lightbox-close">&times;</div>
+</div>
+
+<footer class="site-footer"></footer>
+
+<script>
+  // FILTERING
+  const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems  = document.querySelectorAll('.gallery-item');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // update active state
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // filter items
+      galleryItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.style.display = 'inline-block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // LIGHTBOX
+  const lightbox        = document.getElementById('lightbox');
+  const lightboxImg     = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose   = document.getElementById('lightbox-close');
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const img      = item.querySelector('img');
+      const src      = img.getAttribute('src');
+      const caption  = item.getAttribute('data-caption') || img.getAttribute('alt') || '';
+
+      lightboxImg.setAttribute('src', src);
+      lightboxCaption.textContent = caption;
+      lightbox.classList.add('open');
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightboxImg.setAttribute('src', '');
+    lightboxCaption.textContent = '';
+  };
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+</script>
+
+</body>
+</html>

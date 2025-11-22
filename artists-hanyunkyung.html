@@ -241,6 +241,45 @@
   </main>
 
   <footer class="site-footer"></footer>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const triggers = document.querySelectorAll('.activity-photo-trigger');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const backdrop = document.querySelector('.lightbox-backdrop');
 
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('is-open');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightboxImg.src = '';
+    }
+
+    // 각 항목 클릭 시 라이트박스 열기
+    triggers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const src = btn.getAttribute('data-photo');
+        if (src) {
+          openLightbox(src);
+        }
+      });
+    });
+
+    // 닫기 버튼, 배경 클릭 시 닫기
+    closeBtn.addEventListener('click', closeLightbox);
+    backdrop.addEventListener('click', closeLightbox);
+
+    // ESC 키로 닫기
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  });
+</script>
 </body>
 </html>

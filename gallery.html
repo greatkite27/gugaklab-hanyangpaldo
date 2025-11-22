@@ -123,7 +123,7 @@
     .lightbox-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.9);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -139,16 +139,28 @@
     }
 
     .lightbox-inner {
-      max-width: 960px;
-      width: 90%;
-      max-height: 90vh;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      max-width: 100%;
+      max-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5rem 4rem 2rem;
+      box-sizing: border-box;
+      gap: 0.8rem;
     }
 
     .lightbox-image-wrap {
-      max-height: 80vh;
+      flex: 1;
+      width: 100%;
+      max-width: 1200px;
+      max-height: calc(100vh - 6rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.25);
@@ -158,6 +170,8 @@
     .lightbox-image-wrap img {
       width: 100%;
       height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
       display: block;
     }
@@ -165,20 +179,76 @@
     .lightbox-caption {
       font-size: 0.9rem;
       color: #eeeeee;
+      max-width: 1200px;
+      width: 100%;
+      text-align: left;
     }
 
     .lightbox-close {
       position: absolute;
-      top: 1.5rem;
-      right: 1.8rem;
-      font-size: 1.8rem;
+      top: 1.2rem;
+      right: 1.6rem;
+      font-size: 2rem;
       color: #ffffff;
       cursor: pointer;
       line-height: 1;
+      z-index: 1001;
     }
 
     .lightbox-close:hover {
       color: #cccccc;
+    }
+
+    /* NAV BUTTONS */
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #ffffff;
+      z-index: 1000;
+      transition: background 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: #ffffff;
+      transform: translateY(-50%) scale(1.03);
+    }
+
+    .lightbox-prev {
+      left: 1.8rem;
+    }
+
+    .lightbox-next {
+      right: 1.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-inner {
+        padding: 2.5rem 1.5rem 1.5rem;
+      }
+      .lightbox-prev {
+        left: 0.8rem;
+      }
+      .lightbox-next {
+        right: 0.8rem;
+      }
+      .lightbox-nav-btn {
+        width: 2.6rem;
+        height: 2.6rem;
+        font-size: 1.6rem;
+      }
     }
 
   </style>
@@ -323,9 +393,15 @@
 <!-- LIGHTBOX OVERLAY -->
 <div class="lightbox-overlay" id="lightbox">
   <div class="lightbox-inner">
+    <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+      &#10094;
+    </button>
     <div class="lightbox-image-wrap">
       <img src="" alt="gallery large" id="lightbox-img">
     </div>
+    <button class="lightbox-nav-btn lightbox-next" id="lightbox-next" aria-label="Next image">
+      &#10095;
+    </button>
     <div class="lightbox-caption" id="lightbox-caption"></div>
   </div>
   <div class="lightbox-close" id="lightbox-close">&times;</div>
@@ -363,16 +439,59 @@
   const lightboxImg     = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');
   const lightboxClose   = document.getElementById('lightbox-close');
+  const lightboxPrev    = document.getElementById('lightbox-prev');
+  const lightboxNext    = document.getElementById('lightbox-next');
+
+  let currentLightboxItems = [];
+  let currentIndex = 0;
+
+  const getVisibleItems = () => {
+    // filter가 적용된 상태에서 display가 none이 아닌 아이템들만 사용
+    return Array.from(galleryItems).filter(item => item.style.display !== 'none');
+  };
+
+  const updateLightboxFromItem = (item) => {
+    const img = item.querySelector('img');
+    const src = img.getAttribute('src');
+    const caption = item.getAttribute('data-caption') || img.getAttribute('alt') || '';
+    lightboxImg.setAttribute('src', src);
+    lightboxCaption.textContent = caption;
+  };
+
+  const openLightboxFromItem = (item) => {
+    // 현재 필터 기준으로 보이는 아이템 목록 저장
+    currentLightboxItems = getVisibleItems();
+
+    // 혹시 필터가 아직 적용 안 됐으면(초기 all 상태) 전체 목록 사용
+    if (currentLightboxItems.length === 0) {
+      currentLightboxItems = Array.from(galleryItems);
+    }
+
+    currentIndex = currentLightboxItems.indexOf(item);
+
+    // 안전 장치: 목록에 없으면 전체에서 다시 찾기
+    if (currentIndex === -1) {
+      currentLightboxItems = Array.from(galleryItems);
+      currentIndex = currentLightboxItems.indexOf(item);
+    }
+
+    updateLightboxFromItem(item);
+    lightbox.classList.add('open');
+  };
+
+  const showSibling = (delta) => {
+    if (!currentLightboxItems.length) return;
+
+    const len = currentLightboxItems.length;
+    currentIndex = (currentIndex + delta + len) % len;
+
+    const nextItem = currentLightboxItems[currentIndex];
+    updateLightboxFromItem(nextItem);
+  };
 
   galleryItems.forEach(item => {
     item.addEventListener('click', () => {
-      const img      = item.querySelector('img');
-      const src      = img.getAttribute('src');
-      const caption  = item.getAttribute('data-caption') || img.getAttribute('alt') || '';
-
-      lightboxImg.setAttribute('src', src);
-      lightboxCaption.textContent = caption;
-      lightbox.classList.add('open');
+      openLightboxFromItem(item);
     });
   });
 
@@ -380,23 +499,45 @@
     lightbox.classList.remove('open');
     lightboxImg.setAttribute('src', '');
     lightboxCaption.textContent = '';
+    currentLightboxItems = [];
+    currentIndex = 0;
   };
 
-  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  // 배경 클릭 시 닫기 (이미지 영역, 버튼 클릭은 무시)
   lightbox.addEventListener('click', (e) => {
-    // 배경 클릭 시 닫기 (이미지 영역 제외)
     if (e.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // ESC 키로 닫기
+  // 좌우 버튼 클릭
+  lightboxPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showSibling(-1);
+  });
+
+  lightboxNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showSibling(1);
+  });
+
+  // ESC / 방향키
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+    if (!lightbox.classList.contains('open')) return;
+
+    if (e.key === 'Escape') {
       closeLightbox();
+    } else if (e.key === 'ArrowRight') {
+      showSibling(1);
+    } else if (e.key === 'ArrowLeft') {
+      showSibling(-1);
     }
   });
-</script>
 
 </body>
 </html>

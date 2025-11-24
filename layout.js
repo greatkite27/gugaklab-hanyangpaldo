@@ -172,21 +172,3 @@ function buildFooter() {
   buildNav();
   buildFooter();
 })();
-
-document.addEventListener('DOMContentLoaded', () => {
-  const homeLinks = document.querySelectorAll('a[data-home-link="true"]');
-
-  homeLinks.forEach(link => {
-    // CSS 스타일 적용
-    link.classList.add('home-link');
-
-    // 로고 이미지 생성
-    const img = document.createElement('img');
-    img.src = 'images/logo.png';   // 로고 경로
-    img.alt = '단체 로고';
-    img.className = 'home-link__icon';
-
-    // 링크 맨 앞에 로고 삽입
-    link.prepend(img);
-  });
-});

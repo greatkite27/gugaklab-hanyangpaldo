@@ -131,6 +131,44 @@
         max-width: 360px;
       }
     }
+    /* ===============================
+   📱 모바일/PC 줄바꿈 & 정렬 개선
+   =============================== */
+
+.activity-photo-trigger {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;   /* 화면 좁아지면 자연스럽게 줄바꿈 */
+  gap: 0.3rem;       /* 점 · 과 제목 사이 간격 */
+  background: none;
+  border: none;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;  /* 줄바꿈 시 왼쪽 정렬 */
+}
+
+.inline-link {
+  color: #89a7ff; /* 필요하면 색 변경 가능 */
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.inline-link:hover {
+  text-decoration: underline;
+}
+
+/* 🔽 모바일에서 줄 간격 좀 더 넉넉하게 */
+@media (max-width: 480px) {
+  .activity-photo-trigger {
+    line-height: 1.6;
+    font-size: 0.92rem;
+  }
+
+  .inline-link {
+    font-size: 0.92rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -254,7 +292,7 @@
       · 2024 제87회 조선일보신인음악회 선정 및 공연
     </button>
   </li>
-
+          
           <li>
   <button
     class="activity-photo-trigger"
@@ -263,16 +301,17 @@
   >
     · 
     <a
-      href="https://blog.naver.com/guksuldang/223690124125"  <!-- 🔗 여기에 원하는 링크 입력 -->
+      href="https://blog.naver.com/guksuldang/223690124125"
       class="inline-link"
       target="_blank"
       rel="noopener"
-      onclick="event.stopPropagation();"  <!-- ⛔ 버튼 이벤트 방지 -->
+      onclick="event.stopPropagation();"
     >
       동락(同樂): 함께 즐기다 - "모녀가 함께 그리는 남도민요의 흥(興)"
     </a>
   </button>
 </li>
+
 
           <li>
     <button

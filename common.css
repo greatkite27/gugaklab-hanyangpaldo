@@ -588,22 +588,3 @@ nav a.active {
   color: #ffffff;
   text-decoration: underline;
 }
-
-.home-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #89a7ff;
-  text-decoration: none;
-}
-
-.home-link:hover {
-  text-decoration: underline;
-}
-
-.home-link__icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  flex-shrink: 0;
-}

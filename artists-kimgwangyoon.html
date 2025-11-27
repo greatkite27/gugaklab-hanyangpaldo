@@ -52,7 +52,7 @@
       width: 100%;
       display: block;
       object-fit: cover;
-      aspect-ratio: 3 / 4; /* 세로 직사각형 느낌 */
+      aspect-ratio: 3 / 4;
     }
 
     .artist-text {
@@ -110,7 +110,7 @@
       padding: 0;
       margin: 0.4rem 0 0;
       font-size: 0.95rem;
-      color: #cccccc;
+      color: #ffffff;
     }
 
     .activity-list li,
@@ -145,6 +145,47 @@
         max-width: 360px;
       }
     }
+    .activities-section .inline-link {
+        color: #ffffff;  /* 원하는 색 */
+        }
+    /* ===============================
+   📱 모바일/PC 줄바꿈 & 정렬 개선
+   =============================== */
+
+.activity-photo-trigger {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;   /* 화면 좁아지면 자연스럽게 줄바꿈 */
+  gap: 0.3rem;       /* 점 · 과 제목 사이 간격 */
+  background: none;
+  border: none;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;  /* 줄바꿈 시 왼쪽 정렬 */
+}
+
+.inline-link {
+  color: #89a7ff; /* 필요하면 색 변경 가능 */
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.inline-link:hover {
+  text-decoration: underline;
+}
+
+/* 🔽 모바일에서 줄 간격 좀 더 넉넉하게 */
+@media (max-width: 480px) {
+  .activity-photo-trigger {
+    line-height: 1.6;
+    font-size: 0.92rem;
+  }
+
+  .inline-link {
+    font-size: 0.92rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -158,45 +199,159 @@
       <!-- 상단 프로필 -->
       <div class="artist-hero">
         <div class="artist-photo">
-          <img src="김광윤 프로필 사진.jpg" alt="타악 연주자 김광윤">
+          <img src="김광윤 프로필 사진.png" alt="타악 - 김광윤">
         </div>
         <div class="artist-text">
           <div class="artist-role">CEO · 대표 · PERCUSSION · 타악</div>
           <h1 class="artist-name">김광윤</h1>
           <p class="artist-short">
             화려하면서도 절제된 장단으로 무대를 이끄는 타악 연주자입니다.
-            진도씻김굿을 비롯한 남도 굿거리와 다양한 굿 음악을 바탕으로,
-            전통 장단의 에너지와 현대적인 리듬감을 동시에 보여줍니다.
+            진도씻김굿을 비롯한 남도 굿거리와 다양한 굿 음악을 바탕으로, 전통 장단의 에너지와 현대적인 리듬감을 동시에 보여줍니다.
           </p>
         </div>
       </div>
 
-      <!-- 주요 활동 / 참여 프로그램 -->
+      <!-- 학 력 -->
       <section class="artist-section">
-        <div class="artist-section-title">MAIN ACTIVITIES</div>
-        <h3>주요 활동 · 참여 프로그램</h3>
+        <div class="artist-section-title">EDUCATIONAL BACKGROUND</div>
+        <h3>학 력</h3>
         <ul class="activity-list">
-          <li>· 국악LAB 한양팔도 타악 연주자</li>
-          <li>· 김세종제 춘향가 완창 프로젝트 타악 참여</li>
-          <li>· 제23회 대한민국서당문화한마당 축하공연 타악 편성 참여</li>
-          <li>· 시나위 &amp; 즉흥 프로젝트에서 타악 솔로 및 앙상블 연주</li>
+          <li>· 한양대학교 음악대학 국악학과 대학원 석사 과정</li>
+          <li>· 한양대학교 음악대학 국악과 학사</li>
+          <li>· 한양대학교 최연소 입학</li>
+          <li>· 고등학교 졸업 검정고시 합격</li>
+          <li>· 국립전통예술중학교 졸업</li>
+          <li>· 한국예술종합학교 국가영재원 수료</li>
+        </ul>
+      </section>
+      
+      <!-- 수 상 -->
+      <section class="artist-section">
+        <div class="artist-section-title">AWARDS</div>
+        <h3>수 상</h3>
+        <ul class="activity-list">
+  <li>
+    · 제41회 전국고수대회 일반부 최우수상
+  </li>
+
+  <li>
+      · 제7회 롯데장학재단 청춘열전 출사표 대상
+  </li>
+
+  <li>
+      · 제50회 전주대사습놀이 고법 일반부 차상
+  </li>
         </ul>
       </section>
 
-      <!-- 음원 / 샘플 -->
+      <!-- 작품활동 -->
       <section class="artist-section">
-        <div class="artist-section-title">AUDIO &amp; SAMPLE</div>
-        <h3>음원 · 샘플</h3>
-        <ul class="sample-list">
+        <div class="artist-section-title">ACTIVITIES</div>
+        <h3>작품활동</h3>
+        <ul class="activity-list">
           <li>
-            <span class="sample-label">샘플 1.</span>
-            진도씻김굿 타악 솔로 &nbsp;
-            <a href="#" class="sample-link">듣기 준비 중</a>
+    <button
+      class="activity-photo-trigger"
+      type="button"
+      data-photo="춘향가 완창 포스터.png"
+    >
+      · 2025 세비아학교 출강
+    </button>
+  </li>
+
+          <li>
+    <button
+      class="activity-photo-trigger"
+      type="button"
+      data-photo="한윤경 2024조선일보신인음악회.jpeg"
+    >
+      · 국립민속박물관 우리민속한마당 어린이극 '바리공주의 소리찾기' 소리대왕 역 및 국악타악
+    </button>
+  </li>
+          
+          <li>
+    <button
+      class="activity-photo-trigger"
+      type="button"
+      data-photo="한윤경 2024조선일보신인음악회.jpeg"
+    >
+      · 2025 신나는 국악여행 ‘바리공주의 소리찾기’ 소리대왕역 및 국악타악
+    </button>
           </li>
+          
           <li>
-            <span class="sample-label">샘플 2.</span>
-            시나위 프로젝트 라이브 세션 &nbsp;
-            <a href="#" class="sample-link">듣기 준비 중</a>
+    <button
+      class="activity-photo-trigger"
+      type="button"
+      data-photo="2023전주세계소리축제 한윤경.jpg"
+    >
+      · 제4회 광주버스킹월드컵 4위 SINAVI
+    </button>
+  </li>
+
+          <li>
+    <button
+      class="activity-photo-trigger"
+      type="button"
+      data-photo="흥보가 완창 포스터.jpeg"
+    >
+      · 제5회 ㅊㅊ-하다 성악 IYAGI 페스티벌 넘어-서다 선정
+    </button>
+  </li>
+
+          <li>
+    <button
+      class="activity-photo-trigger"
+      type="button"
+      data-photo="2022화음 포스터.jpg"
+    >
+      · 제5회 ㅊㅊ-하다 연희 음~ 페스티벌 넘어-서다 선정
+    </button>
+  </li>
+        </ul>
+        <section class="artist-section activities-section">
+        </section>
+
+      <!-- 음반 듣기 -->
+      <section class="artist-section">
+        <div class="artist-section-title">RECORD</div>
+        <h3>음반 듣기</h3>
+        <ul class="sample-list">
+          <li class="sample-item">
+      <span class="sample-label">음원 1.</span>
+      <button
+        class="activity-photo-trigger sample-title-btn"
+        type="button"
+        data-photo="동락 앨범 사진.jpg"
+      >
+        동락(同樂): 함께 즐기다 - 흥타령
+      </button>
+      <a
+        href="https://www.youtube.com/watch?v=l788UwM2gXY&list=RDl788UwM2gXY&start_radio=1"
+        class="sample-link"
+        target="_blank"
+        rel="noopener"
+      >
+        듣기
+      </a>
+    </li>
+          
+          <li class="sample-item">
+            <span class="sample-label">음원 2.</span>
+            <button
+              class="activity-photo-trigger sample-title-btn"
+              type="button"
+              data-photo="동락 앨범 사진.jpg"
+              >
+              동락(同樂): 함께 즐기다 - 육자배기
+            </button>
+            <a
+              href="https://www.youtube.com/watch?v=hbHrPJM1UCI&list=RDhbHrPJM1UCI&start_radio=1"
+              class="sample-link"
+              target="_blank"
+              rel="noopener">
+              듣기
+            </a>
           </li>
         </ul>
         <p style="margin-top:0.8rem; font-size:0.85rem; color:#888;">
@@ -208,6 +363,53 @@
   </main>
 
   <footer class="site-footer"></footer>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const triggers = document.querySelectorAll('.activity-photo-trigger');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const backdrop = document.querySelector('.lightbox-backdrop');
 
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('is-open');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightboxImg.src = '';
+    }
+
+    // 각 항목 클릭 시 라이트박스 열기
+    triggers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const src = btn.getAttribute('data-photo');
+        if (src) {
+          openLightbox(src);
+        }
+      });
+    });
+
+    // 닫기 버튼, 배경 클릭 시 닫기
+    closeBtn.addEventListener('click', closeLightbox);
+    backdrop.addEventListener('click', closeLightbox);
+
+    // ESC 키로 닫기
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  });
+</script>
+  <!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-backdrop"></div>
+  <div class="lightbox-content">
+    <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+    <img id="lightbox-image" src="" alt="활동 사진" />
+  </div>
+</div>
 </body>
 </html>

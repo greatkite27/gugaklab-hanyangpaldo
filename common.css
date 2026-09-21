@@ -142,7 +142,7 @@ nav {
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .nav-links {
@@ -175,35 +175,6 @@ nav a.active {
   background: #fff;
   color: #000;
   font-weight: 600;
-}
-
-/* 언어 토글 */
-.nav-lang {
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
-  margin-left: 0.5rem;
-  flex-shrink: 0;
-}
-
-.nav-lang-btn {
-  background: transparent;
-  border: none;
-  color: #737373;
-  font-size: 0.7rem;
-  letter-spacing: 0;
-  cursor: pointer;
-  padding: 0.3rem 0.2rem;
-}
-
-.nav-lang-btn.active {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.nav-lang-sep {
-  font-size: 0.7rem;
-  color: #404040;
 }
 
 /* 모바일 전용 슬림 메뉴 */
@@ -542,7 +513,7 @@ nav a.active {
 
 @media (max-width: 480px) {
   body {
-    font-size: 13.5px; /* 모바일에서 폰트 축소로 답답함 완해 */
+    font-size: 13.5px; /* 모바일에서 폰트 축소로 답답함 완화 */
     letter-spacing: -0.025em;
   }
 

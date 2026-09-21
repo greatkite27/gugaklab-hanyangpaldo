@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
@@ -23,11 +24,13 @@
   <script src="layout.js" defer></script>
 
   <style>
-    /* HERO */
+    /* =========================
+       VIDEOS: HERO
+       ========================= */
     .videos-hero {
       padding-top: 3rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.14); /* (바) : 구분선 */
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .videos-hero .kicker {
@@ -36,33 +39,37 @@
 
     .videos-hero h2 {
       font-size: 2rem;
-      letter-spacing: 0.08em;
+      letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
 
-    /* ONLY 국악LAB 한양팔도 채널 (상단 배너) */
+    /* =========================
+       채널 상단 배너
+       ========================= */
     .channel-banner-large {
-      padding: 2.5rem 2rem;
-      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      border-radius: 18px;
       background: radial-gradient(circle at top left, rgba(255, 0, 0, 0.12), rgba(20, 20, 20, 0.95));
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1.8rem;
+      gap: 1.5rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .channel-info-large {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
+      flex: 1;
+      min-width: 280px;
     }
 
     .channel-icon-large {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       background: #ff0000;
       border-radius: 50%;
       display: flex;
@@ -70,51 +77,56 @@
       justify-content: center;
       color: #fff;
       flex-shrink: 0;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.35);
     }
 
     .channel-text-large {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.3rem;
     }
 
     .channel-title-large {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #ffffff;
       letter-spacing: -0.02em;
     }
 
     .channel-sub-large {
-      font-size: 0.98rem;
+      font-size: 0.92rem;
       color: #cccccc;
-      line-height: 1.4;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
     }
 
     .channel-subscribe-btn-large {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.9rem 2rem;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
       background-color: #ff0000;
       color: #ffffff;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.01em;
       transition: background-color 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      white-space: nowrap;
     }
 
     .channel-subscribe-btn-large:hover {
       background-color: #e60000;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(255, 0, 0, 0.45);
     }
 
-    /* YOUTUBE EMBED CONTAINER (기존 퍼포먼스 영상 6개 클릭커 위치) */
+    /* =========================
+       YOUTUBE EMBED CONTAINER
+       ========================= */
     .youtube-embed-section {
       margin-top: 2.5rem;
       margin-bottom: 4rem;
@@ -124,13 +136,12 @@
     .youtube-embed-wrap {
       position: relative;
       width: 100%;
-      /* 16:9 비율 유지 또는 필요 시 height 지정 가능 */
-      padding-bottom: 56.25%; 
+      padding-bottom: 56.25%; /* 16:9 비율 유지 */
       height: 0;
       border-radius: 18px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #000000;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
 
@@ -143,15 +154,92 @@
       border: 0;
     }
 
+    /* =========================
+       모바일 & 태블릿 반응형 최적화
+       ========================= */
     @media (max-width: 768px) {
+      .videos-hero {
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .videos-hero h2 {
+        font-size: 1.5rem;
+        letter-spacing: -0.025em;
+        margin-bottom: 1.2rem;
+      }
+
       .channel-banner-large {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1.8rem 1.4rem;
+        padding: 1.5rem 1.2rem;
+        border-radius: 14px;
+        gap: 1.2rem;
       }
+
+      .channel-info-large {
+        gap: 1rem;
+        min-width: 100%;
+      }
+
+      .channel-icon-large {
+        width: 52px;
+        height: 52px;
+      }
+
+      .channel-icon-large svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .channel-title-large {
+        font-size: 1.1rem;
+        letter-spacing: -0.025em;
+      }
+
+      .channel-sub-large {
+        font-size: 0.84rem;
+        line-height: 1.45;
+        letter-spacing: -0.02em;
+      }
+
       .channel-subscribe-btn-large {
         width: 100%;
-        justify-content: center;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .youtube-embed-section {
+        margin-top: 1.8rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .youtube-embed-wrap {
+        border-radius: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .videos-hero h2 {
+        font-size: 1.35rem;
+      }
+
+      .channel-icon-large {
+        width: 44px;
+        height: 44px;
+      }
+
+      .channel-icon-large svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .channel-title-large {
+        font-size: 1.02rem;
+      }
+
+      .channel-sub-large {
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -168,7 +256,6 @@
     <div class="kicker">VIDEOS</div>
     <h2>VIDEOS</h2>
 
-    <!-- (바) -------------------------- -->
     <!-- 국악LAB 한양팔도 채널 (상단 배너) -->
     <div class="channel-banner-large">
       <div class="channel-info-large">
@@ -189,15 +276,14 @@
         유튜브 채널 바로가기
       </a>
     </div>
-    <!-- (바) -------------------------- -->
   </section>
 
-  <!-- (기존 6개 퍼포먼스 영상 삭제 후 유튜브 채널/재생목록 임베드 영역 배치) -->
+  <!-- 유튜브 채널/재생목록 임베드 영역 -->
   <section class="section youtube-embed-section">
     <div class="youtube-embed-wrap">
       <!-- 
         * src 속성에 유튜브 채널의 대표 재생목록 ID(list=PLAYLIST_ID) 또는 업로드 영상 목록 ID를 넣어주세요.
-        * 예시: https://www.youtube.com/embed/videoseries?list=UUxxxxxx (채널 업로드 전체 목록)
+        * 예시: https://www.youtube.com/embed/videoseries?list=UUxxxxxx
       -->
       <iframe 
         src="https://www.youtube.com/embed/videoseries?list=UUxxxxxx" 

@@ -4,52 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon -->
-  <!-- Favicon (브라우저 탭, 주소창) -->
-<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
 
-<!-- iOS 홈 화면 아이콘 -->
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <!-- iOS 홈 화면 아이콘 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 
-<!-- PWA Manifest (Edge/Chrome 앱 아이콘용) -->
-<link rel="manifest" href="/manifest.json">
+  <!-- PWA Manifest (Edge/Chrome 앱 아이콘용) -->
+  <link rel="manifest" href="/manifest.json">
 
-<!-- Edge / 모바일 브라우저 색상 -->
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="theme-color" content="#000000">
-
+  <!-- Edge / 모바일 브라우저 색상 -->
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#000000">
 
   <title>국악LAB 한양팔도 | GUGAKLAB HANYANGPALDO</title>
 
   <!-- 기본 SEO -->
-  <meta name="description"
-        content="" <!-- canonical -->
-  <link rel="canonical"
-        href="https://greatkite27.github.io/gugaklab-hanyangpaldo/index.html" />
+  <meta name="description" content="젊은 국악인들이 빚어내는 전통음악의 정수. 완창, 시나위, 레퍼토리 시리즈를 통해 우리 전통음악의 고유한 색채를 전합니다." />
+  <link rel="canonical" href="https://greatkite27.github.io/gugaklab-hanyangpaldo/index.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="국악LAB 한양팔도" />
   <meta property="og:title" content="국악LAB 한양팔도 | GUGAKLAB HANYANGPALDO" />
-  <meta property="og:description"
-        content="젊은 국악인들이 빚어내는 전통음악의 정수. 완창, 시나위, 레퍼토리 시리즈를 통해 우리 전통음악의 고유한 색채를 전합니다." />
-  <meta property="og:url"
-        content="https://greatkite27.github.io/gugaklab-hanyangpaldo/index.html" />
-  <!-- 대표 OG 이미지(추후 실제 파일 경로로 교체) -->
-  <meta property="og:image"
-        content="https://greatkite27.github.io/gugaklab-hanyangpaldo/images/og-main.jpg" />
+  <meta property="og:description" content="젊은 국악인들이 빚어내는 전통음악의 정수. 완창, 시나위, 레퍼토리 시리즈를 통해 우리 전통음악의 고유한 색채를 전합니다." />
+  <meta property="og:url" content="https://greatkite27.github.io/gugaklab-hanyangpaldo/index.html" />
+  <meta property="og:image" content="https://greatkite27.github.io/gugaklab-hanyangpaldo/images/og-main.jpg" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:locale:alternate" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title"
-        content="국악LAB 한양팔도 | GUGAKLAB HANYANGPALDO" />
-  <meta name="twitter:description"
-        content="청년 국악인들이 모인 국악LAB 한양팔도. 완창, 시나위, 레퍼토리 시리즈로 전통음악의 깊이를 전합니다." />
-  <meta name="twitter:image"
-        content="https://greatkite27.github.io/gugaklab-hanyangpaldo/images/og-main.jpg" />
+  <meta name="twitter:title" content="국악LAB 한양팔도 | GUGAKLAB HANYANGPALDO" />
+  <meta name="twitter:description" content="청년 국악인들이 모인 국악LAB 한양팔도. 완창, 시나위, 레퍼토리 시리즈로 전통음악의 깊이를 전합니다." />
+  <meta name="twitter:image" content="https://greatkite27.github.io/gugaklab-hanyangpaldo/images/og-main.jpg" />
 
   <!-- 공통 CSS & 레이아웃 JS -->
   <link rel="stylesheet" href="common.css" />
@@ -87,6 +76,22 @@
       font-size: 2.3rem;
       margin: 0 0 0.7rem;
       letter-spacing: 0.05em;
+    }
+
+    /* 단체 사진 스타일 추가 */
+    .home-hero-image {
+      width: 100%;
+      margin: 1.5rem 0 1.8rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .home-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     .home-hero-sub {
@@ -210,8 +215,14 @@
         <h2 class="home-hero-title">
           젊은 국악인들이 빚어내는<br />전통음악의 정수
         </h2>
+
+        <!-- 단체 사진 영역 -->
+        <div class="home-hero-image">
+          <img src="images/group-photo.jpg" alt="국악LAB 한양팔도 단체 사진" />
+        </div>
+
         <p class="home-hero-sub">
-        
+          
         </p>
 
         <div class="home-hero-actions">
@@ -245,11 +256,11 @@
             <p class="meta-line">
               533-1 Chayacho, Higashiyama Ward, Kyoto, 605-0931 일본
             </p>
-            <h3>· 2025 제5회 &ltㅊㅊ하다 페스티벌&gt 성악, 연희 '넘어-서다'</h3>
+            <h3>· 2025 제5회 &lt;ㅊㅊ하다 페스티벌&gt; 성악, 연희 '넘어-서다'</h3>
             <p class="meta-line">
               노들섬 라이브하우스
             </p>
-            <h3>· 한국문화예술위원회 지원사업 &ltSUNYA&gt</h3>
+            <h3>· 한국문화예술위원회 지원사업 &lt;SUNYA&gt;</h3>
             <p class="meta-line">
               서울대학교 제1파워플랜트
             </p>
@@ -273,7 +284,6 @@
             <p class="meta-line">
               국립국악원 우면당
             </p>
-  
           </div>
         </article>
 
@@ -309,7 +319,7 @@
             </p>
             <h3>· 허은선, 한윤경 싱글 앨범 [동락(同樂): 함께 즐기다]</h3>
             <p class="meta-line">
-              온라인 발매(Melon, Jenie Music, Vive, Youtude Music, Bugs)
+              온라인 발매(Melon, Genie Music, Vibe, Youtube Music, Bugs)
             </p>
             <h3>· 김광윤의 첫번째 독주회 '白眉'</h3>
             <p class="meta-line">
@@ -354,7 +364,7 @@
             </p>
           </div>
         </article>
-        
+
         <!-- 2022 -->
         <article class="program-item">
           <div class="program-meta">
@@ -371,7 +381,7 @@
             </p>
             <h3>· 제4354주년 개천절 기념 화합의 한마당 초청공연</h3>
             <p class="meta-line">
-             서울 백범 김구 기념관
+              서울 백범 김구 기념관
             </p>
             <h3>· 서울특별시 청소년국악관현악단 파죽의 기세 경기도당굿 협주곡 '본'협연</h3>
             <p class="meta-line">
@@ -383,7 +393,7 @@
             </p>
           </div>
         </article>
-        
+
       </div>
     </section>
 

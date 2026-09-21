@@ -45,9 +45,7 @@
     { id: 'about',   file: 'index.html'   },
     { id: 'program', file: 'program.html' },
     { id: 'artists', file: 'artists.html' },
-    { id: 'gallery', file: 'gallery.html' },
     { id: 'videos',  file: 'videos.html'  },
-    { id: 'notice',  file: 'notice.html'  },
     { id: 'contact', file: 'contact.html' }
   ];
 

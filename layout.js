@@ -99,7 +99,7 @@
           </a>
 
           <!-- 유튜브 -->
-          <a href="https://www.youtube.com/@hanyangpaldo"
+          <a href="https://www.youtube.com/@국악LAB한양팔도"
              class="footer-link"
              aria-label="국악LAB 한양팔도 유튜브"
              target="_blank"

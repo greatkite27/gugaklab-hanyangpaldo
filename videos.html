@@ -4,20 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon -->
-  <!-- Favicon (브라우저 탭, 주소창) -->
-<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
 
-<!-- iOS 홈 화면 아이콘 -->
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <!-- iOS 홈 화면 아이콘 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 
-<!-- PWA Manifest (Edge/Chrome 앱 아이콘용) -->
-<link rel="manifest" href="/manifest.json">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
 
-<!-- Edge / 모바일 브라우저 색상 -->
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="theme-color" content="#000000">
+  <!-- Edge / 모바일 브라우저 색상 -->
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#000000">
 
   <title>국악LAB 한양팔도 - VIDEOS</title>
   <link rel="stylesheet" href="common.css" />
@@ -43,6 +42,74 @@
 
     .videos-hero .lead {
       max-width: 42rem;
+    }
+
+    /* YOUTUBE CHANNEL BANNER (신규 추가) */
+    .channel-banner {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .channel-info {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .channel-icon {
+      width: 40px;
+      height: 40px;
+      background: #ff0000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .channel-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .channel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .channel-sub {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+    }
+
+    .channel-subscribe-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      background-color: #ff0000;
+      color: #ffffff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .channel-subscribe-btn:hover {
+      background-color: #cc0000;
+      transform: translateY(-2px);
     }
 
     /* FILTER BAR */
@@ -196,6 +263,14 @@
       .video-grid {
         grid-template-columns: 1fr;
       }
+      .channel-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .channel-subscribe-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     /* LIGHTBOX (VIDEO PLAYER) */
@@ -259,7 +334,6 @@
     .video-lightbox-close:hover {
       color: #cccccc;
     }
-
   </style>
 </head>
 <body>
@@ -277,6 +351,27 @@
       국악LAB 한양팔도의 공연 실황, 리허설 스케치, 인터뷰 영상 등을 모았습니다.
       무대 위와 무대 뒤의 순간들을 영상으로 만나보세요.
     </p>
+
+    <!-- YOUTUBE CHANNEL BANNER -->
+    <div class="channel-banner">
+      <div class="channel-info">
+        <div class="channel-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <div class="channel-text">
+          <span class="channel-title">국악LAB 한양팔도 공식 유튜브</span>
+          <span class="channel-sub">전체 영상 구독 및 최신 공연 소식 받기</span>
+        </div>
+      </div>
+      <a href="https://www.youtube.com/@국악LAB한양팔도?sub_confirmation=1" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="channel-subscribe-btn">
+        채널 바로가기 및 구독
+      </a>
+    </div>
 
     <!-- FILTER BUTTONS -->
     <div class="video-filters">
@@ -473,7 +568,6 @@
   const videoLightboxClose = document.getElementById('videoLightboxClose');
 
   const openVideo = (src, title) => {
-    // autoplay 쿼리 추가 (YouTube 기준)
     const autoSrc = src.includes('?') ? src + '&autoplay=1' : src + '?autoplay=1';
     videoFrame.setAttribute('src', autoSrc);
     videoCaption.textContent = title || '';

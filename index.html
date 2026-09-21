@@ -78,20 +78,22 @@
       letter-spacing: 0.05em;
     }
 
-    /* 단체 사진 스타일 추가 */
+    /* 단체 사진 16:9 비율 고정 및 전체 노출 스타일 */
     .home-hero-image {
       width: 100%;
+      aspect-ratio: 16 / 9;
       margin: 1.5rem 0 1.8rem;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      background-color: #111;
     }
 
     .home-hero-image img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .home-hero-sub {
@@ -234,7 +236,8 @@
       <div class="home-hero-side">
         <div class="home-hero-side-title"></div>
         <ul class="home-hero-list">
-          </ul>
+          <li>서울대학교, 한양대학교, 한국예술종합학교, 중앙대학교 등 국내 최고 음악대학 출신의 청년 국악인들이 모여 결성한 연주 단체입니다. 우리나라 팔도 전통음악이 지닌 고결한 정서와 예술적 아름다움을 온전히 담아내며, 청년 국악인들의 열정으로 우리 전통음악의 고유한 색채를 지켜 나가고자 합니다.</li>
+        </ul>
       </div>
     </section>
 

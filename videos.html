@@ -278,12 +278,9 @@
   <!-- 대표 유튜브 영상 임베드 영역 -->
   <section class="section youtube-embed-section">
     <div class="youtube-embed-wrap">
-      <!-- 
-        * 대표 영상의 URL 형식을 'https://www.youtube.com/embed/대표영상ID' 로 입력해 주세요.
-        * 예시: https://www.youtube.com/embed/AbCdEfGhIjK
-      -->
       <iframe 
-        src="https://www.youtube.com/embed/9gmQNSYlXIM&t" 
+        id="main-youtube-player"
+        src="" 
         title="국악LAB 한양팔도 대표 영상" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen>
@@ -292,6 +289,33 @@
   </section>
 
 </main>
+
+<script>
+  // =====================================================================
+  // [유튜브 링크 추가 방법]
+  // 큰따옴표("") 안에 보여주고 싶은 유튜브 링크를 그대로 넣어주세요.
+  // 예시: "https://www.youtube.com/watch?v=9gmQNSYlXIM" 또는 "https://youtu.be/9gmQNSYlXIM"
+  // =====================================================================
+  const youtubeLinks = [
+    "https://www.youtube.com/watch?v=9gmQNSYlXIM"
+  ];
+
+  function extractVideoId(url) {
+    if (!url) return "";
+    let match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    return match ? match[1] : url; 
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const iframe = document.getElementById("main-youtube-player");
+    if (youtubeLinks.length > 0 && youtubeLinks[0] !== "https://www.youtube.com/watch?v=9gmQNSYlXIM&t=1s") {
+      const videoId = extractVideoId(youtubeLinks[0]);
+      if (videoId) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      }
+    }
+  });
+</script>
 
 <footer class="site-footer"></footer>
 

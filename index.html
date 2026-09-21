@@ -47,15 +47,15 @@
   <!-- 홈 화면 전용 스타일 -->
   <style>
     /* =========================
-       HOME: HERO
+       HOME: HERO (공백 압축)
        ========================= */
     .home-hero {
       display: flex;
       flex-wrap: wrap;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
-      padding-top: 3rem;
-      padding-bottom: 2rem;
+      padding-top: 1.2rem;     /* 상단 여백 축소 */
+      padding-bottom: 1.2rem;  /* 하단 여백 축소 */
       border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
@@ -69,12 +69,12 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #8ba4ff;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.4rem;    /* 여백 축소 */
     }
 
     .home-hero-title {
       font-size: 2.3rem;
-      margin: 0 0 0.7rem;
+      margin: 0 0 0.5rem;       /* 여백 축소 */
       letter-spacing: 0.05em;
     }
 
@@ -82,7 +82,7 @@
     .home-hero-image {
       width: 100%;
       aspect-ratio: 16 / 9;
-      margin: 1.5rem 0 1.8rem;
+      margin: 1rem 0 1.2rem;    /* 상하 마진 축소 */
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -99,7 +99,7 @@
     .home-hero-sub {
       font-size: 1.05rem;
       color: #cfd3ff;
-      margin: 0 0 1.8rem;
+      margin: 0 0 1rem;         /* 여백 축소 */
       line-height: 1.9;
     }
 
@@ -170,18 +170,20 @@
     .home-hero-list li {
       font-size: 0.95rem;
       color: #dddddd;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;         /* 불필요한 리스트 여백 제거 */
+      line-height: 1.7;         /* 가독성 유지하면서 밀도 높임 */
     }
 
     @media (max-width: 768px) {
       .home-hero {
-        padding-top: 2.2rem;
+        padding-top: 1rem;      /* 모바일 상단 여백 압축 */
+        padding-bottom: 1rem;
       }
       .home-hero-side {
         border-left: none;
         padding-left: 0;
         border-top: 1px solid rgba(255,255,255,0.12);
-        padding-top: 1.5rem;
+        padding-top: 1rem;      /* 모바일 사이드 구분선 위 간격 압축 */
       }
       .home-hero-title {
         font-size: 2rem;

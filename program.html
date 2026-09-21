@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Favicon -->
+  
   <!-- Favicon (브라우저 탭, 주소창) -->
-<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
 
-<!-- iOS 홈 화면 아이콘 -->
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <!-- iOS 홈 화면 아이콘 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 
-<!-- PWA Manifest (Edge/Chrome 앱 아이콘용) -->
-<link rel="manifest" href="/manifest.json">
+  <!-- PWA Manifest (Edge/Chrome 앱 아이콘용) -->
+  <link rel="manifest" href="/manifest.json">
 
-<!-- Edge / 모바일 브라우저 색상 -->
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="theme-color" content="#000000">
+  <!-- Edge / 모바일 브라우저 색상 -->
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#000000">
 
   <title>국악LAB 한양팔도 - PROGRAM</title>
 
@@ -42,12 +42,13 @@
 
     .program-hero h2 {
       font-size: 2rem;
-      letter-spacing: 0.08em;
+      letter-spacing: -0.02em;
       margin-bottom: 0.9rem;
     }
 
     .program-hero .lead {
       max-width: 42rem;
+      letter-spacing: -0.01em;
     }
 
     /* =========================
@@ -77,27 +78,32 @@
 
     .program-card-kicker {
       font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: #8ba4ff;
+      font-weight: 600;
     }
 
     .program-card-title {
       font-size: 1.15rem;
       margin: 0.1rem 0 0.4rem;
+      letter-spacing: -0.01em;
+      font-weight: 600;
     }
 
     .program-card-text {
       font-size: 0.95rem;
       color: #cccccc;
-      line-height: 1.8;
+      line-height: 1.65;
       flex: 1;
+      letter-spacing: -0.01em;
     }
 
     .program-card-meta {
       font-size: 0.8rem;
       color: #999999;
       margin-top: 0.4rem;
+      letter-spacing: -0.01em;
     }
 
     .program-card-meta span {
@@ -109,6 +115,7 @@
       font-size: 0.78rem;
       color: #7f7f7f;
       margin-top: 0.6rem;
+      letter-spacing: -0.01em;
     }
 
     /* 작은 링크 스타일 (선택) */
@@ -120,25 +127,13 @@
       display: inline-flex;
       align-items: center;
       gap: 0.2rem;
-      letter-spacing: 0.06em;
+      letter-spacing: -0.01em;
       text-transform: uppercase;
     }
 
     .program-card-link span {
       font-size: 1rem;
       transform: translateY(1px);
-    }
-
-    @media (max-width: 1024px) {
-      .program-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .program-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     /* =========================
@@ -148,8 +143,90 @@
       margin-top: 2.5rem;
       border-top: 1px solid rgba(255,255,255,0.12);
       padding-top: 1.8rem;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: #bbbbbb;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+
+    /* =========================
+       모바일 & 태블릿 반응형 최적화
+       ========================= */
+    @media (max-width: 1024px) {
+      .program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .program-hero {
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .program-hero h2 {
+        font-size: 1.5rem;
+        letter-spacing: -0.025em;
+      }
+
+      .program-grid-wrap {
+        margin-top: 1.8rem;
+      }
+
+      .program-card {
+        padding: 1.3rem 1.3rem 1.4rem;
+        border-radius: 14px;
+        gap: 0.5rem;
+      }
+
+      .program-card-title {
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+      }
+
+      .program-card-text {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        letter-spacing: -0.02em;
+      }
+
+      .program-card-meta,
+      .program-card-footnote {
+        font-size: 0.78rem;
+        letter-spacing: -0.02em;
+      }
+
+      .program-note {
+        margin-top: 1.8rem;
+        padding-top: 1.4rem;
+        font-size: 0.82rem;
+        letter-spacing: -0.02em;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .program-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .program-hero h2 {
+        font-size: 1.35rem;
+      }
+
+      .program-card {
+        padding: 1.1rem 1.1rem 1.2rem;
+      }
+
+      .program-card-title {
+        font-size: 1rem;
+      }
+
+      .program-card-text {
+        font-size: 0.84rem;
+      }
     }
   </style>
 </head>
@@ -167,9 +244,9 @@
       <div class="kicker">PROGRAM</div>
       <h2>PROGRAM</h2>
       <p class="lead">
-        국악LAB 한양팔도는 축하·초청 공연, 레퍼토리 시리즈, 입시/컨설팅.교육워크숍 등    
+        국악LAB 한양팔도는 축하·초청 공연, 레퍼토리 시리즈, 입시/컨설팅·교육워크숍 등    
         다양한 방식으로 국악을 현대화하고 있습니다.
-        K-Culture의 중심인 국악을 바탕으로,        팔도 전통음악의 결을 젊은 국악인들의 현대적 감각으로 재구성합니다.
+        K-Culture의 중심인 국악을 바탕으로, 팔도 전통음악의 결을 젊은 국악인들의 현대적 감각으로 재구성합니다.
       </p>
     </section>
 
@@ -215,7 +292,7 @@
           </p>
         </article>
 
-        <!-- CARD 3: 입시/컨설팅 · 교육워크숍 (옵션) -->
+        <!-- CARD 3: 입시/컨설팅 · 교육워크숍 -->
         <article class="program-card">
           <div class="program-card-kicker">PROJECT 03</div>
           <h3 class="program-card-title">입시/컨설팅 · 교육워크숍</h3>

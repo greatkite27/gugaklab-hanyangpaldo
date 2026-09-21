@@ -81,12 +81,13 @@
         </span>
 
         <span class="footer-item">
-          <a href="mailto:hanyangpaldo@gmail.com" class="footer-link">
-            hanyangpaldo@gmail.com
+          <a href="mailto:gugaklab@naver.com" class="footer-link">
+            gugaklab@naver.com
           </a>
         </span>
 
-        <div class="footer-sns">
+        <div class="footer-sns" style="display: flex; gap: 12px; align-items: center;">
+          <!-- 인스타그램 -->
           <a href="https://www.instagram.com/hanyangpaldo?igsh=aHNzdXRrOXh6YWx5"
              class="footer-link"
              aria-label="국악LAB 한양팔도 인스타그램"
@@ -94,6 +95,17 @@
              rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
               <path fill="currentColor" d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-7.9a1.1 1.1 0 1 1-1.1-1.1 1.09 1.09 0 0 1 1.1 1.1ZM21 7.1a6.32 6.32 0 0 0-.4-2.2 4.4 4.4 0 0 0-2.5-2.5A6.32 6.32 0 0 0 16 2H8a6.32 6.32 0 0 0-2.2.4 4.4 4.4 0 0 0-2.5 2.5A6.32 6.32 0 0 0 3 7.1V17a6.32 6.32 0 0 0 .4 2.2 4.4 4.4 0 0 0 2.5 2.5A6.32 6.32 0 0 0 8 22h8a6.32 6.32 0 0 0 2.2-.4 4.4 4.4 0 0 0 2.5-2.5A6.32 6.32 0 0 0 21 17V7.1Zm-1.8 9.9a4 4 0 0 1-.2 1.4 2.7 2.7 0 0 1-1.5 1.5 4 4 0 0 1-1.4.2H8a4 4 0 0 1-1.4-.2 2.7 2.7 0 0 1-1.5-1.5 4 4 0 0 1-.2-1.4V7.1a4 4 0 0 1 .2-1.4 2.7 2.7 0 0 1 1.5-1.5A4 4 0 0 1 8 4h8a4 4 0 0 1 1.4.2 2.7 2.7 0 0 1 1.5 1.5 4 4 0 0 1 .2 1.4Z"/>
+            </svg>
+          </a>
+
+          <!-- 유튜브 -->
+          <a href="https://www.youtube.com/@hanyangpaldo"
+             class="footer-link"
+             aria-label="국악LAB 한양팔도 유튜브"
+             target="_blank"
+             rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22">
+              <path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </a>
         </div>

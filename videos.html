@@ -27,7 +27,7 @@
     .videos-hero {
       padding-top: 3rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.14);
+      border-bottom: 1px solid rgba(255,255,255,0.14); /* (바) : 하단 구분선 유지 */
     }
 
     .videos-hero .kicker {
@@ -37,36 +37,32 @@
     .videos-hero h2 {
       font-size: 2rem;
       letter-spacing: 0.08em;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1.5rem;
     }
 
-    .videos-hero .lead {
-      max-width: 42rem;
-    }
-
-    /* YOUTUBE CHANNEL BANNER (신규 추가) */
-    .channel-banner {
-      margin-top: 1.5rem;
-      padding: 1.2rem 1.5rem;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    /* ONLY 국악LAB 한양팔도 채널 (대형 배너) */
+    .channel-banner-large {
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(255, 0, 0, 0.12), rgba(20, 20, 20, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.15);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.8rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .channel-info {
+    .channel-info-large {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1.5rem;
     }
 
-    .channel-icon {
-      width: 40px;
-      height: 40px;
+    .channel-icon-large {
+      width: 72px;
+      height: 72px;
       background: #ff0000;
       border-radius: 50%;
       display: flex;
@@ -74,74 +70,48 @@
       justify-content: center;
       color: #fff;
       flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
     }
 
-    .channel-text {
+    .channel-text-large {
       display: flex;
       flex-direction: column;
+      gap: 0.4rem;
     }
 
-    .channel-title {
-      font-size: 0.95rem;
-      font-weight: 600;
+    .channel-title-large {
+      font-size: 1.5rem;
+      font-weight: 700;
       color: #ffffff;
+      letter-spacing: -0.02em;
     }
 
-    .channel-sub {
-      font-size: 0.8rem;
-      color: #aaaaaa;
+    .channel-sub-large {
+      font-size: 0.98rem;
+      color: #cccccc;
+      line-height: 1.4;
     }
 
-    .channel-subscribe-btn {
+    .channel-subscribe-btn-large {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.2rem;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
       background-color: #ff0000;
       color: #ffffff;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      transition: background-color 0.2s ease, transform 0.1s ease;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: background-color 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
     }
 
-    .channel-subscribe-btn:hover {
-      background-color: #cc0000;
-      transform: translateY(-2px);
-    }
-
-    /* FILTER BAR */
-    .video-filters {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .video-filter-btn {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.28);
-      background: transparent;
-      color: #ddd;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
-    }
-
-    .video-filter-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .video-filter-btn.active {
-      background: #ffffff;
-      color: #000;
-      border-color: #ffffff;
+    .channel-subscribe-btn-large:hover {
+      background-color: #e60000;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
     }
 
     /* VIDEO GRID */
@@ -259,17 +229,21 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .channel-banner-large {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.8rem 1.4rem;
+      }
+      .channel-subscribe-btn-large {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 640px) {
       .video-grid {
         grid-template-columns: 1fr;
-      }
-      .channel-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .channel-subscribe-btn {
-        width: 100%;
-        justify-content: center;
       }
     }
 
@@ -347,43 +321,32 @@
   <section class="section videos-hero">
     <div class="kicker">VIDEOS</div>
     <h2>VIDEOS</h2>
-    <p class="lead">
-      국악LAB 한양팔도의 공연 실황, 리허설 스케치, 인터뷰 영상 등을 모았습니다.
-      무대 위와 무대 뒤의 순간들을 영상으로 만나보세요.
-    </p>
 
-    <!-- YOUTUBE CHANNEL BANNER -->
-    <div class="channel-banner">
-      <div class="channel-info">
-        <div class="channel-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <!-- (기존 설명 문구 및 ALL/카테고리 필터 삭제 후 대형 채널 영역만 배치) -->
+    <!-- (바) -------------------------- -->
+    <div class="channel-banner-large">
+      <div class="channel-info-large">
+        <div class="channel-icon-large">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
           </svg>
         </div>
-        <div class="channel-text">
-          <span class="channel-title">국악LAB 한양팔도 공식 유튜브</span>
-          <span class="channel-sub">전체 영상 구독 및 최신 공연 소식 받기</span>
+        <div class="channel-text-large">
+          <span class="channel-title-large">국악LAB 한양팔도 공식 유튜브 채널</span>
+          <span class="channel-sub-large">공연 실황, 리허설 스케치, 멤버 인터뷰 등 더 많은 비디오 콘텐츠를 유튜브에서 만나보세요.</span>
         </div>
       </div>
-      <a href="https://www.youtube.com/@국악LAB한양팔도?sub_confirmation=1" 
+      <a href="https://www.youtube.com/@한양팔도채널아이디?sub_confirmation=1" 
          target="_blank" 
          rel="noopener noreferrer" 
-         class="channel-subscribe-btn">
-        채널 바로가기 및 구독
+         class="channel-subscribe-btn-large">
+        유튜브 채널 바로가기
       </a>
     </div>
-
-    <!-- FILTER BUTTONS -->
-    <div class="video-filters">
-      <button class="video-filter-btn active" data-filter="all">All</button>
-      <button class="video-filter-btn" data-filter="performance">공연 영상</button>
-      <button class="video-filter-btn" data-filter="rehearsal">리허설</button>
-      <button class="video-filter-btn" data-filter="interview">인터뷰</button>
-      <button class="video-filter-btn" data-filter="documentary">기록 영상</button>
-    </div>
+    <!-- (바) -------------------------- -->
   </section>
 
-  <!-- VIDEO GRID -->
+  <!-- VIDEO GRID (기존 유지) -->
   <section class="section video-grid-wrap">
     <div class="video-grid">
 
@@ -520,7 +483,7 @@
 
 </main>
 
-<!-- VIDEO LIGHTBOX -->
+<!-- VIDEO LIGHTBOX (기존 유지) -->
 <div class="video-lightbox-overlay" id="videoLightbox">
   <div class="video-lightbox-inner">
     <div class="video-lightbox-frame-wrap">
@@ -539,33 +502,13 @@
 <footer class="site-footer"></footer>
 
 <script>
-  // FILTERING
-  const vFilterButtons = document.querySelectorAll('.video-filter-btn');
-  const vCards         = document.querySelectorAll('.video-card');
-
-  vFilterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-
-      vFilterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      vCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // LIGHTBOX (VIDEO PLAYER)
+  // LIGHTBOX (VIDEO PLAYER) - 기존 필터링 스크립트는 삭제되고 라이트박스 로직만 유지
   const videoLightbox      = document.getElementById('videoLightbox');
   const videoFrame         = document.getElementById('videoFrame');
   const videoCaption       = document.getElementById('videoCaption');
   const videoLightboxClose = document.getElementById('videoLightboxClose');
+
+  const vCards = document.querySelectorAll('.video-card');
 
   const openVideo = (src, title) => {
     const autoSrc = src.includes('?') ? src + '&autoplay=1' : src + '?autoplay=1';
